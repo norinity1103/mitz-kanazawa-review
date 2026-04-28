@@ -29,6 +29,61 @@
   <link rel="canonical" href="https://mitz-kanazawa.com/" />
   <meta name="theme-color" content="#0F1115" />
 
+  <!-- Structured data: Place + Event -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Place",
+        "@id": "https://mitz-kanazawa.com/#place",
+        "name": "Mitz 金沢",
+        "alternateName": "ミッツ カナザワ",
+        "description": "日常の役割を脱ぎ捨て、「3番目の自分」へと帰る場所。食・遊・旅が交差する、大人も子どもも楽しめる体験型カルチャーハブ。",
+        "url": "https://mitz-kanazawa.com/",
+        "image": "https://mitz-kanazawa.com/images/hero-facility.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "JP",
+          "addressRegion": "石川県",
+          "addressLocality": "金沢市",
+          "streetAddress": "広岡 3-3-3"
+        },
+        "openingHours": "Mo-Su 11:00-22:00",
+        "telephone": "+81-76-259-5567"
+      },
+      {
+        "@type": "Event",
+        "@id": "https://mitz-kanazawa.com/#opening-event",
+        "name": "Mitz 金沢 グランドオープニングイベント",
+        "description": "DJ やついいちろう氏のステージを含む、Mitz 金沢の開業初日記念イベント。地元学生・社会人による演奏、ダンスパフォーマンス、オープニングセレモニー。",
+        "startDate": "2026-05-30T14:00+09:00",
+        "endDate": "2026-05-30T20:00+09:00",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": { "@id": "https://mitz-kanazawa.com/#place" },
+        "image": "https://mitz-kanazawa.com/images/hero-facility.jpg",
+        "performer": [
+          { "@type": "Person", "name": "DJ やついいちろう" }
+        ],
+        "organizer": {
+          "@type": "Organization",
+          "name": "Mitz 金沢 運営事務局",
+          "url": "https://mitz-kanazawa.com/"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://mitz-kanazawa.com/#cta",
+          "availability": "https://schema.org/InStock",
+          "price": "0",
+          "priceCurrency": "JPY",
+          "validFrom": "2026-04-28T00:00+09:00"
+        }
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700;900&family=Bebas+Neue&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
@@ -312,10 +367,126 @@
       opacity: 1;
       transform: translateY(-1px);
     }
+    /* Hamburger trigger (mobile only) */
+    .nav-burger {
+      display: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--line-strong);
+      background: var(--glass-bg);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: background 0.2s ease, transform 0.2s ease;
+      flex-shrink: 0;
+    }
+    .nav-burger span {
+      position: relative;
+      width: 18px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: background 0.2s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), top 0.2s ease;
+    }
+    .nav-burger span::before,
+    .nav-burger span::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), top 0.2s ease 0.15s;
+    }
+    .nav-burger span::before { top: -6px; }
+    .nav-burger span::after { top: 6px; }
+    .nav-burger.is-open span { background: transparent; }
+    .nav-burger.is-open span::before { top: 0; transform: rotate(45deg); transition: top 0.2s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.15s; }
+    .nav-burger.is-open span::after { top: 0; transform: rotate(-45deg); transition: top 0.2s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.15s; }
+
+    /* Mobile drawer */
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 90;
+      background: var(--bg-base);
+      flex-direction: column;
+      padding: 80px 28px 32px;
+      gap: 0;
+      transform: translateY(-12px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      overflow-y: auto;
+    }
+    .mobile-drawer.is-open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .mobile-drawer-link {
+      display: block;
+      padding: 22px 4px;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink);
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      transition: color 0.2s ease, padding 0.2s ease;
+    }
+    .mobile-drawer-link:hover { opacity: 1; color: var(--lantern); padding-left: 8px; }
+    .mobile-drawer-link .en {
+      display: block;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: var(--ink-faint);
+      text-transform: uppercase;
+      margin-top: 4px;
+      font-weight: 400;
+      opacity: 0.8;
+    }
+    .mobile-drawer-cta {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .mobile-drawer-cta a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 22px;
+      border-radius: 999px;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+    .mobile-drawer-cta .primary {
+      background: var(--lantern);
+      color: #1F1812;
+    }
+    .mobile-drawer-cta .ig {
+      background: linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #F77737 100%);
+      color: #FFFFFF;
+    }
+    .mobile-drawer-cta a svg { width: 16px; height: 16px; }
+
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav { padding: 16px 20px; }
+      .nav-burger { display: inline-flex; }
+      .mobile-drawer { display: flex; }
     }
+    /* When drawer is open: lock body scroll via class */
+    body.is-drawer-open { overflow: hidden; }
 
     /* ========== Hero (with photo) ========== */
     .hero {
@@ -380,28 +551,49 @@
       .hero-inner { padding-top: 100px; padding-bottom: 60px; }
     }
     .hero-meta {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 16px;
-      margin-bottom: 28px;
+      gap: 10px;
+      padding: 7px 16px 7px 14px;
+      background: rgba(15, 17, 21, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 999px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      margin: 0 auto 24px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
       animation: fadeUp 0.9s ease 0.2s both;
     }
     @media (min-width: 769px) {
-      .hero-meta { margin-bottom: 10px; }
+      .hero-meta { margin-bottom: 18px; margin-top: 40px; }
+    }
+    @media (min-width: 1280px) {
+      .hero-meta { margin-top: 60px; }
     }
     .hero-meta .dot {
-      width: 8px; height: 8px;
+      width: 7px; height: 7px;
       border-radius: 50%;
-      background: var(--lantern);
-      box-shadow: 0 0 12px var(--lantern);
+      background: var(--lantern-soft);
+      box-shadow: 0 0 10px var(--lantern-soft);
       animation: pulse 2.4s ease-in-out infinite;
+      flex-shrink: 0;
     }
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.5; transform: scale(0.85); }
     }
-    .hero-meta .label { color: var(--lantern-soft); }
+    .hero-meta .label {
+      color: #FFFFFF;
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      font-weight: 600;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+    }
+    .hero-meta .label .accent {
+      color: var(--lantern-soft);
+      font-weight: 700;
+    }
     .hero-logo {
       max-width: clamp(240px, 36vw, 440px);
       width: 100%;
@@ -817,10 +1009,10 @@
     .three { background: var(--bg-base); }
     .section-head {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: flex-end;
       margin-bottom: 64px;
-      gap: 32px;
+      gap: 48px;
       flex-wrap: wrap;
     }
     .section-head h2 {
@@ -829,13 +1021,23 @@
       line-height: 0.9;
       color: var(--ink);
       letter-spacing: 0.02em;
+      flex-shrink: 0;
     }
     .section-head h2 .accent { color: var(--lantern); font-style: italic; }
-    .section-head .right { max-width: 400px; text-align: left; }
+    .section-head .right {
+      max-width: 440px;
+      text-align: left;
+      flex: 1 1 320px;
+      padding-bottom: 6px;
+    }
     .section-head .right p {
       color: var(--ink-muted);
       font-size: 14px;
       line-height: 1.9;
+    }
+    @media (max-width: 768px) {
+      .section-head { gap: 24px; margin-bottom: 48px; }
+      .section-head .right { padding-bottom: 0; }
     }
 
     .three-grid {
@@ -1431,6 +1633,128 @@
       filter: saturate(0.6) brightness(0.7) invert(0.92) hue-rotate(180deg);
     }
 
+    /* ========== Floating Actions (persistent CTA stack) ========== */
+    .floating-actions {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 80;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .floating-actions.visible { opacity: 1; transform: translateY(0); }
+    .floating-actions > * { pointer-events: auto; }
+
+    .fa-event {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 18px 10px 12px;
+      background: linear-gradient(135deg, rgba(232, 185, 106, 0.96) 0%, rgba(201, 154, 74, 0.96) 100%);
+      color: #1F1812;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(232, 185, 106, 0.4);
+      text-decoration: none;
+      font-family: "Noto Sans JP", sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      animation: faGlow 3s ease-in-out infinite;
+      max-width: 320px;
+    }
+    .fa-event:hover { transform: translateX(-4px); opacity: 1; }
+    .fa-event-avatar {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: rgba(15, 17, 21, 0.18);
+      border: 1.5px solid rgba(255, 255, 255, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .fa-event-avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .fa-event-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+      gap: 1px;
+    }
+    .fa-event-label {
+      font-family: "Inter", sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 700;
+      opacity: 0.75;
+    }
+    .fa-event-title {
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+    }
+    .fa-event-meta {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      opacity: 0.85;
+    }
+    @keyframes faGlow {
+      0%, 100% { box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(232, 185, 106, 0.4), 0 0 0 0 rgba(232, 185, 106, 0); }
+      50% { box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(232, 185, 106, 0.4), 0 0 32px 4px rgba(232, 185, 106, 0.4); }
+    }
+
+    .fa-instagram {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px 10px 14px;
+      background: linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #F77737 100%);
+      color: #FFFFFF;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      text-decoration: none;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      box-shadow: 0 12px 24px rgba(225, 48, 108, 0.4);
+      transition: transform 0.25s ease;
+    }
+    .fa-instagram:hover { transform: translateX(-4px); opacity: 1; }
+    .fa-instagram svg { width: 16px; height: 16px; }
+    .fa-instagram .handle {
+      font-family: "Inter", sans-serif;
+      font-size: 11px;
+      opacity: 0.9;
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 640px) {
+      .floating-actions {
+        bottom: 12px;
+        right: 12px;
+      }
+      .fa-event { padding: 8px 14px 8px 10px; max-width: 260px; }
+      .fa-event-avatar { width: 32px; height: 32px; }
+      .fa-event-title { font-size: 12px; }
+      .fa-event-meta { font-size: 11px; }
+      .fa-instagram { padding: 9px 14px 9px 12px; font-size: 11px; }
+    }
+
     /* ========== Sponsors ========== */
     .sponsors {
       background: var(--bg-soft);
@@ -1570,6 +1894,99 @@
       text-align: center;
     }
     .sponsor-note strong { color: var(--ink); font-weight: 700; }
+
+    /* Sponsor deck download */
+    .sponsor-deck {
+      margin: 8px 0 40px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 20px 24px 20px 22px;
+      background:
+        linear-gradient(135deg, rgba(232, 185, 106, 0.10) 0%, rgba(232, 185, 106, 0.02) 100%),
+        var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow-card);
+    }
+    @media (max-width: 700px) {
+      .sponsor-deck { grid-template-columns: 1fr; gap: 14px; text-align: left; padding: 18px; }
+    }
+    .sponsor-deck-icon {
+      width: 56px; height: 64px;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--lantern) 0%, var(--lantern-deep) 100%);
+      border-radius: 6px 12px 12px 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 16px rgba(96, 64, 32, 0.18);
+      position: relative;
+    }
+    .sponsor-deck-icon::after {
+      content: "";
+      position: absolute;
+      top: 6px; right: 0;
+      width: 10px; height: 10px;
+      background: linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.18) 50%);
+      border-radius: 0 2px 0 0;
+    }
+    .sponsor-deck-icon svg {
+      width: 24px; height: 24px;
+      color: #FFFFFF;
+      stroke-width: 2;
+    }
+    .sponsor-deck-body .label-faint { margin-bottom: 4px; }
+    .sponsor-deck-body h4 {
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 15px;
+      font-weight: 900;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+      margin-bottom: 4px;
+      line-height: 1.5;
+    }
+    .sponsor-deck-body .meta {
+      font-size: 12px;
+      color: var(--ink-muted);
+      letter-spacing: 0.04em;
+    }
+    .sponsor-deck-body .meta .dot {
+      display: inline-block;
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: var(--ink-faint);
+      vertical-align: middle;
+      margin: 0 8px 2px;
+    }
+    .sponsor-deck-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 22px;
+      background: var(--ink);
+      color: var(--bg-base);
+      border-radius: 999px;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }
+    .sponsor-deck-cta:hover {
+      background: var(--lantern);
+      color: #1F1812;
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+    .sponsor-deck-cta svg {
+      width: 14px; height: 14px;
+      transition: transform 0.2s ease;
+    }
+    .sponsor-deck-cta:hover svg { transform: translateY(2px); }
 
     /* ========== Activity card photo ========== */
     .activity-card-photo {
@@ -1816,6 +2233,63 @@
       opacity: 1;
       transform: translateY(-2px);
     }
+    /* Colorful Instagram CTA (matches floating + drawer) */
+    .btn-instagram {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 32px 18px 28px;
+      border-radius: 999px;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #FFFFFF;
+      text-decoration: none;
+      background:
+        linear-gradient(135deg,
+          #515BD4 0%,
+          #833AB4 22%,
+          #C13584 44%,
+          #E1306C 64%,
+          #FD1D1D 80%,
+          #F77737 92%,
+          #FCAF45 100%);
+      background-size: 200% 200%;
+      box-shadow:
+        0 14px 30px rgba(225, 48, 108, 0.42),
+        0 0 0 1px rgba(255, 255, 255, 0.18) inset;
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+      animation: igGradient 8s ease infinite;
+    }
+    .btn-instagram:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+      box-shadow:
+        0 18px 40px rgba(225, 48, 108, 0.55),
+        0 0 0 1px rgba(255, 255, 255, 0.28) inset;
+    }
+    .btn-instagram svg { flex-shrink: 0; }
+    .btn-instagram .ja { font-weight: 700; }
+    .btn-instagram .handle {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding-left: 12px;
+      margin-left: 4px;
+      border-left: 1px solid rgba(255, 255, 255, 0.4);
+      opacity: 0.95;
+    }
+    @keyframes igGradient {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    @media (max-width: 480px) {
+      .btn-instagram { padding: 15px 24px 15px 22px; font-size: 13px; gap: 10px; }
+      .btn-instagram .handle { font-size: 11px; padding-left: 10px; }
+    }
 
     /* ========== Footer ========== */
     footer {
@@ -1925,8 +2399,8 @@
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <a href="#" class="nav-logo" aria-label="Mitz 金沢">
-      <img src="images/mitz-logo-color-h.png" alt="Mitz 金沢" class="logo-color" />
-      <img src="images/mitz-logo-white-h.png" alt="" aria-hidden="true" class="logo-white" />
+      <img loading="lazy" decoding="async" src="images/mitz-logo-color-h.png" alt="Mitz 金沢" class="logo-color" />
+      <img loading="lazy" decoding="async" src="images/mitz-logo-white-h.png" alt="" aria-hidden="true" class="logo-white" />
     </a>
     <div class="nav-links">
       <a href="#concept">Mitzのコンセプト<span class="en">— concept</span></a>
@@ -1951,13 +2425,41 @@
         <span class="ja">スポンサー応募</span>
         <span class="en">CONTACT</span>
       </a>
+      <button type="button" class="nav-burger" id="navBurger" aria-label="メニューを開く" aria-controls="mobileDrawer" aria-expanded="false">
+        <span></span>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <a href="#concept" class="mobile-drawer-link" data-drawer-link>Mitzのコンセプト<span class="en">concept</span></a>
+    <a href="#three" class="mobile-drawer-link" data-drawer-link>3つの要素<span class="en">three elements</span></a>
+    <a href="#opening" class="mobile-drawer-link" data-drawer-link>オープニングイベント<span class="en">opening event</span></a>
+    <a href="#sponsors" class="mobile-drawer-link" data-drawer-link>スポンサー応募<span class="en">sponsorship</span></a>
+    <a href="#info" class="mobile-drawer-link" data-drawer-link>施設情報<span class="en">information</span></a>
+    <div class="mobile-drawer-cta">
+      <a href="#sponsors" class="primary" data-drawer-link>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        スポンサー応募 / お問い合わせ
+      </a>
+      <a href="https://www.instagram.com/mitz_kanazawa" class="ig" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+        Instagram をフォロー
+      </a>
+    </div>
+  </div>
 
   <!-- Hero -->
   <section class="hero">
     <div class="hero-bg">
-      <img src="images/hero-facility.jpg" alt="Mitz 金沢 施設外観" onerror="this.style.display='none'" />
+      <img loading="eager" decoding="async" fetchpriority="high" src="images/hero-facility.jpg" alt="Mitz 金沢 施設外観" onerror="this.style.display='none'" />
     </div>
     <div class="hero-grain"></div>
     <div class="container hero-inner">
@@ -1966,7 +2468,7 @@
         <span class="label">A New Cultural Project in Kanazawa</span>
       </div>
       <h1 class="hero-title-wrap">
-        <img src="images/mitz-logo-white-v.png" alt="Mitz 金沢" class="hero-logo" />
+        <img loading="eager" decoding="async" fetchpriority="high" src="images/mitz-logo-white-v.png" alt="Mitz 金沢" class="hero-logo" />
         <span class="visually-hidden">Mitz 金沢（ミッツ カナザワ）</span>
       </h1>
       <p class="hero-sub">
@@ -1977,7 +2479,7 @@
       <a href="#opening" class="hero-event" aria-label="オープニングイベント詳細を見る">
         <span class="hero-event-icon">
           <span class="hero-dj-avatar">
-            <img src="images/dj-yatsui.jpg" alt="DJ やついいちろう">
+            <img loading="lazy" decoding="async" src="images/dj-yatsui.jpg" alt="DJ やついいちろう">
           </span>
         </span>
         <span class="hero-event-body">
@@ -2092,7 +2594,7 @@
               <path d="M14 2L26 22H2L14 2Z" fill="#E87030"/>
             </svg>
             <span class="ele-num-overlay">01 / EAT</span>
-            <img src="images/n3w-trailer.jpg" alt="N3W トレーラーハウス飲食店" onerror="this.style.display='none'" />
+            <img loading="lazy" decoding="async" src="images/n3w-trailer.jpg" alt="N3W トレーラーハウス飲食店" onerror="this.style.display='none'" />
           </div>
           <div class="ele-content">
             <h3 class="ele-name">N3W</h3>
@@ -2112,7 +2614,7 @@
               <path d="M14 2L26 22H2L14 2Z" fill="#90C850"/>
             </svg>
             <span class="ele-num-overlay">02 / PLAY</span>
-            <img src="images/playground.jpg" alt="Playground+ 大人の遊び場" onerror="this.style.display='none'" />
+            <img loading="lazy" decoding="async" src="images/playground.jpg" alt="Playground+ 大人の遊び場" onerror="this.style.display='none'" />
           </div>
           <div class="ele-content">
             <h3 class="ele-name">PLAYGROUND+</h3>
@@ -2132,7 +2634,7 @@
               <path d="M14 2L26 22H2L14 2Z" fill="#30A0D8"/>
             </svg>
             <span class="ele-num-overlay">03 / TRAVEL</span>
-            <img src="images/canbase.jpg" alt="CANBASE キャンピングカー拠点" onerror="this.style.display='none'" />
+            <img loading="lazy" decoding="async" src="images/canbase.jpg" alt="CANBASE キャンピングカー拠点" onerror="this.style.display='none'" />
           </div>
           <div class="ele-content">
             <h3 class="ele-name">CANBASE</h3>
@@ -2170,7 +2672,7 @@
 
           <div class="dj-feature">
             <div class="dj-photo">
-              <img src="images/dj-yatsui.jpg" alt="DJ やついいちろう氏" />
+              <img loading="lazy" decoding="async" src="images/dj-yatsui.jpg" alt="DJ やついいちろう氏" />
             </div>
             <div class="dj-info">
               <span class="badge">★ Special Guest</span>
@@ -2227,21 +2729,21 @@
       </div>
       <div class="gallery-grid">
         <div class="gallery-cell tall reveal">
-          <img src="images/hero-facility.jpg" alt="Mitz 金沢 施設全景" onerror="this.style.display='none'" />
+          <img loading="lazy" decoding="async" src="images/hero-facility.jpg" alt="Mitz 金沢 施設全景" onerror="this.style.display='none'" />
           <div class="cap">
             <div class="t">FACILITY OVERVIEW</div>
             <div class="s">2 棟のトレーラーハウスが並ぶ、開放的な街角</div>
           </div>
         </div>
         <div class="gallery-cell reveal reveal-delay-1">
-          <img src="images/n3w-trailer.jpg" alt="N3W" onerror="this.style.display='none'" />
+          <img loading="lazy" decoding="async" src="images/n3w-trailer.jpg" alt="N3W" onerror="this.style.display='none'" />
           <div class="cap">
             <div class="t">N3W</div>
             <div class="s">トレーラーハウス × 食</div>
           </div>
         </div>
         <div class="gallery-cell reveal reveal-delay-2">
-          <img src="images/canbase.jpg" alt="CANBASE" onerror="this.style.display='none'" />
+          <img loading="lazy" decoding="async" src="images/canbase.jpg" alt="CANBASE" onerror="this.style.display='none'" />
           <div class="cap">
             <div class="t">CANBASE</div>
             <div class="s">夕日と、旅のはじまり</div>
@@ -2323,7 +2825,7 @@
           <div class="facility-card">
             <div class="facility-card-label">トレーラー W11m（厨房 2店舗）</div>
             <div class="facility-card-photo">
-              <img src="images/n3w-trailer.jpg" alt="トレーラー 厨房" />
+              <img loading="lazy" decoding="async" src="images/n3w-trailer.jpg" alt="トレーラー 厨房" />
             </div>
             <div class="facility-card-body">
               <p>2つの厨房で多彩なフードを提供。バラエティ豊かなグルメが集まる。</p>
@@ -2332,7 +2834,7 @@
           <div class="facility-card">
             <div class="facility-card-label">トレーラー W11m（イートイン・WQ）</div>
             <div class="facility-card-photo">
-              <img src="images/canbase.jpg" alt="イートイン" />
+              <img loading="lazy" decoding="async" src="images/canbase.jpg" alt="イートイン" />
             </div>
             <div class="facility-card-body">
               <p>イートインスペース＆WQで快適に過ごせる空間。</p>
@@ -2341,7 +2843,7 @@
           <div class="facility-card">
             <div class="facility-card-label">キャンピングカー展示 × 3台</div>
             <div class="facility-card-photo">
-              <img src="images/hero-facility.jpg" alt="キャンピングカー" />
+              <img loading="lazy" decoding="async" src="images/hero-facility.jpg" alt="キャンピングカー" />
             </div>
             <div class="facility-card-body">
               <p>最新のキャンピングカーを間近で見学・体験。旅への憧れが膨らむ。</p>
@@ -2363,6 +2865,36 @@
           <p>Mitz 金沢のオープニングを共に盛り上げるスポンサーを募集しています。<br>企業様・個人事業主様それぞれのプランをご用意しています。</p>
         </div>
       </div>
+      <div class="sponsor-deck reveal">
+        <div class="sponsor-deck-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="9" y1="13" x2="15" y2="13"/>
+            <line x1="9" y1="17" x2="13" y2="17"/>
+          </svg>
+        </div>
+        <div class="sponsor-deck-body">
+          <div class="label-faint">SPONSORSHIP DECK 2026</div>
+          <h4>スポンサー資料（20 ページ / PDF）をダウンロード</h4>
+          <div class="meta">
+            プラン詳細・露出効果・申込フロー
+            <span class="dot"></span>
+            約 5 MB
+            <span class="dot"></span>
+            最終更新 2026.04
+          </div>
+        </div>
+        <a href="assets/Mitz_Sponsorship_2026.pdf" class="sponsor-deck-cta" download="Mitz_Sponsorship_2026.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          資料をダウンロード
+        </a>
+      </div>
+
       <div class="sponsor-grid">
         <div class="sponsor-card reveal" data-tier="corporate">
           <div class="sponsor-tier">CORPORATE <span class="tag-jp">法人・企業様</span></div>
@@ -2422,8 +2954,8 @@
           <div class="map-card">
             <div class="map-card-header">
               <div class="map-card-logo">
-                <img src="images/mitz-logo-color-h.png" alt="Mitz 金沢" class="map-logo-img map-logo-color">
-                <img src="images/mitz-logo-white-h.png" alt="Mitz 金沢" class="map-logo-img map-logo-white">
+                <img loading="lazy" decoding="async" src="images/mitz-logo-color-h.png" alt="Mitz 金沢" class="map-logo-img map-logo-color">
+                <img loading="lazy" decoding="async" src="images/mitz-logo-white-h.png" alt="Mitz 金沢" class="map-logo-img map-logo-white">
               </div>
             </div>
             <div class="addr">
@@ -2459,13 +2991,14 @@
         最新情報は公式サイトと SNS でお届けします。
       </p>
       <div class="cta-buttons reveal reveal-delay-2">
-        <a href="https://www.instagram.com/mitz_kanazawa" class="btn-primary" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <a href="https://www.instagram.com/mitz_kanazawa" class="btn-instagram" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
           </svg>
-          Instagram をフォロー
+          <span class="ja">Instagram をフォロー</span>
+          <span class="handle">@mitz_kanazawa</span>
         </a>
       </div>
     </div>
@@ -2477,7 +3010,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="logo">
-            <img src="images/mitz-logo-white-v.png" alt="Mitz 金沢" />
+            <img loading="lazy" decoding="async" src="images/mitz-logo-white-v.png" alt="Mitz 金沢" />
           </div>
           <p class="tag">日常の役割を脱ぎ捨て、「3番目の自分」へと帰る場所。</p>
         </div>
@@ -2509,6 +3042,29 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating actions (persistent across page) -->
+  <div class="floating-actions" id="floatingActions" aria-label="Quick actions">
+    <a href="#opening" class="fa-event" aria-label="オープニングイベント詳細">
+      <span class="fa-event-avatar">
+        <img loading="lazy" decoding="async" src="images/dj-yatsui.jpg" alt="" aria-hidden="true">
+      </span>
+      <span class="fa-event-text">
+        <span class="fa-event-label">Opening Event</span>
+        <span class="fa-event-title">DJ やついいちろう</span>
+        <span class="fa-event-meta">5.30 (土) 18:00 →</span>
+      </span>
+    </a>
+    <a href="https://www.instagram.com/mitz_kanazawa" class="fa-instagram" target="_blank" rel="noopener" aria-label="Instagram フォロー">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+      </svg>
+      <span>フォロー</span>
+      <span class="handle">@mitz_kanazawa</span>
+    </a>
+  </div>
 
   <script>
     const nav = document.getElementById("nav");
@@ -2559,6 +3115,33 @@
         setTheme(cur === "light" ? "dark" : "light");
       });
     }
+
+    // Mobile drawer
+    const burger = document.getElementById("navBurger");
+    const drawer = document.getElementById("mobileDrawer");
+    function setDrawer(open) {
+      if (!burger || !drawer) return;
+      burger.classList.toggle("is-open", open);
+      drawer.classList.toggle("is-open", open);
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+      drawer.setAttribute("aria-hidden", open ? "false" : "true");
+      burger.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
+      document.body.classList.toggle("is-drawer-open", open);
+    }
+    if (burger) burger.addEventListener("click", () => setDrawer(!drawer.classList.contains("is-open")));
+    document.querySelectorAll("[data-drawer-link]").forEach(a => a.addEventListener("click", () => setDrawer(false)));
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") setDrawer(false); });
+    window.addEventListener("resize", () => { if (window.innerWidth > 768) setDrawer(false); });
+
+    // Floating actions: appear after hero
+    const fa = document.getElementById("floatingActions");
+    function updateFa() {
+      if (!fa) return;
+      const trigger = window.innerHeight * 0.55;
+      fa.classList.toggle("visible", window.scrollY > trigger);
+    }
+    window.addEventListener("scroll", updateFa, { passive: true });
+    setTimeout(updateFa, 100);
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
