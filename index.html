@@ -1,0 +1,2575 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+  <script>
+    // Read saved theme BEFORE paint to avoid flash
+    (function() {
+      try {
+        var t = localStorage.getItem("mitz-theme");
+        if (t === "dark" || t === "light") {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mitz 金沢 — 2026.05.30 GRAND OPEN / 3番目の自分へ、帰る場所</title>
+  <meta name="description" content="2026年5月30日(土)、金沢駅西口に誕生する新しい遊び場「Mitz 金沢」。食・遊・旅が交差する、大人も子どもも楽しめる体験型カルチャーハブ。" />
+  <meta property="og:title" content="Mitz 金沢 — 2026.05.30 GRAND OPEN" />
+  <meta property="og:description" content="日常の役割を脱ぎ捨て、「3番目の自分」へと帰る場所。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mitz-kanazawa.com/" />
+  <meta property="og:site_name" content="Mitz 金沢" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:image" content="https://mitz-kanazawa.com/images/hero-facility.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mitz 金沢 — 2026.05.30 GRAND OPEN" />
+  <meta name="twitter:description" content="日常の役割を脱ぎ捨て、「3番目の自分」へと帰る場所。" />
+  <link rel="canonical" href="https://mitz-kanazawa.com/" />
+  <meta name="theme-color" content="#0F1115" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700;900&family=Bebas+Neue&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ========== Reset & Base ========== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Noto Sans JP", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-base);
+      color: var(--ink);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; transition: opacity 0.2s ease; }
+    a:hover { opacity: 0.7; }
+    button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+    /* Brand tokens (theme-invariant) */
+    :root {
+      --brand-brown: #604020;        /* Mitz wordmark brown */
+      --brand-beige: #B8A898;        /* KANAZAWA beige */
+      --tri-green: #90C850;          /* 遊・繋がり */
+      --tri-orange: #E87030;         /* 食 */
+      --tri-blue: #30A0D8;           /* 旅 */
+    }
+
+    /* ========== LIGHT THEME (default) ========== */
+    :root,
+    [data-theme="light"] {
+      --bg-base: #FAFAF7;
+      --bg-soft: #F2EDE2;
+      --bg-card: #FFFFFF;
+      --bg-deep: #1A1D24;            /* footer / hard contrast surface */
+      --ink: #2A1F18;                /* near-black warm */
+      --ink-strong: #1F1812;
+      --ink-muted: #6B5C50;
+      --ink-faint: #A89B8E;
+      --line: rgba(96, 64, 32, 0.12);
+      --line-strong: rgba(96, 64, 32, 0.22);
+      /* Accent — warm orange-amber for legibility on cream */
+      --lantern: #C07228;
+      --lantern-soft: #E08840;
+      --lantern-deep: #7A3810;
+      /* Photo / hero treatments */
+      --hero-img-brightness: 0.92;
+      --hero-img-saturate: 1.05;
+      --hero-overlay: linear-gradient(180deg, rgba(255, 252, 245, 0.05) 0%, rgba(255, 252, 245, 0.0) 35%, rgba(20, 16, 12, 0.55) 75%, rgba(20, 16, 12, 0.85) 100%);
+      --hero-radial: radial-gradient(ellipse at 80% 40%, rgba(232, 185, 106, 0.22) 0%, transparent 60%);
+      --photo-fade: rgba(20, 16, 12, 0.78);
+      --glass-bg: rgba(255, 252, 245, 0.7);
+      --glass-bg-strong: rgba(255, 252, 245, 0.92);
+      --grain-blend: multiply;
+      --grain-opacity: 0.06;
+      --nav-scrolled-bg: rgba(255, 252, 245, 0.9);
+      --shadow-card: 0 4px 24px rgba(96, 64, 32, 0.08);
+      --shadow-card-hover: 0 20px 48px rgba(96, 64, 32, 0.16);
+      --on-photo-ink: #FFFFFF;       /* text rendered ON photo (always light) */
+      --on-photo-ink-soft: rgba(255, 255, 255, 0.85);
+      --night: #1B2238;
+    }
+
+    /* ========== DARK THEME ========== */
+    [data-theme="dark"] {
+      --bg-base: #0F1115;
+      --bg-soft: #14171C;
+      --bg-card: #1A1D24;
+      --bg-deep: #08090C;
+      --ink: #F2EDE2;
+      --ink-strong: #FFFFFF;
+      --ink-muted: #9AA1AE;
+      --ink-faint: #5A6171;
+      --line: rgba(242, 237, 226, 0.08);
+      --line-strong: rgba(242, 237, 226, 0.18);
+      --lantern: #E8B96A;
+      --lantern-soft: #F2C875;
+      --lantern-deep: #C99A4A;
+      --hero-img-brightness: 0.55;
+      --hero-img-saturate: 0.9;
+      --hero-overlay: linear-gradient(180deg, rgba(15, 17, 21, 0.35) 0%, rgba(15, 17, 21, 0.1) 35%, rgba(15, 17, 21, 0.7) 75%, rgba(15, 17, 21, 0.95) 100%);
+      --hero-radial: radial-gradient(ellipse at 80% 40%, rgba(232, 185, 106, 0.18) 0%, transparent 60%);
+      --photo-fade: rgba(15, 17, 21, 0.85);
+      --glass-bg: rgba(15, 17, 21, 0.5);
+      --glass-bg-strong: rgba(15, 17, 21, 0.85);
+      --grain-blend: overlay;
+      --grain-opacity: 0.12;
+      --nav-scrolled-bg: rgba(15, 17, 21, 0.85);
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+      --shadow-card-hover: 0 20px 60px rgba(0, 0, 0, 0.4);
+      --on-photo-ink: #F2EDE2;
+      --on-photo-ink-soft: rgba(242, 237, 226, 0.85);
+    }
+
+    .label {
+      font-family: "Inter", sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--lantern);
+    }
+    .label-faint {
+      font-family: "Inter", sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    @media (min-width: 1280px) { .container { padding: 0 48px; } }
+    @media (min-width: 1600px) { .container { padding: 0 64px; } }
+    @media (max-width: 640px) { .container { padding: 0 20px; } }
+
+    section { position: relative; padding: 120px 0; }
+    @media (max-width: 768px) { section { padding: 80px 0; } }
+
+    /* ========== Navigation ========== */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 17, 21, 0);
+      transition: background 0.4s ease, backdrop-filter 0.4s ease;
+    }
+    .nav.scrolled {
+      background: var(--nav-scrolled-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+    /* Logo swap by theme */
+    .nav-logo .logo-color, .nav-logo .logo-white { display: none; }
+    [data-theme="light"] .nav-logo .logo-color,
+    :root:not([data-theme="dark"]) .nav-logo .logo-color { display: block; }
+    [data-theme="dark"] .nav-logo .logo-white { display: block; }
+    .hero-logo .logo-color, .hero-logo .logo-white { display: none; }
+    [data-theme="light"] .hero-logo .logo-color,
+    :root:not([data-theme="dark"]) .hero-logo .logo-color { display: block; }
+    [data-theme="dark"] .hero-logo .logo-white { display: block; }
+    .footer-brand .logo .logo-color, .footer-brand .logo .logo-white { display: none; }
+    [data-theme="light"] .footer-brand .logo .logo-white,
+    :root:not([data-theme="dark"]) .footer-brand .logo .logo-white { display: block; }
+    [data-theme="dark"] .footer-brand .logo .logo-white { display: block; }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--line-strong);
+      background: var(--glass-bg);
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+      backdrop-filter: blur(8px);
+      margin-right: 6px;
+    }
+    .theme-toggle:hover {
+      background: var(--lantern);
+      color: #FFFFFF;
+      transform: rotate(15deg);
+    }
+    .theme-toggle svg { width: 18px; height: 18px; }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    [data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    @media (max-width: 480px) {
+      .theme-toggle { width: 34px; height: 34px; }
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+    }
+    .nav-logo img {
+      height: 32px;
+      width: auto;
+      display: block;
+    }
+    @media (max-width: 480px) {
+      .nav-logo img { height: 28px; }
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-links a {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1px;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      color: var(--ink-muted);
+      font-weight: 500;
+      line-height: 1.25;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+    .nav-links a:hover {
+      color: var(--ink);
+      opacity: 1;
+    }
+    .nav-links a:hover .en {
+      color: var(--lantern);
+      opacity: 1;
+    }
+    .nav-links a .en {
+      font-family: "Bebas Neue", "Inter", sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      color: var(--ink-faint);
+      font-weight: 400;
+      text-transform: uppercase;
+      opacity: 0.7;
+      transition: color 0.2s ease, opacity 0.2s ease;
+      pointer-events: none;
+    }
+    @media (max-width: 1024px) {
+      .nav-links { gap: 24px; }
+    }
+    .nav-cta {
+      padding: 10px 20px 10px 16px;
+      background: linear-gradient(135deg, #E8A030 0%, #C97820 100%);
+      color: #fff;
+      border-radius: 999px;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 16px rgba(200, 120, 20, 0.55), 0 0 0 1px rgba(232, 160, 48, 0.3);
+    }
+    .nav-cta:hover {
+      background: linear-gradient(135deg, #F0AA38 0%, #D88828 100%);
+      opacity: 1;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(200, 120, 20, 0.65), 0 0 0 1px rgba(232, 160, 48, 0.5);
+    }
+    .nav-cta svg { width: 14px; height: 14px; }
+    .nav-cta .ja { font-weight: 700; }
+    .nav-cta .en {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      opacity: 0.75;
+      margin-left: 2px;
+    }
+    @media (max-width: 480px) {
+      .nav-cta { padding: 9px 14px 9px 12px; font-size: 11px; gap: 6px; }
+      .nav-cta .en { display: none; }
+    }
+    .nav-cta:hover {
+      background: var(--lantern-soft);
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav { padding: 16px 20px; }
+    }
+
+    /* ========== Hero (with photo) ========== */
+    .hero {
+      min-height: 100vh;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-soft);
+      text-align: center;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 55%;
+      filter: brightness(var(--hero-img-brightness)) saturate(var(--hero-img-saturate)) contrast(1.04);
+      transform: scale(1.04);
+      animation: heroZoom 18s ease-out forwards;
+      transition: filter 0.4s ease;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1.04); }
+      to { transform: scale(1.12); }
+    }
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--hero-overlay), var(--hero-radial);
+      pointer-events: none;
+    }
+    .hero-grain {
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+      opacity: var(--grain-opacity);
+      mix-blend-mode: var(--grain-blend);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding-top: 140px;
+      padding-bottom: 100px;
+    }
+    @media (min-width: 1280px) {
+      .hero-inner { padding-top: 52px; padding-bottom: 36px; }
+    }
+    @media (min-width: 769px) and (max-width: 1279px) {
+      .hero-inner { padding-top: 72px; padding-bottom: 50px; }
+    }
+    @media (max-width: 768px) {
+      .hero-inner { padding-top: 100px; padding-bottom: 60px; }
+    }
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      animation: fadeUp 0.9s ease 0.2s both;
+    }
+    @media (min-width: 769px) {
+      .hero-meta { margin-bottom: 10px; }
+    }
+    .hero-meta .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--lantern);
+      box-shadow: 0 0 12px var(--lantern);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+    .hero-meta .label { color: var(--lantern-soft); }
+    .hero-logo {
+      max-width: clamp(240px, 36vw, 440px);
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      filter: drop-shadow(0 16px 56px rgba(0, 0, 0, 0.7)) drop-shadow(0 4px 20px rgba(0,0,0,0.5));
+      animation: fadeUp 1.1s ease 0.4s both;
+    }
+    @media (min-width: 769px) {
+      .hero-logo { max-width: clamp(220px, 26vw, 360px); }
+    }
+    .hero-sub {
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(16px, 2.4vw, 24px);
+      font-weight: 400;
+      color: var(--on-photo-ink);
+      margin: 32px auto 0;
+      max-width: 680px;
+      letter-spacing: 0.04em;
+      line-height: 1.9;
+      animation: fadeUp 1s ease 0.6s both;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
+    }
+    @media (min-width: 769px) {
+      .hero-sub { margin-top: 12px; font-size: clamp(15px, 1.5vw, 20px); }
+    }
+    .hero-sub .em { color: var(--lantern-soft); font-weight: 700; }
+    /* Special opening event banner */
+    .hero-event {
+      margin-top: 32px;
+      max-width: 560px;
+      display: inline-flex;
+      align-items: stretch;
+      gap: 0;
+      padding: 0;
+      background: rgba(10, 12, 16, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(18px) saturate(1.4);
+      -webkit-backdrop-filter: blur(18px) saturate(1.4);
+      animation: fadeUp 1s ease 0.7s both, eventGlow 4s ease-in-out infinite;
+      text-decoration: none;
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+    }
+    .hero-event:hover {
+      transform: translateY(-2px);
+      opacity: 1;
+      box-shadow: 0 20px 56px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.2);
+    }
+    @keyframes eventGlow {
+      0%, 100% { box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06); }
+      50% { box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 1px rgba(192,114,40,0.5), 0 0 32px 4px rgba(192,114,40,0.18); }
+    }
+    .hero-event-icon {
+      flex-shrink: 0;
+      width: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.04);
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .hero-dj-avatar {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.55);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+      flex-shrink: 0;
+    }
+    .hero-dj-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 28%;
+      transform: scale(1.35);
+      transform-origin: 50% 32%;
+    }
+    @keyframes starSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .hero-event-body {
+      flex: 1;
+      padding: 14px 18px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2px;
+      color: #F0EAE0;
+    }
+    .hero-event-label {
+      font-family: "Inter", sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--lantern-soft);
+    }
+    .hero-event-title {
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 17px;
+      font-weight: 900;
+      line-height: 1.3;
+      letter-spacing: 0.02em;
+      color: #F0EAE0;
+    }
+    .hero-event-title strong {
+      color: #ffffff;
+      font-weight: 900;
+    }
+    .hero-event-meta {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      color: rgba(240, 234, 224, 0.65);
+      margin-top: 2px;
+    }
+    .hero-event-cta {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 22px;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--lantern-soft);
+      border-left: 1px solid rgba(255, 255, 255, 0.12);
+      white-space: nowrap;
+      gap: 4px;
+    }
+    .hero-event-cta .arrow {
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+    .hero-event:hover .hero-event-cta .arrow {
+      transform: translateX(4px);
+    }
+    @media (max-width: 640px) {
+      .hero-event { width: 100%; flex-direction: column; }
+      .hero-event-icon { width: 100%; height: 72px; }
+      .hero-dj-avatar { width: 52px; height: 52px; }
+      .hero-event-cta { border-left: none; border-top: 1px solid rgba(255, 255, 255, 0.12); padding: 12px; }
+    }
+
+    .hero-bottom {
+      margin-top: 56px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      animation: fadeUp 1s ease 0.8s both;
+    }
+    .countdown { display: flex; gap: 16px; justify-content: center; }
+    @media (max-width: 480px) { .countdown { gap: 10px; } }
+    .countdown-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px 18px;
+      background: rgba(15, 17, 21, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+    }
+    .countdown-num {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1;
+      color: var(--lantern-soft);
+      letter-spacing: 0.04em;
+      min-width: 50px;
+      text-align: center;
+    }
+    .countdown-label {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--on-photo-ink-soft);
+      margin-top: 8px;
+      font-weight: 500;
+    }
+    .hero-info {
+      text-align: center;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: baseline;
+    }
+    .hero-info .row {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--on-photo-ink);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+      letter-spacing: 0.06em;
+    }
+    .hero-info .row strong {
+      color: var(--lantern-soft);
+      font-weight: 700;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 16px;
+      letter-spacing: 0.04em;
+      margin-right: 4px;
+    }
+    .hero-info .sep {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+      display: inline-block;
+    }
+    @media (max-width: 480px) {
+      .hero-info { flex-direction: column; gap: 4px; }
+      .hero-info .sep { display: none; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (min-width: 769px) {
+      .hero-event { margin-top: 12px; }
+      .hero-bottom { margin-top: 20px; gap: 14px; }
+      .countdown-cell { padding: 10px 14px; }
+      .countdown-num { font-size: clamp(28px, 3.2vw, 40px); min-width: 38px; }
+      .countdown-label { margin-top: 4px; }
+    }
+
+    /* Responsive line-break helper */
+    br.br-desktop { display: none; }
+    @media (min-width: 901px) { br.br-desktop { display: inline; } }
+
+    /* Nav links — white text when hero is visible (before scroll) */
+    .nav:not(.scrolled) .nav-links a {
+      color: rgba(255, 255, 255, 0.88);
+    }
+    .nav:not(.scrolled) .nav-links a:hover {
+      color: #ffffff;
+    }
+    .nav:not(.scrolled) .nav-links a .en {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .nav:not(.scrolled) .nav-links a:hover .en {
+      color: var(--lantern-soft);
+    }
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0);
+      white-space: nowrap; border: 0;
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      color: var(--ink-muted);
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      animation: bob 2s ease-in-out infinite;
+    }
+    @keyframes bob {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.7; }
+      50% { transform: translateX(-50%) translateY(6px); opacity: 1; }
+    }
+
+    /* ========== Marquee ========== */
+    .marquee {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--bg-soft);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-track {
+      display: inline-flex;
+      gap: 64px;
+      animation: marquee 32s linear infinite;
+      align-items: center;
+    }
+    .marquee-item {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.12em;
+      color: var(--ink);
+    }
+    .marquee-item.gold { color: var(--lantern); font-style: italic; }
+    .marquee-item.eat  { color: var(--tri-orange); font-style: italic; }
+    .marquee-item.play { color: var(--tri-green);  font-style: italic; }
+    .marquee-item.travel { color: var(--tri-blue); font-style: italic; }
+    .marquee-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--ink-faint);
+      flex-shrink: 0;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ========== Concept ========== */
+    .concept {
+      background: linear-gradient(180deg, var(--bg-base) 0%, var(--bg-soft) 100%);
+    }
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    @media (max-width: 900px) { .concept-grid { grid-template-columns: 1fr; gap: 48px; } }
+    .concept-tagline {
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.55;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+      font-feature-settings: "palt" 1;
+    }
+    .concept-tagline .gold { color: var(--lantern); font-style: italic; }
+    .concept-tagline .kl { margin-left: -0.22em; }
+    .concept-tagline .kr { letter-spacing: -0.22em; }
+    .concept-body { padding-top: 12px; }
+    .concept-body .label { margin-bottom: 24px; }
+    .concept-body p {
+      font-size: 16px;
+      line-height: 2;
+      color: var(--ink-muted);
+      margin-bottom: 24px;
+    }
+    .concept-body p .ink { color: var(--ink); }
+    .concept-elements {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .concept-element {
+      position: relative;
+      padding: 24px 12px 22px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: var(--bg-card);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .concept-element:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+    }
+    .concept-element::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: 16px 16px 0 0;
+    }
+    .concept-element:nth-child(1)::before { background: var(--tri-orange); }
+    .concept-element:nth-child(2)::before { background: var(--tri-green); }
+    .concept-element:nth-child(3)::before { background: var(--tri-blue); }
+    .concept-element svg { width: 44px; height: 38px; margin-top: 4px; filter: drop-shadow(0 3px 8px currentColor); }
+    .concept-element:nth-child(1) svg { color: rgba(232,112,48,0.35); }
+    .concept-element:nth-child(2) svg { color: rgba(144,200,80,0.35); }
+    .concept-element:nth-child(3) svg { color: rgba(48,160,216,0.35); }
+    .concept-element .name {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.18em;
+      font-weight: 400;
+      line-height: 1;
+      margin-top: 12px;
+    }
+    .concept-element:nth-child(1) .name { color: var(--tri-orange); }
+    .concept-element:nth-child(2) .name { color: var(--tri-green); }
+    .concept-element:nth-child(3) .name { color: var(--tri-blue); }
+    .concept-element .ja {
+      font-size: 12px;
+      color: var(--ink-muted);
+      margin-top: 7px;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+    }
+    /* Concept three-triangle composition (matches Mitz logo mark) */
+    .concept-mark {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+    }
+    .concept-mark svg { width: 96px; height: 88px; }
+
+    /* ========== Three Elements (Cards with photos) ========== */
+    .three { background: var(--bg-base); }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 64px;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .section-head h2 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(48px, 7vw, 96px);
+      line-height: 0.9;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+    }
+    .section-head h2 .accent { color: var(--lantern); font-style: italic; }
+    .section-head .right { max-width: 400px; text-align: left; }
+    .section-head .right p {
+      color: var(--ink-muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 1000px) { .three-grid { grid-template-columns: 1fr; gap: 20px; } }
+
+    .ele-card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      padding: 0;
+      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 540px;
+    }
+    .ele-card { box-shadow: var(--shadow-card); }
+    .ele-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--card-accent, var(--lantern-deep));
+      box-shadow: var(--shadow-card-hover), 0 0 0 1px var(--card-accent, transparent);
+    }
+    .ele-card[data-element="eat"] { --card-accent: var(--tri-orange); }
+    .ele-card[data-element="play"] { --card-accent: var(--tri-green); }
+    .ele-card[data-element="travel"] { --card-accent: var(--tri-blue); }
+    .ele-card .ele-num-overlay {
+      color: var(--card-accent, var(--lantern)) !important;
+      border-color: var(--card-accent, rgba(232, 185, 106, 0.4)) !important;
+    }
+    .ele-card .ele-jp {
+      color: var(--card-accent, var(--lantern)) !important;
+    }
+    .ele-card .ele-tri {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 28px;
+      height: 24px;
+      z-index: 3;
+      filter: none;
+      opacity: 0.55;
+    }
+    .ele-card .ele-tri path {
+      fill: #ffffff !important;
+    }
+    .ele-card:hover .ele-photo img {
+      transform: scale(1.08);
+    }
+    .ele-photo {
+      position: relative;
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+      background: #1B2238;
+    }
+    .ele-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      filter: brightness(0.85) saturate(1.1);
+    }
+    .ele-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, var(--photo-fade) 100%);
+      pointer-events: none;
+    }
+    .ele-photo .ele-num-overlay {
+      position: absolute;
+      top: 20px;
+      left: 24px;
+      z-index: 2;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.3em;
+      color: var(--lantern-soft);
+      padding: 6px 14px;
+      background: rgba(15, 17, 21, 0.7);
+      border: 1px solid rgba(232, 185, 106, 0.4);
+      border-radius: 999px;
+      backdrop-filter: blur(8px);
+    }
+    .ele-content {
+      padding: 28px 28px 36px;
+    }
+    .ele-name {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 44px;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      margin-top: 0;
+      line-height: 1;
+    }
+    .ele-jp {
+      font-family: "Noto Serif JP", serif;
+      font-size: 14px;
+      color: var(--lantern);
+      letter-spacing: 0.18em;
+      margin-top: 6px;
+      font-weight: 700;
+    }
+    .ele-desc {
+      font-size: 14px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      margin-top: 18px;
+    }
+    .ele-tags {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .ele-tag {
+      padding: 5px 12px;
+      background: rgba(242, 237, 226, 0.05);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 11px;
+      color: var(--ink-muted);
+      letter-spacing: 0.1em;
+    }
+
+    /* ========== Opening Event (with DJ photo) ========== */
+    .opening {
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(232, 185, 106, 0.12) 0%, transparent 50%),
+        var(--bg-soft);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .opening-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: center;
+    }
+    @media (max-width: 900px) { .opening-inner { grid-template-columns: 1fr; gap: 48px; } }
+    .opening-date { text-align: center; }
+    .opening-date .label { display: block; margin-bottom: 24px; }
+    .opening-date .day {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(120px, 18vw, 220px);
+      line-height: 0.85;
+      color: var(--lantern);
+      font-style: italic;
+    }
+    .opening-date .month-year {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 24px;
+      letter-spacing: 0.16em;
+      color: var(--ink);
+      margin-top: 16px;
+    }
+    .opening-date .weekday {
+      font-size: 13px;
+      letter-spacing: 0.3em;
+      color: var(--ink-muted);
+      margin-top: 6px;
+      text-transform: uppercase;
+    }
+    .opening-content h3 {
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(22px, 2.8vw, 36px);
+      line-height: 1.5;
+      color: var(--ink);
+      font-weight: 900;
+      margin-top: 16px;
+      letter-spacing: 0.02em;
+    }
+    .opening-content h3 .gold { color: var(--lantern); }
+    .opening-content > p {
+      color: var(--ink-muted);
+      font-size: 15px;
+      line-height: 2;
+      margin-top: 24px;
+      max-width: 540px;
+    }
+
+    /* DJ feature row */
+    .dj-feature {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 28px;
+      align-items: center;
+      padding: 24px;
+      background: linear-gradient(135deg, rgba(232, 185, 106, 0.08) 0%, rgba(232, 185, 106, 0.02) 100%);
+      border: 1px solid rgba(232, 185, 106, 0.25);
+      border-radius: 20px;
+    }
+    @media (max-width: 700px) {
+      .dj-feature { grid-template-columns: 1fr; text-align: center; }
+    }
+    .dj-photo {
+      width: 260px;
+      height: 320px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #f5f0ea;
+      position: relative;
+    }
+    @media (max-width: 700px) {
+      .dj-photo { margin: 0 auto; }
+    }
+    .dj-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 22%;
+      transform: scale(1.72);
+      transform-origin: 50% 28%;
+      transition: transform 0.6s ease;
+    }
+    .dj-photo:hover img {
+      transform: scale(1.80);
+    }
+    .dj-info .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--lantern);
+      color: var(--bg-base);
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .dj-info .nm {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 32px;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      line-height: 1.05;
+    }
+    .dj-info .nm-jp {
+      font-size: 13px;
+      color: var(--lantern);
+      margin-top: 4px;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+    }
+    .dj-info .bio {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      margin-top: 12px;
+    }
+
+    .schedule {
+      margin-top: 40px;
+      border-top: 1px solid var(--line);
+    }
+    .schedule-row {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 24px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: baseline;
+    }
+    .schedule-time {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 24px;
+      color: var(--lantern);
+      letter-spacing: 0.04em;
+    }
+    .schedule-content .ttl {
+      font-size: 15px;
+      color: var(--ink);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .schedule-content .desc {
+      font-size: 13px;
+      color: var(--ink-muted);
+      margin-top: 4px;
+      line-height: 1.7;
+    }
+    .schedule-content .guest {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--lantern);
+      color: var(--bg-base);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      margin-top: 8px;
+      text-transform: uppercase;
+    }
+
+    /* ========== Gallery ========== */
+    .gallery { background: var(--bg-base); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 280px 280px;
+      gap: 16px;
+      margin-top: 48px;
+    }
+    @media (max-width: 800px) {
+      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: 240px 240px 240px; }
+    }
+    .gallery-cell {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      background: var(--bg-card);
+    }
+    .gallery-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .gallery-cell:hover img { transform: scale(1.06); }
+    .gallery-cell::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, var(--photo-fade) 100%);
+      pointer-events: none;
+    }
+    .gallery-cell .cap {
+      position: absolute;
+      left: 24px;
+      bottom: 20px;
+      z-index: 1;
+      color: var(--on-photo-ink);
+    }
+    .gallery-cell .cap .t {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.06em;
+      color: var(--lantern-soft);
+    }
+    .gallery-cell .cap .s {
+      font-size: 12px;
+      color: var(--on-photo-ink);
+      margin-top: 2px;
+      letter-spacing: 0.1em;
+    }
+    .gallery-cell.tall { grid-row: span 2; }
+
+    /* ========== Contents Grid ========== */
+    .contents-block {
+      margin-top: 64px;
+    }
+    .contents-block-head {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .contents-block-head .en {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .contents-block-head .ja {
+      font-size: 13px;
+      color: var(--ink-muted);
+      letter-spacing: 0.12em;
+    }
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 800px) {
+      .activity-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .activity-grid { grid-template-columns: 1fr; }
+    }
+    .activity-card {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    .activity-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card-hover);
+    }
+    .activity-card-badge {
+      padding: 10px 16px 9px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .activity-card-badge .badge-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .activity-card-badge .badge-name {
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.04em;
+    }
+    .activity-card-body {
+      padding: 14px 16px 16px;
+    }
+    .activity-card-body p {
+      font-size: 12px;
+      line-height: 1.75;
+      color: var(--ink-muted);
+      margin: 0;
+    }
+    /* Facility strip */
+    .facility-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+    @media (max-width: 700px) {
+      .facility-strip { grid-template-columns: 1fr; }
+    }
+    .facility-card {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    .facility-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card-hover);
+    }
+    .facility-card-photo {
+      height: 160px;
+      overflow: hidden;
+      position: relative;
+      background: var(--bg-soft);
+    }
+    .facility-card-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .facility-card:hover .facility-card-photo img { transform: scale(1.06); }
+    .facility-card-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, var(--photo-fade) 100%);
+    }
+    .facility-card-label {
+      background: rgba(232,136,64,0.15);
+      border-bottom: 1px solid var(--line);
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--lantern);
+      letter-spacing: 0.06em;
+    }
+    .facility-card-body {
+      padding: 12px 14px 14px;
+    }
+    .facility-card-body p {
+      font-size: 12px;
+      line-height: 1.75;
+      color: var(--ink-muted);
+      margin: 0;
+    }
+
+    /* ========== Site Info ========== */
+    .info { background: var(--bg-soft); }
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    @media (max-width: 900px) { .info-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .info-block .label { margin-bottom: 16px; }
+    .info-block h3 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(40px, 5vw, 64px);
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      line-height: 0.95;
+      margin-bottom: 32px;
+    }
+    .info-block h3 .gold { color: var(--lantern); }
+    .info-table { width: 100%; }
+    .info-row {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 24px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: baseline;
+    }
+    .info-row:first-child { border-top: 1px solid var(--line); }
+    .info-key {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      font-weight: 500;
+    }
+    .info-val {
+      font-size: 15px;
+      color: var(--ink);
+      line-height: 1.7;
+    }
+    .info-val strong { color: var(--lantern); font-weight: 700; }
+    .info-val .small { font-size: 12px; color: var(--ink-muted); display: block; margin-top: 4px; }
+
+    .map-card {
+      position: sticky;
+      top: 100px;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px 28px 0;
+      overflow: hidden;
+    }
+    .map-card-header {
+      margin-bottom: 20px;
+    }
+    .map-card-logo {
+      display: block;
+    }
+    .map-logo-img {
+      max-width: 180px;
+      height: auto;
+      display: none;
+    }
+    [data-theme="light"] .map-logo-color { display: block; }
+    [data-theme="dark"]  .map-logo-white { display: block; }
+    .map-card .addr {
+      font-size: 13px;
+      color: var(--ink);
+      line-height: 1.8;
+    }
+    .map-card .addr .gold { color: var(--lantern); }
+    .map-card .station {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 12px;
+      background: rgba(232, 185, 106, 0.1);
+      border-radius: 999px;
+      font-size: 11px;
+      color: var(--lantern);
+      letter-spacing: 0.06em;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    .map-card .station .icon {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--lantern);
+      box-shadow: 0 0 6px var(--lantern);
+    }
+    .map-embed {
+      margin: 0 -28px;
+      height: 220px;
+      overflow: hidden;
+      border-top: 1px solid var(--line);
+    }
+    .map-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      filter: saturate(0.85) brightness(1.02);
+    }
+    [data-theme="dark"] .map-embed iframe {
+      filter: saturate(0.6) brightness(0.7) invert(0.92) hue-rotate(180deg);
+    }
+
+    /* ========== Sponsors ========== */
+    .sponsors {
+      background: var(--bg-soft);
+      border-top: 1px solid var(--line);
+    }
+    .sponsor-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+    @media (max-width: 800px) {
+      .sponsor-grid { grid-template-columns: 1fr; gap: 16px; }
+    }
+    .sponsor-card {
+      position: relative;
+      padding: 36px 32px 32px;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .sponsor-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--card-stripe, var(--lantern));
+    }
+    .sponsor-card[data-tier="corporate"] { --card-stripe: linear-gradient(90deg, var(--tri-orange) 0%, var(--lantern) 50%, var(--tri-blue) 100%); }
+    .sponsor-card[data-tier="individual"] { --card-stripe: linear-gradient(90deg, var(--tri-green) 0%, var(--lantern-soft) 100%); }
+    .sponsor-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--lantern-deep);
+      box-shadow: var(--shadow-card-hover);
+    }
+    .sponsor-tier {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 14px 6px;
+      background: rgba(232, 185, 106, 0.14);
+      color: var(--lantern-deep);
+      border-radius: 999px;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      font-weight: 700;
+      margin-bottom: 18px;
+      align-self: flex-start;
+    }
+    .sponsor-tier .tag-jp {
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--lantern-deep);
+      opacity: 0.7;
+    }
+    .sponsor-card h3 {
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: clamp(22px, 2.4vw, 28px);
+      font-weight: 900;
+      line-height: 1.4;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+    }
+    .sponsor-card .lead {
+      font-size: 14px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .sponsor-plans {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .sponsor-plan {
+      padding: 5px 12px;
+      background: rgba(96, 64, 32, 0.06);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 11px;
+      color: var(--ink-muted);
+      letter-spacing: 0.06em;
+    }
+    .sponsor-price {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.04em;
+      color: var(--lantern-deep);
+      margin-bottom: 24px;
+    }
+    .sponsor-price .yen { font-size: 14px; opacity: 0.7; margin-right: 2px; }
+    .sponsor-price .range { font-family: "Noto Sans JP", sans-serif; font-size: 11px; color: var(--ink-muted); letter-spacing: 0.04em; margin-left: 8px; font-weight: 500; }
+    .sponsor-cta {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 22px;
+      background: var(--ink);
+      color: var(--bg-base);
+      border-radius: 999px;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease;
+      gap: 10px;
+    }
+    .sponsor-cta:hover {
+      background: var(--lantern);
+      color: #1F1812;
+      transform: translateY(-1px);
+      opacity: 1;
+    }
+    .sponsor-cta .arrow { transition: transform 0.2s ease; }
+    .sponsor-cta:hover .arrow { transform: translateX(3px); }
+
+    .sponsor-note {
+      margin-top: 32px;
+      padding: 18px 24px;
+      background: rgba(232, 185, 106, 0.06);
+      border: 1px dashed var(--line-strong);
+      border-radius: 14px;
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      text-align: center;
+    }
+    .sponsor-note strong { color: var(--ink); font-weight: 700; }
+
+    /* ========== Activity card photo ========== */
+    .activity-card-photo {
+      height: 110px;
+      overflow: hidden;
+      position: relative;
+      background: var(--bg-soft);
+      background-image: url(images/zoning-map.png);
+      background-repeat: no-repeat;
+      background-size: 600% auto;
+      transition: background-size 0.5s ease;
+    }
+    .activity-card:hover .activity-card-photo { background-size: 630% auto; }
+    .activity-card-photo.pos-1 { background-position: 0%   72%; }
+    .activity-card-photo.pos-2 { background-position: 20%  72%; }
+    .activity-card-photo.pos-3 { background-position: 40%  72%; }
+    .activity-card-photo.pos-4 { background-position: 60%  72%; }
+    .activity-card-photo.pos-5 { background-position: 80%  72%; }
+    .activity-card-photo.pos-6 { background-position: 100% 72%; }
+
+    /* ========== Zoning map in SITE DETAILS ========== */
+    .zoning-section {
+      margin-top: 40px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-card);
+    }
+    .zoning-section-head {
+      padding: 14px 20px;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .zoning-section-head .en {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 18px;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+    }
+    .zoning-section-head .ja {
+      font-size: 11px;
+      color: var(--ink-muted);
+      letter-spacing: 0.1em;
+    }
+    .zoning-img-wrap {
+      position: relative;
+      background: var(--bg-soft);
+      overflow: hidden;
+    }
+    .zoning-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .zoning-img-wrap:hover img { transform: scale(1.02); }
+
+    /* ========== Sponsor download ========== */
+    .sponsor-download {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-top: 32px;
+      padding: 20px 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      flex-wrap: wrap;
+    }
+    .sponsor-download-text {
+      flex: 1;
+      min-width: 200px;
+    }
+    .sponsor-download-text strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .sponsor-download-text span {
+      font-size: 12px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: var(--ink);
+      color: var(--bg-base);
+      border-radius: 999px;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .btn-download:hover {
+      background: var(--lantern);
+      color: #1F1812;
+      transform: translateY(-1px);
+      opacity: 1;
+    }
+    .btn-download svg { flex-shrink: 0; }
+
+    /* ========== Floating Event Banner (PC/Tablet) ========== */
+    .hero-event-float {
+      display: none;
+    }
+    @media (min-width: 769px) {
+      .hero-event-float {
+        display: inline-flex;
+        position: fixed;
+        bottom: 28px;
+        left: 28px;
+        z-index: 950;
+        max-width: 400px;
+        opacity: 0;
+        transform: translateY(14px);
+        pointer-events: none;
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        /* Inherit hero-event styles */
+        align-items: stretch;
+        gap: 0;
+        padding: 0;
+        background: rgba(10, 12, 16, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 16px 48px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06);
+        backdrop-filter: blur(20px) saturate(1.4);
+        -webkit-backdrop-filter: blur(20px) saturate(1.4);
+        text-decoration: none;
+      }
+      .hero-event-float.float-visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .hero-event-float .hero-event-icon {
+        width: 64px;
+        background: rgba(255,255,255,0.04);
+        border-right: 1px solid rgba(255,255,255,0.1);
+      }
+      .hero-event-float .hero-dj-avatar { width: 46px; height: 46px; }
+      .hero-event-float .hero-event-body { padding: 11px 14px 11px 12px; }
+      .hero-event-float .hero-event-label { font-size: 9px; }
+      .hero-event-float .hero-event-title { font-size: 14px; }
+      .hero-event-float .hero-event-meta { font-size: 12px; }
+      .hero-event-float .hero-event-cta { padding: 0 16px; font-size: 11px; }
+    }
+
+    /* ========== CTA ========== */
+    .cta {
+      background:
+        radial-gradient(ellipse at 50% 100%, rgba(232, 185, 106, 0.22) 0%, transparent 60%),
+        linear-gradient(180deg, var(--bg-base) 0%, var(--bg-soft) 100%);
+      text-align: center;
+      padding: 160px 0;
+    }
+    /* Light mode: dark impactful close section */
+    [data-theme="light"] .cta {
+      background:
+        radial-gradient(ellipse at 50% 75%, rgba(192, 114, 40, 0.28) 0%, transparent 52%),
+        radial-gradient(ellipse at 20% 30%, rgba(232, 112, 48, 0.08) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 20%, rgba(48, 160, 216, 0.05) 0%, transparent 40%),
+        linear-gradient(160deg, #0C0E12 0%, #18140C 50%, #0C0E12 100%);
+    }
+    [data-theme="light"] .cta h2 {
+      color: #F0EAE0;
+    }
+    [data-theme="light"] .cta h2 .gold {
+      color: #E08840;
+    }
+    [data-theme="light"] .cta .label {
+      color: #E08840;
+    }
+    [data-theme="light"] .cta-sub {
+      color: rgba(240, 234, 224, 0.58);
+    }
+    .cta .label { display: block; margin-bottom: 24px; }
+    .cta h2 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(60px, 10vw, 140px);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+    }
+    .cta h2 .gold { color: var(--lantern); font-style: italic; }
+    .cta-sub {
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(16px, 2vw, 22px);
+      line-height: 1.9;
+      color: var(--ink-muted);
+      margin-top: 32px;
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-buttons {
+      margin-top: 48px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary, .btn-outline {
+      padding: 18px 36px;
+      border-radius: 999px;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #E8A030 0%, #C97820 100%);
+      color: #fff;
+      box-shadow: 0 6px 24px rgba(200, 120, 20, 0.5), 0 0 0 1px rgba(232, 160, 48, 0.25);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #F0AA38 0%, #D88828 100%);
+      opacity: 1;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(200, 120, 20, 0.65);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line-strong);
+    }
+    .btn-outline:hover {
+      background: rgba(242, 237, 226, 0.05);
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    /* ========== Footer ========== */
+    footer {
+      padding: 80px 0 48px;
+      background: var(--bg-deep);
+      border-top: 1px solid var(--line);
+      color: #F2EDE2;
+    }
+    footer .label { color: var(--lantern-soft); }
+    footer .footer-brand .tag { color: rgba(242, 237, 226, 0.7); }
+    footer .partner { background: rgba(242, 237, 226, 0.04); border-color: rgba(242, 237, 226, 0.08); }
+    footer .partner .nm { color: #F2EDE2; }
+    footer .partner .role { color: var(--lantern-soft); }
+    footer .footer-contact { color: rgba(242, 237, 226, 0.6); }
+    footer .footer-contact a:hover { color: var(--lantern-soft); }
+    footer .footer-copy { color: rgba(242, 237, 226, 0.4); }
+    footer .footer-bottom, footer .footer-top { border-color: rgba(242, 237, 226, 0.08); }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 64px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--line);
+    }
+    @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr; gap: 40px; } }
+    .footer-brand .logo {
+      display: flex;
+      align-items: center;
+    }
+    .footer-brand .logo img {
+      height: 56px;
+      width: auto;
+      display: block;
+    }
+    .footer-brand .tag {
+      font-family: "Noto Serif JP", serif;
+      font-size: 14px;
+      color: var(--ink-muted);
+      margin-top: 16px;
+      line-height: 1.8;
+      max-width: 320px;
+    }
+    .partners .label { display: block; margin-bottom: 24px; }
+    .partner-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 700px) { .partner-list { grid-template-columns: 1fr; } }
+    .partner {
+      padding: 20px;
+      background: rgba(242, 237, 226, 0.02);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+    .partner .role {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--lantern);
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .partner .nm {
+      font-size: 14px;
+      color: var(--ink);
+      margin-top: 8px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    .footer-bottom {
+      padding-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-contact {
+      display: flex;
+      gap: 32px;
+      font-size: 12px;
+      color: var(--ink-muted);
+      letter-spacing: 0.04em;
+    }
+    .footer-contact a:hover { color: var(--lantern); opacity: 1; }
+    .footer-copy {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    /* ========== Reveal ========== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.12s; }
+    .reveal-delay-2 { transition-delay: 0.24s; }
+    .reveal-delay-3 { transition-delay: 0.36s; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo" aria-label="Mitz 金沢">
+      <img src="images/mitz-logo-color-h.png" alt="Mitz 金沢" class="logo-color" />
+      <img src="images/mitz-logo-white-h.png" alt="" aria-hidden="true" class="logo-white" />
+    </a>
+    <div class="nav-links">
+      <a href="#concept">Mitzのコンセプト<span class="en">— concept</span></a>
+      <a href="#three">3つの要素<span class="en">— three elements</span></a>
+      <a href="#opening">オープニングイベント<span class="en">— opening event</span></a>
+      <a href="#info">施設情報<span class="en">— information</span></a>
+    </div>
+    <div style="display:flex;align-items:center;gap:0;">
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="テーマを切り替え">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+      </button>
+      <a href="#sponsors" class="nav-cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        <span class="ja">スポンサー応募</span>
+        <span class="en">CONTACT</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="images/hero-facility.jpg" alt="Mitz 金沢 施設外観" onerror="this.style.display='none'" />
+    </div>
+    <div class="hero-grain"></div>
+    <div class="container hero-inner">
+      <div class="hero-meta">
+        <span class="dot"></span>
+        <span class="label">A New Cultural Project in Kanazawa</span>
+      </div>
+      <h1 class="hero-title-wrap">
+        <img src="images/mitz-logo-white-v.png" alt="Mitz 金沢" class="hero-logo" />
+        <span class="visually-hidden">Mitz 金沢（ミッツ カナザワ）</span>
+      </h1>
+      <p class="hero-sub">
+        日常の役割を脱ぎ捨て、<br>
+        <span class="em">「3番目の自分」</span>へと帰る場所。
+      </p>
+
+      <a href="#opening" class="hero-event" aria-label="オープニングイベント詳細を見る">
+        <span class="hero-event-icon">
+          <span class="hero-dj-avatar">
+            <img src="images/dj-yatsui.jpg" alt="DJ やついいちろう">
+          </span>
+        </span>
+        <span class="hero-event-body">
+          <span class="hero-event-label">Special Opening Event</span>
+          <span class="hero-event-title">DJ <strong>やついいちろう</strong> 出演</span>
+          <span class="hero-event-meta">2026.05.30 (土) 18:00 START</span>
+        </span>
+        <span class="hero-event-cta">詳細<span class="arrow">→</span></span>
+      </a>
+
+      <div class="hero-bottom">
+        <div class="countdown" id="countdown">
+          <div class="countdown-cell"><span class="countdown-num" id="cd-d">--</span><span class="countdown-label">Days</span></div>
+          <div class="countdown-cell"><span class="countdown-num" id="cd-h">--</span><span class="countdown-label">Hours</span></div>
+          <div class="countdown-cell"><span class="countdown-num" id="cd-m">--</span><span class="countdown-label">Min</span></div>
+          <div class="countdown-cell"><span class="countdown-num" id="cd-s">--</span><span class="countdown-label">Sec</span></div>
+        </div>
+        <div class="hero-info">
+          <div class="row"><strong>2026.05.30</strong> SAT GRAND OPEN</div>
+          <span class="sep"></span>
+          <div class="row">金沢駅西口エリア / 広岡 3-3-3</div>
+          <span class="sep"></span>
+          <div class="row">11:00 — 22:00</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">Scroll ↓</div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="marquee-item">N3W</span><span class="marquee-dot"></span>
+      <span class="marquee-item eat">食</span><span class="marquee-dot"></span>
+      <span class="marquee-item">PLAYGROUND+</span><span class="marquee-dot"></span>
+      <span class="marquee-item play">遊</span><span class="marquee-dot"></span>
+      <span class="marquee-item">CANBASE</span><span class="marquee-dot"></span>
+      <span class="marquee-item travel">旅</span><span class="marquee-dot"></span>
+      <span class="marquee-item">MAKE YOUR 3RD PLACE</span><span class="marquee-dot"></span>
+      <span class="marquee-item gold">DAY &amp; NIGHT</span><span class="marquee-dot"></span>
+      <span class="marquee-item">N3W</span><span class="marquee-dot"></span>
+      <span class="marquee-item eat">食</span><span class="marquee-dot"></span>
+      <span class="marquee-item">PLAYGROUND+</span><span class="marquee-dot"></span>
+      <span class="marquee-item play">遊</span><span class="marquee-dot"></span>
+      <span class="marquee-item">CANBASE</span><span class="marquee-dot"></span>
+      <span class="marquee-item travel">旅</span><span class="marquee-dot"></span>
+      <span class="marquee-item">MAKE YOUR 3RD PLACE</span><span class="marquee-dot"></span>
+      <span class="marquee-item gold">DAY &amp; NIGHT</span><span class="marquee-dot"></span>
+    </div>
+  </div>
+
+  <!-- Concept -->
+  <section class="concept" id="concept">
+    <div class="container">
+      <div class="concept-grid">
+        <div class="reveal">
+          <div class="label" style="margin-bottom: 24px;">01 — Concept</div>
+          <h2 class="concept-tagline">
+            自由な<span class="gold"><span class="kl">「</span>三角<span class="kr">」</span></span>でつながる、<br>
+            新しい文化プロジェクト。
+          </h2>
+        </div>
+        <div class="concept-body reveal reveal-delay-1">
+          <p>
+            <span class="ink">グラスを傾け、役割や肩書も捨てて「個」として仲間と語り合う瞬間。</span><br class="br-desktop">
+            日常を抜け出し、この場所へ向かう瞬間のワクワク感。<br class="br-desktop">旅や冒険に胸を躍らせた、自由な自分との再会。
+          </p>
+          <p>
+            ここで見せるのは「親」の顔ではなく、何かに夢中になり、<br class="br-desktop">人生を謳歌する<span class="ink">「一人の大人」の背中</span>。
+          </p>
+          <p>
+            あなたは、あなた自身の人生の主人公である<br class="br-desktop"><span class="ink">「3番目の自分」</span>へと帰っていく。
+          </p>
+          <div class="concept-elements">
+            <div class="concept-element">
+              <svg viewBox="0 0 32 28" aria-hidden="true"><path d="M16 2L30 26H2L16 2Z" fill="#E87030"/></svg>
+              <div class="name">EAT</div>
+              <div class="ja">食</div>
+            </div>
+            <div class="concept-element">
+              <svg viewBox="0 0 32 28" aria-hidden="true"><path d="M16 2L30 26H2L16 2Z" fill="#90C850"/></svg>
+              <div class="name">PLAY</div>
+              <div class="ja">遊・繋がり</div>
+            </div>
+            <div class="concept-element">
+              <svg viewBox="0 0 32 28" aria-hidden="true"><path d="M16 2L30 26H2L16 2Z" fill="#30A0D8"/></svg>
+              <div class="name">TRAVEL</div>
+              <div class="ja">旅</div>
+            </div>
+          </div>
+          <p style="font-size:12px;color:var(--ink-faint);margin-top:14px;text-align:center;letter-spacing:0.04em;">3つの三角形が集まる中心に生まれる白い三角形は、<br>新しい自分・場所・発見・可能性を象徴。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Elements -->
+  <section class="three" id="three">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>THREE<br><span class="accent">ELEMENTS.</span></h2>
+        <div class="right">
+          <div class="label-faint" style="margin-bottom: 16px;">02 — 日常を彩る、3つの要素</div>
+          <p>「Mitz」は、3つの遊び心が交流する場所。<br>ロゴの三角は、この「3つの要素 = 3つのファシリティ」を表しています。</p>
+        </div>
+      </div>
+
+      <div class="three-grid">
+        <article class="ele-card reveal" data-element="eat">
+          <div class="ele-photo">
+            <svg class="ele-tri" viewBox="0 0 28 24" fill="none" aria-hidden="true">
+              <path d="M14 2L26 22H2L14 2Z" fill="#E87030"/>
+            </svg>
+            <span class="ele-num-overlay">01 / EAT</span>
+            <img src="images/n3w-trailer.jpg" alt="N3W トレーラーハウス飲食店" onerror="this.style.display='none'" />
+          </div>
+          <div class="ele-content">
+            <h3 class="ele-name">N3W</h3>
+            <div class="ele-jp">飲食エンタテインメント</div>
+            <p class="ele-desc">「食 × 体験」で毎日がイベント。季節の旬から体験型イベントまで、日常を彩る食のエンターテインメントが詰まったレストランバー。</p>
+            <div class="ele-tags">
+              <span class="ele-tag">トレーラーハウス</span>
+              <span class="ele-tag">レストランバー</span>
+              <span class="ele-tag">40席</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="ele-card reveal reveal-delay-1" data-element="play">
+          <div class="ele-photo">
+            <svg class="ele-tri" viewBox="0 0 28 24" fill="none" aria-hidden="true">
+              <path d="M14 2L26 22H2L14 2Z" fill="#90C850"/>
+            </svg>
+            <span class="ele-num-overlay">02 / PLAY</span>
+            <img src="images/playground.jpg" alt="Playground+ 大人の遊び場" onerror="this.style.display='none'" />
+          </div>
+          <div class="ele-content">
+            <h3 class="ele-name">PLAYGROUND+</h3>
+            <div class="ele-jp">大人の遊び場</div>
+            <p class="ele-desc">大人が健康的にお酒を飲み、ゲームで体を動かしながらコミュニティと繋がる「場」。日本初の常設プレイグラウンド。</p>
+            <div class="ele-tags">
+              <span class="ele-tag">BIG JENGA</span>
+              <span class="ele-tag">CORNHOLE</span>
+              <span class="ele-tag">CONNECT 4</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="ele-card reveal reveal-delay-2" data-element="travel">
+          <div class="ele-photo">
+            <svg class="ele-tri" viewBox="0 0 28 24" fill="none" aria-hidden="true">
+              <path d="M14 2L26 22H2L14 2Z" fill="#30A0D8"/>
+            </svg>
+            <span class="ele-num-overlay">03 / TRAVEL</span>
+            <img src="images/canbase.jpg" alt="CANBASE キャンピングカー拠点" onerror="this.style.display='none'" />
+          </div>
+          <div class="ele-content">
+            <h3 class="ele-name">CANBASE</h3>
+            <div class="ele-jp">キャンピングカー拠点</div>
+            <p class="ele-desc">「動く秘密基地」で、目的地ではなく道中すべてを遊び場に変える。家族だけの特等席で、まだ見ぬ景色と出会う。</p>
+            <div class="ele-tags">
+              <span class="ele-tag">レンタル</span>
+              <span class="ele-tag">車中泊文化</span>
+              <span class="ele-tag">北陸初「ナッツ」正規ディーラー</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Opening Event -->
+  <section class="opening" id="opening">
+    <div class="container">
+      <div class="opening-inner">
+        <div class="opening-date reveal">
+          <span class="label">Grand Opening</span>
+          <div class="day">5.30</div>
+          <div class="month-year">MAY 2026</div>
+          <div class="weekday">Saturday</div>
+        </div>
+        <div class="opening-content reveal reveal-delay-1">
+          <span class="label-faint">03 — Opening Event</span>
+          <h3>
+            <span class="gold">DJ やついいちろう</span>の音と、<br class="br-desktop">金沢の新たな門出を祝う一日。
+          </h3>
+          <p>
+            開業初日、地域の皆様と共に歩む施設としてのスタートを祝し、オープニングイベントを開催。お笑いコンビ「エレキコミック」のやついいちろう氏のDJステージをはじめ、地元学生・社会人による演奏やダンスパフォーマンスで、会場を熱狂の渦へ。
+          </p>
+
+          <div class="dj-feature">
+            <div class="dj-photo">
+              <img src="images/dj-yatsui.jpg" alt="DJ やついいちろう氏" />
+            </div>
+            <div class="dj-info">
+              <span class="badge">★ Special Guest</span>
+              <div class="nm">DJ YATSUI ICHIRO</div>
+              <div class="nm-jp">やついいちろう 氏</div>
+              <p class="bio">お笑いコンビ「エレキコミック」のメンバー。DJとしても日本全国のフェスに出演し、自身の名を冠した都市型周遊フェス「YATSUI FESTIVAL!」は、1日の出演者が200組を超える日本最大級の音楽フェスに成長。</p>
+            </div>
+          </div>
+
+          <div class="schedule">
+            <div class="schedule-row">
+              <div class="schedule-time">14:00</div>
+              <div class="schedule-content">
+                <div class="ttl">オープニングセレモニー</div>
+                <div class="desc">石川県知事、金沢市長、JR不動産開発 副社長、JR金沢支社 支社長によるご挨拶、テープカットを予定。</div>
+              </div>
+            </div>
+            <div class="schedule-row">
+              <div class="schedule-time">14:30</div>
+              <div class="schedule-content">
+                <div class="ttl">地域連携ステージ</div>
+                <div class="desc">地元学生・社会人による演奏、ダンスパフォーマンスなど。</div>
+              </div>
+            </div>
+            <div class="schedule-row">
+              <div class="schedule-time">18:00</div>
+              <div class="schedule-content">
+                <div class="ttl">メインゲストステージ</div>
+                <div class="desc">DJ やついいちろう 氏によるステージ。</div>
+              </div>
+            </div>
+            <div class="schedule-row">
+              <div class="schedule-time">— 20:00</div>
+              <div class="schedule-content">
+                <div class="ttl">クロージング</div>
+                <div class="desc">夕暮れから夜へ、はじまりの一夜。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>SCENE.</h2>
+        <div class="right">
+          <div class="label-faint" style="margin-bottom: 16px;">04 — Visual</div>
+          <p>金沢駅西口、広岡 3-3-3。<br>食・遊・旅が交差する一日が、ここから始まる。</p>
+        </div>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-cell tall reveal">
+          <img src="images/hero-facility.jpg" alt="Mitz 金沢 施設全景" onerror="this.style.display='none'" />
+          <div class="cap">
+            <div class="t">FACILITY OVERVIEW</div>
+            <div class="s">2 棟のトレーラーハウスが並ぶ、開放的な街角</div>
+          </div>
+        </div>
+        <div class="gallery-cell reveal reveal-delay-1">
+          <img src="images/n3w-trailer.jpg" alt="N3W" onerror="this.style.display='none'" />
+          <div class="cap">
+            <div class="t">N3W</div>
+            <div class="s">トレーラーハウス × 食</div>
+          </div>
+        </div>
+        <div class="gallery-cell reveal reveal-delay-2">
+          <img src="images/canbase.jpg" alt="CANBASE" onerror="this.style.display='none'" />
+          <div class="cap">
+            <div class="t">CANBASE</div>
+            <div class="s">夕日と、旅のはじまり</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLAY CONTENTS -->
+      <div class="contents-block reveal">
+        <div class="contents-block-head">
+          <span class="en">PLAY CONTENTS</span>
+          <span class="ja">体験コンテンツ</span>
+        </div>
+        <div class="activity-grid">
+          <div class="activity-card">
+            <div class="activity-card-badge" style="background:#3A7D35;">
+              <span class="badge-dot" style="background:rgba(255,255,255,0.5);"></span>
+              <span class="badge-name">コーンホール</span>
+            </div>
+            <div class="activity-card-body">
+              <p>アメリカで人気のコーンホール。誰でも気軽に楽しめる対戦ゲーム。</p>
+            </div>
+          </div>
+          <div class="activity-card">
+            <div class="activity-card-badge" style="background:#D03060;">
+              <span class="badge-dot" style="background:rgba(255,255,255,0.5);"></span>
+              <span class="badge-name">ビッグジェンガ</span>
+            </div>
+            <div class="activity-card-body">
+              <p>大きなジェンガにみんなで挑戦。ハラハラドキドキのバランスゲーム。</p>
+            </div>
+          </div>
+          <div class="activity-card">
+            <div class="activity-card-badge" style="background:#C86820;">
+              <span class="badge-dot" style="background:rgba(255,255,255,0.5);"></span>
+              <span class="badge-name">ジャイアントコネクト４</span>
+            </div>
+            <div class="activity-card-body">
+              <p>戦略がカギになる4目並べ。子どもから大人まで盛り上がれる！</p>
+            </div>
+          </div>
+          <div class="activity-card">
+            <div class="activity-card-badge" style="background:#6B3E22;">
+              <span class="badge-dot" style="background:rgba(255,255,255,0.5);"></span>
+              <span class="badge-name">ベンチ</span>
+            </div>
+            <div class="activity-card-body">
+              <p>パレットベンチでゆったりくつろぐ。食事や会話を楽しむ憩いのスペース。</p>
+            </div>
+          </div>
+          <div class="activity-card">
+            <div class="activity-card-badge" style="background:#C48A00;">
+              <span class="badge-dot" style="background:rgba(255,255,255,0.5);"></span>
+              <span class="badge-name">イルミネーション</span>
+            </div>
+            <div class="activity-card-body">
+              <p>やさしい光が会場を彩る。夜は幻想的な雰囲気に。</p>
+            </div>
+          </div>
+          <div class="activity-card">
+            <div class="activity-card-badge" style="background:#7A6248;">
+              <span class="badge-dot" style="background:rgba(255,255,255,0.5);"></span>
+              <span class="badge-name">パレット</span>
+            </div>
+            <div class="activity-card-body">
+              <p>自由に使えるパレットテーブル。置くだけでおしゃれな空間に。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FACILITY STRIP -->
+      <div class="contents-block reveal reveal-delay-1">
+        <div class="contents-block-head">
+          <span class="en">FACILITY</span>
+          <span class="ja">施設・設備</span>
+        </div>
+        <div class="facility-strip">
+          <div class="facility-card">
+            <div class="facility-card-label">トレーラー W11m（厨房 2店舗）</div>
+            <div class="facility-card-photo">
+              <img src="images/n3w-trailer.jpg" alt="トレーラー 厨房" />
+            </div>
+            <div class="facility-card-body">
+              <p>2つの厨房で多彩なフードを提供。バラエティ豊かなグルメが集まる。</p>
+            </div>
+          </div>
+          <div class="facility-card">
+            <div class="facility-card-label">トレーラー W11m（イートイン・WQ）</div>
+            <div class="facility-card-photo">
+              <img src="images/canbase.jpg" alt="イートイン" />
+            </div>
+            <div class="facility-card-body">
+              <p>イートインスペース＆WQで快適に過ごせる空間。</p>
+            </div>
+          </div>
+          <div class="facility-card">
+            <div class="facility-card-label">キャンピングカー展示 × 3台</div>
+            <div class="facility-card-photo">
+              <img src="images/hero-facility.jpg" alt="キャンピングカー" />
+            </div>
+            <div class="facility-card-body">
+              <p>最新のキャンピングカーを間近で見学・体験。旅への憧れが膨らむ。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Sponsors -->
+  <section class="sponsors" id="sponsors">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>SPONSOR<br><span class="gold">WITH US.</span></h2>
+        <div class="right">
+          <div class="label-faint" style="margin-bottom:16px;">06 — Sponsor</div>
+          <p>Mitz 金沢のオープニングを共に盛り上げるスポンサーを募集しています。<br>企業様・個人事業主様それぞれのプランをご用意しています。</p>
+        </div>
+      </div>
+      <div class="sponsor-grid">
+        <div class="sponsor-card reveal" data-tier="corporate">
+          <div class="sponsor-tier">CORPORATE <span class="tag-jp">法人・企業様</span></div>
+          <h3>企業スポンサー</h3>
+          <p class="lead">ブランド認知の向上、地域連携、採用など目的に合わせたプランで、金沢発の新しいカルチャーを一緒に育てましょう。</p>
+          <div class="sponsor-plans">
+            <span class="sponsor-plan">ロゴ掲出</span>
+            <span class="sponsor-plan">SNS 告知</span>
+            <span class="sponsor-plan">会場ブース</span>
+            <span class="sponsor-plan">イベント協賛</span>
+          </div>
+          <a href="https://forms.gle/kX6DdqRzAyYHSuyw9" class="sponsor-cta" target="_blank" rel="noopener">
+            企業スポンサーに申し込む
+            <span class="arrow">→</span>
+          </a>
+        </div>
+        <div class="sponsor-card reveal reveal-delay-1" data-tier="individual">
+          <div class="sponsor-tier">INDIVIDUAL <span class="tag-jp">個人事業主・個人様</span></div>
+          <h3>個人スポンサー</h3>
+          <p class="lead">個人事業主・フリーランスの方も歓迎。Mitz 金沢と一緒に地域の文化とビジネスをつなぐスポンサーシッププランです。</p>
+          <div class="sponsor-plans">
+            <span class="sponsor-plan">お名前掲載</span>
+            <span class="sponsor-plan">SNS 紹介</span>
+            <span class="sponsor-plan">特典招待</span>
+          </div>
+          <a href="https://forms.gle/41RWRfXQMzjVhAHA9" class="sponsor-cta" target="_blank" rel="noopener">
+            個人スポンサーに申し込む
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="sponsor-note reveal">
+        <strong>お問い合わせ</strong> — 詳細や個別相談は <a href="mailto:press@asumotor.com" style="color:var(--lantern);">press@asumotor.com</a> までお気軽にご連絡ください。
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Info -->
+  <section class="info" id="info">
+    <div class="container">
+      <div class="info-grid">
+        <div class="info-block reveal">
+          <div class="label">05 — Information</div>
+          <h3>SITE<br><span class="gold">DETAILS.</span></h3>
+          <div class="info-table">
+            <div class="info-row"><div class="info-key">Name</div><div class="info-val">Mitz 金沢（ミッツ カナザワ）</div></div>
+            <div class="info-row"><div class="info-key">Open</div><div class="info-val"><strong>2026.05.30 (土)</strong><span class="small">Grand Opening</span></div></div>
+            <div class="info-row"><div class="info-key">Hours</div><div class="info-val">11:00 — 22:00</div></div>
+            <div class="info-row"><div class="info-key">Address</div><div class="info-val">石川県金沢市広岡 3-3-3<span class="small">JR金沢駅 西口エリア</span></div></div>
+            <div class="info-row"><div class="info-key">Seats</div><div class="info-val">40席（店内）</div></div>
+            <div class="info-row"><div class="info-key">Format</div><div class="info-val">屋外型カルチャーハブ<span class="small">食 × 遊 × 旅 / ライブ・DJ・体験</span></div></div>
+            <div class="info-row"><div class="info-key">Target</div><div class="info-val">20〜40代を中心とした地元・来場者</div></div>
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-1">
+          <div class="map-card">
+            <div class="map-card-header">
+              <div class="map-card-logo">
+                <img src="images/mitz-logo-color-h.png" alt="Mitz 金沢" class="map-logo-img map-logo-color">
+                <img src="images/mitz-logo-white-h.png" alt="Mitz 金沢" class="map-logo-img map-logo-white">
+              </div>
+            </div>
+            <div class="addr">
+              <span class="gold">広岡 3-3-3</span> — 住所そのものをブランドに。<br>
+              3つの「3」は、<span class="gold">食・遊・旅</span>の調和。
+            </div>
+            <div class="station">
+              <span class="icon"></span>
+              JR 金沢駅 西口エリア
+            </div>
+            <div class="map-embed">
+              <iframe
+                src="https://maps.google.com/maps?q=%E7%9F%B3%E5%B7%9D%E7%9C%8C%E9%87%91%E6%B2%A2%E5%B8%82%E5%BA%83%E5%B2%A13-3-3&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Mitz 金沢 アクセスマップ">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="cta">
+    <div class="container">
+      <span class="label">Stay Tuned</span>
+      <h2 class="reveal">SEE YOU<br><span class="gold">5 / 30.</span></h2>
+      <p class="cta-sub reveal reveal-delay-1">
+        2026年5月30日(土)、金沢駅西口で会いましょう。<br>
+        最新情報は公式サイトと SNS でお届けします。
+      </p>
+      <div class="cta-buttons reveal reveal-delay-2">
+        <a href="https://www.instagram.com/mitz_kanazawa" class="btn-primary" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+          Instagram をフォロー
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src="images/mitz-logo-white-v.png" alt="Mitz 金沢" />
+          </div>
+          <p class="tag">日常の役割を脱ぎ捨て、「3番目の自分」へと帰る場所。</p>
+        </div>
+        <div class="partners">
+          <div class="label">Partners</div>
+          <div class="partner-list">
+            <div class="partner">
+              <div class="role">Group</div>
+              <div class="nm">JR 西日本グループ<br><span style="color:var(--ink-muted);font-size:12px;">金沢支社 / 不動産開発</span></div>
+            </div>
+            <div class="partner">
+              <div class="role">Placemaking</div>
+              <div class="nm">UAP<br><span style="color:var(--ink-muted);font-size:12px;">Urban Asset Placemakers</span></div>
+            </div>
+            <div class="partner">
+              <div class="role">Operator</div>
+              <div class="nm">株式会社 アスモーター<br><span style="color:var(--ink-muted);font-size:12px;">北陸初「ナッツ」正規ディーラー</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-contact">
+          <a href="https://www.instagram.com/mitz_kanazawa" target="_blank" rel="noopener">@mitz_kanazawa</a>
+          <a href="mailto:press@asumotor.com">press@asumotor.com</a>
+          <a href="https://mitz-kanazawa.com">mitz-kanazawa.com</a>
+        </div>
+        <div class="footer-copy">© 2026 Mitz Kanazawa. All Rights Reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById("nav");
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("scrolled", window.scrollY > 60);
+    });
+
+    // Countdown
+    const target = new Date("2026-05-30T14:00:00+09:00").getTime();
+    const els = {
+      d: document.getElementById("cd-d"),
+      h: document.getElementById("cd-h"),
+      m: document.getElementById("cd-m"),
+      s: document.getElementById("cd-s"),
+    };
+    function pad(n) { return String(Math.max(0, n)).padStart(2, "0"); }
+    function tick() {
+      const diff = target - Date.now();
+      if (diff <= 0) {
+        els.d.textContent = "00";
+        els.h.textContent = "00";
+        els.m.textContent = "00";
+        els.s.textContent = "00";
+        return;
+      }
+      const sec = Math.floor(diff / 1000);
+      els.d.textContent = pad(Math.floor(sec / 86400));
+      els.h.textContent = pad(Math.floor((sec % 86400) / 3600));
+      els.m.textContent = pad(Math.floor((sec % 3600) / 60));
+      els.s.textContent = pad(sec % 60);
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    // Theme toggle
+    const ROOT = document.documentElement;
+    const toggle = document.getElementById("themeToggle");
+    function setTheme(t) {
+      ROOT.setAttribute("data-theme", t);
+      try { localStorage.setItem("mitz-theme", t); } catch (e) {}
+      try {
+        document.querySelector('meta[name="theme-color"]').setAttribute("content", t === "dark" ? "#0F1115" : "#FAFAF7");
+      } catch (e) {}
+    }
+    if (toggle) {
+      toggle.addEventListener("click", () => {
+        const cur = ROOT.getAttribute("data-theme") || "light";
+        setTheme(cur === "light" ? "dark" : "light");
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
+
+</body>
+</html>
