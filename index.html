@@ -19,14 +19,14 @@
   <meta property="og:title" content="Mitz 金沢 — 2026.05.30 GRAND OPEN" />
   <meta property="og:description" content="日常の役割を脱ぎ捨て、「3番目の自分」へと帰る場所。" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://mitz-kanazawa.com/" />
+  <meta property="og:url" content="https://norinity1103.github.io/mitz-kanazawa-review/" />
   <meta property="og:site_name" content="Mitz 金沢" />
   <meta property="og:locale" content="ja_JP" />
-  <meta property="og:image" content="https://mitz-kanazawa.com/images/hero-facility.jpg" />
+  <meta property="og:image" content="https://norinity1103.github.io/mitz-kanazawa-review/images/hero-facility.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Mitz 金沢 — 2026.05.30 GRAND OPEN" />
   <meta name="twitter:description" content="日常の役割を脱ぎ捨て、「3番目の自分」へと帰る場所。" />
-  <link rel="canonical" href="https://mitz-kanazawa.com/" />
+  <link rel="canonical" href="https://norinity1103.github.io/mitz-kanazawa-review/" />
   <meta name="theme-color" content="#0F1115" />
 
   <!-- Structured data: Place + Event -->
@@ -36,12 +36,12 @@
     "@graph": [
       {
         "@type": "Place",
-        "@id": "https://mitz-kanazawa.com/#place",
+        "@id": "https://norinity1103.github.io/mitz-kanazawa-review/#place",
         "name": "Mitz 金沢",
         "alternateName": "ミッツ カナザワ",
         "description": "日常の役割を脱ぎ捨て、「3番目の自分」へと帰る場所。食・遊・旅が交差する、大人も子どもも楽しめる体験型カルチャーハブ。",
-        "url": "https://mitz-kanazawa.com/",
-        "image": "https://mitz-kanazawa.com/images/hero-facility.jpg",
+        "url": "https://norinity1103.github.io/mitz-kanazawa-review/",
+        "image": "https://norinity1103.github.io/mitz-kanazawa-review/images/hero-facility.jpg",
         "address": {
           "@type": "PostalAddress",
           "addressCountry": "JP",
@@ -54,26 +54,26 @@
       },
       {
         "@type": "Event",
-        "@id": "https://mitz-kanazawa.com/#opening-event",
+        "@id": "https://norinity1103.github.io/mitz-kanazawa-review/#opening-event",
         "name": "Mitz 金沢 グランドオープニングイベント",
         "description": "DJ やついいちろう氏のステージを含む、Mitz 金沢の開業初日記念イベント。地元学生・社会人による演奏、ダンスパフォーマンス、オープニングセレモニー。",
         "startDate": "2026-05-30T14:00+09:00",
         "endDate": "2026-05-30T20:00+09:00",
         "eventStatus": "https://schema.org/EventScheduled",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-        "location": { "@id": "https://mitz-kanazawa.com/#place" },
-        "image": "https://mitz-kanazawa.com/images/hero-facility.jpg",
+        "location": { "@id": "https://norinity1103.github.io/mitz-kanazawa-review/#place" },
+        "image": "https://norinity1103.github.io/mitz-kanazawa-review/images/hero-facility.jpg",
         "performer": [
           { "@type": "Person", "name": "DJ やついいちろう" }
         ],
         "organizer": {
           "@type": "Organization",
           "name": "Mitz 金沢 運営事務局",
-          "url": "https://mitz-kanazawa.com/"
+          "url": "https://norinity1103.github.io/mitz-kanazawa-review/"
         },
         "offers": {
           "@type": "Offer",
-          "url": "https://mitz-kanazawa.com/#cta",
+          "url": "https://norinity1103.github.io/mitz-kanazawa-review/#cta",
           "availability": "https://schema.org/InStock",
           "price": "0",
           "priceCurrency": "JPY",
@@ -298,7 +298,7 @@
       align-items: center;
       gap: 1px;
       font-family: "Noto Sans JP", sans-serif;
-      font-size: 13px;
+      font-size: 15px;
       letter-spacing: 0.06em;
       color: var(--ink-muted);
       font-weight: 500;
@@ -316,7 +316,7 @@
     }
     .nav-links a .en {
       font-family: "Bebas Neue", "Inter", sans-serif;
-      font-size: 9px;
+      font-size: 10px;
       letter-spacing: 0.22em;
       color: var(--ink-faint);
       font-weight: 400;
@@ -776,7 +776,7 @@
       text-align: center;
     }
     .countdown-label {
-      font-size: 9px;
+      font-size: 10px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--on-photo-ink-soft);
@@ -792,7 +792,7 @@
       align-items: baseline;
     }
     .hero-info .row {
-      font-size: 13px;
+      font-size: 15px;
       line-height: 1.8;
       color: var(--on-photo-ink);
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
@@ -1035,6 +1035,29 @@
       font-size: 14px;
       line-height: 1.9;
     }
+    .section-head .label-faint,
+    .opening-content > .label-faint {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: clamp(13px, 1.15vw, 16px);
+      font-weight: 700;
+      line-height: 1.45;
+      letter-spacing: 0.14em;
+      color: var(--ink);
+      text-transform: none;
+    }
+    .section-head .label-faint::before,
+    .opening-content > .label-faint::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--lantern);
+      flex-shrink: 0;
+    }
+    .opening-content > .label-faint {
+      margin-bottom: 14px;
+    }
     @media (max-width: 768px) {
       .section-head { gap: 24px; margin-bottom: 48px; }
       .section-head .right { padding-bottom: 0; }
@@ -1118,7 +1141,7 @@
       left: 24px;
       z-index: 2;
       font-family: "Bebas Neue", sans-serif;
-      font-size: 13px;
+      font-size: 15px;
       letter-spacing: 0.3em;
       color: var(--lantern-soft);
       padding: 6px 14px;
@@ -1178,16 +1201,49 @@
     }
     .opening-inner {
       display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 80px;
-      align-items: center;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: start;
     }
-    @media (max-width: 900px) { .opening-inner { grid-template-columns: 1fr; gap: 48px; } }
-    .opening-date { text-align: center; }
-    .opening-date .label { display: block; margin-bottom: 24px; }
+    .opening-date {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 26px;
+      align-items: start;
+      padding: 34px 0 38px;
+      border-bottom: 1px solid rgba(232, 185, 106, 0.24);
+      text-align: left;
+    }
+    .opening-date .event-word {
+      display: block;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(96px, 15vw, 190px);
+      line-height: 0.82;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0;
+      text-shadow: 0 0 28px rgba(232, 185, 106, 0.28);
+    }
+    .opening-date .event-word::after {
+      content: "OPENING";
+      display: block;
+      margin-top: 10px;
+      font-size: 20px;
+      line-height: 1;
+      color: var(--lantern);
+      letter-spacing: 0.34em;
+      text-shadow: none;
+    }
+    .opening-date .date-stack {
+      display: grid;
+      justify-items: start;
+      text-align: left;
+    }
+    .opening-date .label { display: block; margin-bottom: 18px; }
     .opening-date .day {
       font-family: "Bebas Neue", sans-serif;
-      font-size: clamp(120px, 18vw, 220px);
+      font-size: clamp(108px, 16vw, 210px);
       line-height: 0.85;
       color: var(--lantern);
       font-style: italic;
@@ -1200,11 +1256,18 @@
       margin-top: 16px;
     }
     .opening-date .weekday {
-      font-size: 13px;
+      font-size: 15px;
       letter-spacing: 0.3em;
       color: var(--ink-muted);
       margin-top: 6px;
       text-transform: uppercase;
+    }
+    @media (max-width: 760px) {
+      .opening-inner { gap: 42px; }
+      .opening-date {
+        gap: 22px;
+        padding-top: 18px;
+      }
     }
     .opening-content h3 {
       font-family: "Noto Serif JP", serif;
@@ -1254,13 +1317,21 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 50% 22%;
-      transform: scale(1.72);
-      transform-origin: 50% 28%;
+      object-position: 50% 34%;
+      transform: scale(1.48);
+      transform-origin: 50% 36%;
       transition: transform 0.6s ease;
     }
     .dj-photo:hover img {
-      transform: scale(1.80);
+      transform: scale(1.56);
+    }
+    @media (max-width: 700px) {
+      .dj-photo img {
+        object-position: 50% 28%;
+        transform: scale(1.62);
+        transform-origin: 50% 30%;
+      }
+      .dj-photo:hover img { transform: scale(1.68); }
     }
     .dj-info .badge {
       display: inline-block;
@@ -1282,60 +1353,521 @@
       line-height: 1.05;
     }
     .dj-info .nm-jp {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--lantern);
       margin-top: 4px;
       letter-spacing: 0.16em;
       font-weight: 700;
     }
     .dj-info .bio {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--ink-muted);
       line-height: 1.85;
       margin-top: 12px;
     }
 
-    .schedule {
-      margin-top: 40px;
-      border-top: 1px solid var(--line);
+    .local-event-lineup {
+      margin-top: 22px;
     }
-    .schedule-row {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 24px;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--line);
+    .local-event-head {
+      display: flex;
+      justify-content: space-between;
       align-items: baseline;
+      gap: 18px;
+      margin-bottom: 14px;
     }
-    .schedule-time {
-      font-family: "Bebas Neue", sans-serif;
-      font-size: 24px;
+    .local-event-head .label {
       color: var(--lantern);
-      letter-spacing: 0.04em;
-    }
-    .schedule-content .ttl {
-      font-size: 15px;
-      color: var(--ink);
-      font-weight: 700;
-      letter-spacing: 0.04em;
-    }
-    .schedule-content .desc {
-      font-size: 13px;
-      color: var(--ink-muted);
-      margin-top: 4px;
-      line-height: 1.7;
-    }
-    .schedule-content .guest {
-      display: inline-block;
-      padding: 4px 12px;
-      background: var(--lantern);
-      color: var(--bg-base);
-      border-radius: 999px;
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.12em;
-      margin-top: 8px;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
+    }
+    .local-event-head p {
+      margin: 0;
+      color: var(--ink-muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+    .local-event-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 820px) {
+      .local-event-head { flex-direction: column; }
+      .local-event-grid { grid-template-columns: 1fr; }
+      .local-event-photo { height: 230px; }
+    }
+    .local-event-card {
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(232, 185, 106, 0.22);
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .local-event-photo {
+      position: relative;
+      height: 190px;
+      overflow: hidden;
+      background: var(--bg-soft);
+    }
+    .local-event-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .local-event-card:hover .local-event-photo img { transform: scale(1.06); }
+    .local-event-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 35%, rgba(25, 18, 12, 0.72) 100%);
+      pointer-events: none;
+    }
+    .local-event-type {
+      position: absolute;
+      left: 12px;
+      bottom: 10px;
+      z-index: 1;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 20px;
+      color: var(--lantern-soft);
+      letter-spacing: 0.06em;
+    }
+    .local-event-body {
+      padding: 14px 14px 16px;
+    }
+    .local-event-title {
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.55;
+      letter-spacing: 0.04em;
+    }
+    .local-event-names {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 10px;
+    }
+    .local-event-names span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(232, 185, 106, 0.1);
+      color: var(--ink-muted);
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .schedule {
+      margin-top: 42px;
+      padding: 30px;
+      border: 1px solid rgba(232, 185, 106, 0.24);
+      border-radius: 22px;
+      background:
+        linear-gradient(135deg, rgba(232, 185, 106, 0.10) 0%, rgba(255, 255, 255, 0.02) 100%),
+        var(--bg-card);
+    }
+    .schedule-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 28px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    .schedule-head .kicker {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--lantern);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .schedule-head h4 {
+      margin: 0;
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(22px, 2.4vw, 30px);
+      line-height: 1.35;
+      color: var(--ink);
+      letter-spacing: 0.04em;
+    }
+    .schedule-stage {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 28px;
+      color: var(--lantern-soft);
+      letter-spacing: 0.08em;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .stage-timeline {
+      --timeline-start: 660;
+      --timeline-end: 1230;
+      position: relative;
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 24px;
+      min-height: 620px;
+    }
+    .stage-hours {
+      position: relative;
+      border-right: 1px solid rgba(232, 185, 106, 0.26);
+    }
+    .stage-hour {
+      position: absolute;
+      right: 18px;
+      top: calc((var(--hour) - var(--timeline-start)) / (var(--timeline-end) - var(--timeline-start)) * 100%);
+      transform: translateY(-50%);
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 20px;
+      color: var(--ink-muted);
+      letter-spacing: 0.05em;
+    }
+    .stage-hour::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -19px;
+      width: 8px;
+      height: 1px;
+      background: rgba(232, 185, 106, 0.34);
+    }
+    .stage-track {
+      position: relative;
+      border-left: 1px solid rgba(232, 185, 106, 0.26);
+      background: linear-gradient(180deg, rgba(232, 185, 106, 0.08), rgba(232, 185, 106, 0.02));
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .stage-track::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(to bottom, rgba(232, 185, 106, 0.12) 1px, transparent 1px);
+      background-size: 100% calc(100% / 9.5);
+      pointer-events: none;
+    }
+    .stage-event {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      top: calc((var(--start) - var(--timeline-start)) / (var(--timeline-end) - var(--timeline-start)) * 100%);
+      height: max(42px, calc((var(--end) - var(--start)) / (var(--timeline-end) - var(--timeline-start)) * 100%));
+      display: grid;
+      grid-template-columns: minmax(106px, 0.28fr) 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(232, 185, 106, 0.26);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.08);
+    }
+    .stage-event-time {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 20px;
+      color: var(--lantern);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    .stage-event-title {
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      line-height: 1.45;
+    }
+    .stage-event-title .min {
+      color: var(--ink-muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-left: 8px;
+    }
+    .stage-event::before {
+      content: "";
+      width: 5px;
+      align-self: stretch;
+      border-radius: 999px;
+      background: var(--event-color, var(--lantern));
+      grid-row: 1;
+      grid-column: 1;
+      position: absolute;
+      left: 0;
+      top: 10px;
+      bottom: 10px;
+    }
+    .stage-event.type-wind { --event-color: #35516d; --event-bg: rgba(53, 81, 109, 0.16); --event-border: rgba(73, 103, 132, 0.42); }
+    .stage-event.type-open,
+    .stage-event.type-opening { --event-color: #d28b3f; --event-bg: rgba(210, 139, 63, 0.18); --event-border: rgba(232, 185, 106, 0.52); }
+    .stage-event.type-dance { --event-color: #bd6a5d; --event-bg: rgba(189, 106, 93, 0.17); --event-border: rgba(189, 106, 93, 0.42); }
+    .stage-event.type-band { --event-color: #5c7d55; --event-bg: rgba(92, 125, 85, 0.18); --event-border: rgba(92, 125, 85, 0.42); }
+    .stage-event.type-dj,
+    .stage-event.type-djGuest { --event-color: #1c2530; --event-bg: rgba(28, 37, 48, 0.26); --event-border: rgba(42, 52, 64, 0.55); }
+    .stage-event {
+      background: var(--event-bg, rgba(255, 255, 255, 0.06));
+      border-color: var(--event-border, rgba(232, 185, 106, 0.26));
+    }
+    .stage-event.is-highlight {
+      background: linear-gradient(135deg, var(--event-bg, rgba(232, 185, 106, 0.26)), rgba(255, 255, 255, 0.04));
+      border-color: var(--event-border, rgba(232, 185, 106, 0.48));
+    }
+    @media (max-width: 820px) {
+      .schedule { padding: 24px 18px; }
+      .schedule-head { grid-template-columns: 1fr; }
+      .schedule-stage { text-align: left; }
+      .stage-timeline {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        min-height: 0;
+      }
+      .stage-hours { display: none; }
+      .stage-track {
+        display: grid;
+        gap: 10px;
+        border-left: 0;
+        background: transparent;
+        border-radius: 0;
+        overflow: visible;
+      }
+      .stage-track::before { display: none; }
+      .stage-event {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        height: auto;
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 15px 16px;
+      }
+      .stage-event-time { font-size: 22px; }
+      .stage-event-title { font-size: 14px; }
+      .stage-event-title .min { display: block; margin-left: 0; margin-top: 4px; }
+    }
+
+    /* Spacious schedule list: prioritize readability over exact vertical scale. */
+    .schedule {
+      position: relative;
+      overflow: hidden;
+    }
+    .schedule::before {
+      content: "";
+      position: absolute;
+      top: -80px;
+      right: -90px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232, 185, 106, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .schedule-head {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 34px;
+    }
+    .stage-timeline {
+      display: block !important;
+      min-height: 0 !important;
+      padding: 0 !important;
+      position: relative;
+      z-index: 1;
+    }
+    .stage-hours {
+      display: none !important;
+    }
+    .stage-track {
+      display: grid !important;
+      gap: 16px;
+      border-left: 0 !important;
+      background: transparent !important;
+      border-radius: 0 !important;
+      overflow: visible !important;
+      padding: 0 !important;
+    }
+    .stage-track::before {
+      display: none !important;
+    }
+    .stage-event {
+      position: relative !important;
+      left: auto !important;
+      right: auto !important;
+      top: auto !important;
+      height: auto !important;
+      min-height: 84px;
+      display: grid;
+      grid-template-columns: 176px 1fr;
+      gap: 26px;
+      align-items: center;
+      padding: 20px 24px 20px 48px;
+      border-radius: 18px;
+      box-shadow: 0 14px 36px rgba(0,0,0,0.065);
+    }
+    .stage-event::before {
+      left: 22px;
+      top: 18px;
+      bottom: 18px;
+      width: 4px;
+    }
+    .stage-event-time {
+      position: relative;
+      z-index: 1;
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+      color: var(--event-color, var(--lantern));
+    }
+    .stage-event-title {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .stage-event-title .min {
+      opacity: 0.74;
+    }
+    @media (max-width: 640px) {
+      .schedule {
+        padding: 24px 16px;
+        border-radius: 18px;
+      }
+      .schedule-head {
+        margin-bottom: 24px;
+      }
+      .stage-track {
+        gap: 12px;
+      }
+      .stage-event {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        min-height: 0;
+        padding: 17px 18px 17px 46px;
+      }
+      .stage-event::before {
+        left: 22px;
+      }
+      .stage-event-time {
+        font-size: 22px;
+      }
+    }
+
+    .parking-guide {
+      margin-top: 34px;
+      padding: 28px;
+      background:
+        linear-gradient(135deg, rgba(232, 185, 106, 0.12) 0%, rgba(255, 255, 255, 0.02) 100%),
+        var(--bg-card);
+      border: 1px solid rgba(232, 185, 106, 0.28);
+      border-radius: 20px;
+    }
+    .parking-guide-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+      margin-bottom: 22px;
+    }
+    @media (max-width: 700px) {
+      .parking-guide { padding: 22px; }
+      .parking-guide-head { flex-direction: column; }
+    }
+    .parking-guide-kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 18px;
+      letter-spacing: 0.12em;
+      color: var(--lantern);
+      text-transform: uppercase;
+    }
+    .parking-guide h4 {
+      margin: 0;
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(18px, 2vw, 24px);
+      color: var(--ink);
+      line-height: 1.45;
+      letter-spacing: 0.04em;
+    }
+    .parking-guide-note {
+      max-width: 240px;
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--ink-muted);
+    }
+    .parking-guide-body {
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      gap: 22px;
+      align-items: stretch;
+    }
+    @media (max-width: 760px) {
+      .parking-guide-body { grid-template-columns: 1fr; }
+    }
+    .parking-map {
+      display: block;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+    .parking-map img {
+      width: 100%;
+      height: 100%;
+      min-height: 250px;
+      object-fit: cover;
+      object-position: 58% 50%;
+      filter: saturate(0.96) contrast(1.02);
+    }
+    .parking-points {
+      display: grid;
+      gap: 12px;
+    }
+    .parking-point {
+      padding: 15px 16px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--line);
+    }
+    .parking-point .num {
+      display: block;
+      margin-bottom: 6px;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 22px;
+      color: var(--lantern);
+      letter-spacing: 0.08em;
+    }
+    .parking-point .ttl {
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .parking-point p {
+      margin: 6px 0 0;
+      color: var(--ink-muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+    .parking-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 42px;
+      margin-top: 4px;
+      border-radius: 999px;
+      background: var(--lantern);
+      color: var(--bg-base);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
     }
 
     /* ========== Gallery ========== */
@@ -1411,7 +1943,7 @@
       line-height: 1;
     }
     .contents-block-head .ja {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--ink-muted);
       letter-spacing: 0.12em;
     }
@@ -1451,7 +1983,7 @@
     }
     .activity-card-badge .badge-name {
       font-family: "Noto Sans JP", sans-serif;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 700;
       color: #fff;
       letter-spacing: 0.04em;
@@ -1592,7 +2124,7 @@
     [data-theme="light"] .map-logo-color { display: block; }
     [data-theme="dark"]  .map-logo-white { display: block; }
     .map-card .addr {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--ink);
       line-height: 1.8;
     }
@@ -1640,9 +2172,9 @@
       right: 24px;
       z-index: 80;
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-      align-items: flex-end;
+      flex-direction: row;
+      gap: 12px;
+      align-items: stretch;
       pointer-events: none;
       opacity: 0;
       transform: translateY(20px);
@@ -1652,28 +2184,30 @@
     .floating-actions > * { pointer-events: auto; }
 
     .fa-event {
+      position: relative;
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      padding: 10px 18px 10px 12px;
-      background: linear-gradient(135deg, rgba(232, 185, 106, 0.96) 0%, rgba(201, 154, 74, 0.96) 100%);
+      gap: 14px;
+      width: 250px;
+      min-height: 72px;
+      padding: 12px 18px 12px 14px;
+      background: linear-gradient(135deg, rgba(232, 185, 106, 0.98) 0%, rgba(201, 154, 74, 0.98) 100%);
       color: #1F1812;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(232, 185, 106, 0.4);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.32), 0 0 0 1px rgba(232, 185, 106, 0.38);
       text-decoration: none;
       font-family: "Noto Sans JP", sans-serif;
       font-weight: 700;
       letter-spacing: 0.04em;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
       animation: faGlow 3s ease-in-out infinite;
-      max-width: 320px;
     }
-    .fa-event:hover { transform: translateX(-4px); opacity: 1; }
+    .fa-event:hover { transform: translateY(-4px); opacity: 1; }
     .fa-event-avatar {
       flex-shrink: 0;
-      width: 36px;
-      height: 36px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       overflow: hidden;
       background: rgba(15, 17, 21, 0.18);
@@ -1695,20 +2229,20 @@
     }
     .fa-event-label {
       font-family: "Inter", sans-serif;
-      font-size: 9px;
+      font-size: 10px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       font-weight: 700;
       opacity: 0.75;
     }
     .fa-event-title {
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 900;
       letter-spacing: 0.02em;
     }
     .fa-event-meta {
       font-family: "Bebas Neue", sans-serif;
-      font-size: 12px;
+      font-size: 14px;
       letter-spacing: 0.06em;
       opacity: 0.85;
     }
@@ -1720,39 +2254,61 @@
     .fa-instagram {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      padding: 10px 18px 10px 14px;
+      width: 250px;
+      min-height: 72px;
+      padding: 12px 18px;
       background: linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #F77737 100%);
       color: #FFFFFF;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
       text-decoration: none;
       font-family: "Noto Sans JP", sans-serif;
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 14px;
+      font-weight: 800;
       letter-spacing: 0.04em;
-      box-shadow: 0 12px 24px rgba(225, 48, 108, 0.4);
+      box-shadow: 0 14px 30px rgba(225, 48, 108, 0.38);
       transition: transform 0.25s ease;
     }
-    .fa-instagram:hover { transform: translateX(-4px); opacity: 1; }
-    .fa-instagram svg { width: 16px; height: 16px; }
+    .fa-instagram:hover { transform: translateY(-4px); opacity: 1; }
+    .fa-instagram svg { width: 20px; height: 20px; flex-shrink: 0; }
     .fa-instagram .handle {
       font-family: "Inter", sans-serif;
-      font-size: 11px;
-      opacity: 0.9;
+      font-size: 12px;
+      opacity: 0.92;
       letter-spacing: 0.02em;
+      white-space: nowrap;
     }
 
     @media (max-width: 640px) {
       .floating-actions {
         bottom: 12px;
         right: 12px;
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-end;
       }
-      .fa-event { padding: 8px 14px 8px 10px; max-width: 260px; }
+      .fa-event {
+        width: auto;
+        min-height: 0;
+        padding: 8px 14px 8px 10px;
+        max-width: 260px;
+        border-radius: 999px;
+      }
       .fa-event-avatar { width: 32px; height: 32px; }
+      .fa-event-label { font-size: 9px; }
       .fa-event-title { font-size: 12px; }
       .fa-event-meta { font-size: 11px; }
-      .fa-instagram { padding: 9px 14px 9px 12px; font-size: 11px; }
+      .fa-instagram {
+        width: auto;
+        min-height: 0;
+        padding: 9px 14px 9px 12px;
+        border-radius: 999px;
+        font-size: 11px;
+      }
+      .fa-instagram svg { width: 16px; height: 16px; }
+      .fa-instagram .handle { font-size: 11px; }
     }
 
     /* ========== Sponsors ========== */
@@ -1866,7 +2422,7 @@
       color: var(--bg-base);
       border-radius: 999px;
       font-family: "Noto Sans JP", sans-serif;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-decoration: none;
@@ -1888,7 +2444,7 @@
       background: rgba(232, 185, 106, 0.06);
       border: 1px dashed var(--line-strong);
       border-radius: 14px;
-      font-size: 13px;
+      font-size: 15px;
       color: var(--ink-muted);
       line-height: 1.85;
       text-align: center;
@@ -1969,7 +2525,7 @@
       color: var(--bg-base);
       border-radius: 999px;
       font-family: "Noto Sans JP", sans-serif;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-decoration: none;
@@ -2084,7 +2640,7 @@
       color: var(--bg-base);
       border-radius: 999px;
       font-family: "Noto Sans JP", sans-serif;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-decoration: none;
@@ -2203,7 +2759,7 @@
     .btn-primary, .btn-outline {
       padding: 18px 36px;
       border-radius: 999px;
-      font-size: 13px;
+      font-size: 15px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       font-weight: 700;
@@ -2656,10 +3212,13 @@
     <div class="container">
       <div class="opening-inner">
         <div class="opening-date reveal">
-          <span class="label">Grand Opening</span>
-          <div class="day">5.30</div>
-          <div class="month-year">MAY 2026</div>
-          <div class="weekday">Saturday</div>
+          <span class="event-word">EVENT</span>
+          <div class="date-stack">
+            <span class="label">Grand Opening</span>
+            <div class="day">5.30</div>
+            <div class="month-year">MAY 2026</div>
+            <div class="weekday">Saturday</div>
+          </div>
         </div>
         <div class="opening-content reveal reveal-delay-1">
           <span class="label-faint">03 — Opening Event</span>
@@ -2682,33 +3241,150 @@
             </div>
           </div>
 
-          <div class="schedule">
-            <div class="schedule-row">
-              <div class="schedule-time">14:00</div>
-              <div class="schedule-content">
-                <div class="ttl">オープニングセレモニー</div>
-                <div class="desc">石川県知事、金沢市長、JR不動産開発 副社長、JR金沢支社 支社長によるご挨拶、テープカットを予定。</div>
+          <div class="local-event-lineup">
+            <div class="local-event-head">
+              <span class="label">Local Performers</span>
+              <p>地元からも多彩な出演者が集まり、開業初日のステージを彩ります。</p>
+            </div>
+            <div class="local-event-grid">
+              <article class="local-event-card">
+                <div class="local-event-photo">
+                  <img loading="lazy" decoding="async" src="images/event-brass.png" alt="吹奏楽の演奏イメージ" />
+                  <span class="local-event-type">BRASS</span>
+                </div>
+                <div class="local-event-body">
+                  <div class="local-event-title">地元学生・社会人による吹奏楽</div>
+                  <div class="local-event-names">
+                    <span>金岩中学校吹奏楽部</span>
+                    <span>Laららブラス</span>
+                  </div>
+                </div>
+              </article>
+              <article class="local-event-card">
+                <div class="local-event-photo">
+                  <img loading="lazy" decoding="async" src="images/event-dance.png" alt="ダンスパフォーマンスのイメージ" />
+                  <span class="local-event-type">DANCE</span>
+                </div>
+                <div class="local-event-body">
+                  <div class="local-event-title">ダンスパフォーマンス</div>
+                  <div class="local-event-names">
+                    <span>遊学館高校ダンス部</span>
+                    <span>ダンススクールFLAG</span>
+                    <span>ストナビ</span>
+                  </div>
+                </div>
+              </article>
+              <article class="local-event-card">
+                <div class="local-event-photo">
+                  <img loading="lazy" decoding="async" src="images/event-band.png" alt="地元バンド演奏のイメージ" />
+                  <span class="local-event-type">LIVE & DJ</span>
+                </div>
+                <div class="local-event-body">
+                  <div class="local-event-title">地元バンド・DJの演奏</div>
+                  <div class="local-event-names">
+                    <span>サカナノメ</span>
+                    <span>BROTHER HOOD</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="schedule" id="event-schedule">
+            <div class="schedule-head">
+              <div>
+                <span class="kicker">Mitz 金沢</span>
+                <h4>イベントスケジュール</h4>
+              </div>
+              <div class="schedule-stage">Mitz Stage</div>
+            </div>
+            <div class="stage-timeline" aria-label="Mitz Stage イベントスケジュール">
+              <div class="stage-hours" aria-hidden="true">
+                <span class="stage-hour" style="--hour:660">11:00</span>
+                <span class="stage-hour" style="--hour:720">12:00</span>
+                <span class="stage-hour" style="--hour:780">13:00</span>
+                <span class="stage-hour" style="--hour:840">14:00</span>
+                <span class="stage-hour" style="--hour:900">15:00</span>
+                <span class="stage-hour" style="--hour:960">16:00</span>
+                <span class="stage-hour" style="--hour:1020">17:00</span>
+                <span class="stage-hour" style="--hour:1080">18:00</span>
+                <span class="stage-hour" style="--hour:1140">19:00</span>
+                <span class="stage-hour" style="--hour:1200">20:00</span>
+              </div>
+              <div class="stage-track">
+                <article class="stage-event type-wind" style="--start:720; --end:780">
+                  <time class="stage-event-time">12:00 - 13:00</time>
+                  <div class="stage-event-title">吹奏楽リハーサル</div>
+                </article>
+                <article class="stage-event type-open is-open" style="--start:810; --end:870">
+                  <time class="stage-event-time">13:30 - 14:30</time>
+                  <div class="stage-event-title">Event Open</div>
+                </article>
+                <article class="stage-event type-opening is-highlight" style="--start:860; --end:875">
+                  <time class="stage-event-time">14:20 - 14:35</time>
+                  <div class="stage-event-title">Opening Ceremony <span class="min">15min</span></div>
+                </article>
+                <article class="stage-event type-wind" style="--start:875; --end:895">
+                  <time class="stage-event-time">14:35 - 14:55</time>
+                  <div class="stage-event-title">吹奏楽① <span class="min">20min</span></div>
+                </article>
+                <article class="stage-event type-wind" style="--start:895; --end:915">
+                  <time class="stage-event-time">14:55 - 15:15</time>
+                  <div class="stage-event-title">吹奏楽② <span class="min">20min</span></div>
+                </article>
+                <article class="stage-event type-wind" style="--start:915; --end:945">
+                  <time class="stage-event-time">15:15 - 15:45</time>
+                  <div class="stage-event-title">吹奏楽③ <span class="min">30min</span></div>
+                </article>
+                <article class="stage-event type-dance" style="--start:960; --end:1020">
+                  <time class="stage-event-time">16:00 - 17:00</time>
+                  <div class="stage-event-title">ダンス</div>
+                </article>
+                <article class="stage-event type-band" style="--start:1050; --end:1080">
+                  <time class="stage-event-time">17:30 - 18:00</time>
+                  <div class="stage-event-title">地元BAND①</div>
+                </article>
+                <article class="stage-event type-djGuest is-highlight" style="--start:1110; --end:1140">
+                  <time class="stage-event-time">18:30 - 19:00</time>
+                  <div class="stage-event-title">DJやついいちろう</div>
+                </article>
+                <article class="stage-event type-dj" style="--start:1140; --end:1230">
+                  <time class="stage-event-time">19:00 - 20:30</time>
+                  <div class="stage-event-title">地元 DJ Time</div>
+                </article>
               </div>
             </div>
-            <div class="schedule-row">
-              <div class="schedule-time">14:30</div>
-              <div class="schedule-content">
-                <div class="ttl">地域連携ステージ</div>
-                <div class="desc">地元学生・社会人による演奏、ダンスパフォーマンスなど。</div>
+          </div>
+
+          <div class="parking-guide">
+            <div class="parking-guide-head">
+              <div>
+                <span class="parking-guide-kicker">Parking Information</span>
+                <h4>イベント当日は「タイムズ金沢駅西口第11」をご利用ください。</h4>
               </div>
+              <p class="parking-guide-note">赤枠の範囲がイベント時の無料貸切対象です。通常の有料区画・バス区画とは扱いが異なります。</p>
             </div>
-            <div class="schedule-row">
-              <div class="schedule-time">18:00</div>
-              <div class="schedule-content">
-                <div class="ttl">メインゲストステージ</div>
-                <div class="desc">DJ やついいちろう 氏によるステージ。</div>
-              </div>
-            </div>
-            <div class="schedule-row">
-              <div class="schedule-time">— 20:00</div>
-              <div class="schedule-content">
-                <div class="ttl">クロージング</div>
-                <div class="desc">夕暮れから夜へ、はじまりの一夜。</div>
+            <div class="parking-guide-body">
+              <a class="parking-map" href="assets/parking-times-260306.pdf" target="_blank" rel="noreferrer" aria-label="駐車場案内PDFを開く">
+                <img loading="lazy" decoding="async" src="images/parking-map.png" alt="タイムズ金沢駅西口第11のイベント時駐車場案内図" />
+              </a>
+              <div class="parking-points">
+                <div class="parking-point">
+                  <span class="num">01</span>
+                  <div class="ttl">場所</div>
+                  <p>タイムズ金沢駅西口第11。会場周辺の案内に沿ってお進みください。</p>
+                </div>
+                <div class="parking-point">
+                  <span class="num">02</span>
+                  <div class="ttl">イベント時の扱い</div>
+                  <p>イベント専用の無料貸切区画を設定予定です。図面の赤枠範囲をご確認ください。</p>
+                </div>
+                <div class="parking-point">
+                  <span class="num">03</span>
+                  <div class="ttl">お願い</div>
+                  <p>台数には限りがあります。満車時や区画外の駐車は、近隣駐車場をご利用ください。</p>
+                </div>
+                <a class="parking-link" href="assets/parking-times-260306.pdf" target="_blank" rel="noreferrer">駐車場案内PDFを見る</a>
               </div>
             </div>
           </div>
@@ -2841,12 +3517,12 @@
             </div>
           </div>
           <div class="facility-card">
-            <div class="facility-card-label">キャンピングカー展示 × 3台</div>
+            <div class="facility-card-label">キャンピングカーレンタル × 2台</div>
             <div class="facility-card-photo">
               <img loading="lazy" decoding="async" src="images/hero-facility.jpg" alt="キャンピングカー" />
             </div>
             <div class="facility-card-body">
-              <p>最新のキャンピングカーを間近で見学・体験。旅への憧れが膨らむ。</p>
+              <p>キャンピングカーを2台レンタル対応。金沢から旅へ出かける楽しさを広げます。</p>
             </div>
           </div>
         </div>
@@ -3036,7 +3712,7 @@
         <div class="footer-contact">
           <a href="https://www.instagram.com/mitz_kanazawa" target="_blank" rel="noopener">@mitz_kanazawa</a>
           <a href="mailto:press@asumotor.com">press@asumotor.com</a>
-          <a href="https://mitz-kanazawa.com">mitz-kanazawa.com</a>
+          <a href="https://norinity1103.github.io/mitz-kanazawa-review/">mitz-kanazawa.com</a>
         </div>
         <div class="footer-copy">© 2026 Mitz Kanazawa. All Rights Reserved.</div>
       </div>
