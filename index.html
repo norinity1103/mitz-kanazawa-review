@@ -1796,38 +1796,21 @@
       letter-spacing: 0.04em;
     }
     .parking-guide-note {
-      max-width: 240px;
+      max-width: 360px;
       font-size: 12px;
-      line-height: 1.7;
+      line-height: 1.8;
       color: var(--ink-muted);
     }
     .parking-guide-body {
-      display: grid;
-      grid-template-columns: 1fr 240px;
-      gap: 22px;
-      align-items: stretch;
-    }
-    @media (max-width: 760px) {
-      .parking-guide-body { grid-template-columns: 1fr; }
-    }
-    .parking-map {
       display: block;
-      overflow: hidden;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: #fff;
-    }
-    .parking-map img {
-      width: 100%;
-      height: 100%;
-      min-height: 250px;
-      object-fit: cover;
-      object-position: 58% 50%;
-      filter: saturate(0.96) contrast(1.02);
     }
     .parking-points {
       display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
+    }
+    @media (max-width: 760px) {
+      .parking-points { grid-template-columns: 1fr; }
     }
     .parking-point {
       padding: 15px 16px;
@@ -1859,9 +1842,10 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      grid-column: 1 / -1;
       width: 100%;
-      min-height: 42px;
-      margin-top: 4px;
+      min-height: 46px;
+      margin-top: 6px;
       border-radius: 999px;
       background: var(--lantern);
       color: var(--bg-base);
@@ -3358,12 +3342,9 @@
                 <span class="parking-guide-kicker">Parking Information</span>
                 <h4>イベント当日は「タイムズ金沢駅西口第11」をご利用ください。</h4>
               </div>
-              <p class="parking-guide-note">赤枠の範囲がイベント時の無料貸切対象です。通常の有料区画・バス区画とは扱いが異なります。</p>
+              <p class="parking-guide-note">イベント時の駐車区画や当日の運用詳細は、下記PDFをご確認ください。</p>
             </div>
             <div class="parking-guide-body">
-              <a class="parking-map" href="assets/parking-times-260306.pdf" target="_blank" rel="noreferrer" aria-label="駐車場案内PDFを開く">
-                <img loading="lazy" decoding="async" src="images/parking-map.png" alt="タイムズ金沢駅西口第11のイベント時駐車場案内図" />
-              </a>
               <div class="parking-points">
                 <div class="parking-point">
                   <span class="num">01</span>
@@ -3373,7 +3354,7 @@
                 <div class="parking-point">
                   <span class="num">02</span>
                   <div class="ttl">イベント時の扱い</div>
-                  <p>イベント専用の無料貸切区画を設定予定です。図面の赤枠範囲をご確認ください。</p>
+                  <p>イベント専用の無料貸切区画を設定予定です。詳細PDFをご確認ください。</p>
                 </div>
                 <div class="parking-point">
                   <span class="num">03</span>
