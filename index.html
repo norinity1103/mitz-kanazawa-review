@@ -278,6 +278,7 @@
       align-items: center;
       gap: 10px;
       color: var(--ink);
+      flex-shrink: 0;
     }
     .nav-logo img {
       height: 32px;
@@ -286,6 +287,13 @@
     }
     @media (max-width: 480px) {
       .nav-logo img { height: 28px; }
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0;
+      flex: 0 0 auto;
     }
     .nav-links {
       display: flex;
@@ -359,8 +367,17 @@
       margin-left: 2px;
     }
     @media (max-width: 480px) {
-      .nav-cta { padding: 9px 14px 9px 12px; font-size: 11px; gap: 6px; }
+      .nav-cta {
+        width: 34px;
+        height: 34px;
+        padding: 0;
+        border-radius: 50%;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .nav-cta .ja,
       .nav-cta .en { display: none; }
+      .nav-cta svg { width: 15px; height: 15px; }
     }
     .nav-cta:hover {
       background: var(--lantern-soft);
@@ -479,11 +496,38 @@
     }
     .mobile-drawer-cta a svg { width: 16px; height: 16px; }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .nav-links { display: none; }
       .nav { padding: 16px 20px; }
+      .nav-actions {
+        position: absolute;
+        top: 14px;
+        right: 20px;
+        gap: 8px;
+      }
       .nav-burger { display: inline-flex; }
       .mobile-drawer { display: flex; }
+      .nav-cta {
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        border-radius: 50%;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .nav-cta .ja,
+      .nav-cta .en { display: none; }
+    }
+    @media (max-width: 480px) {
+      .nav { padding: 14px 16px; }
+      .nav-actions {
+        top: 14px;
+        right: 16px;
+      }
+      .nav-cta {
+        width: 34px;
+        height: 34px;
+      }
     }
     /* When drawer is open: lock body scroll via class */
     body.is-drawer-open { overflow: hidden; }
@@ -570,6 +614,35 @@
     }
     @media (min-width: 1280px) {
       .hero-meta { margin-top: 60px; }
+    }
+    @media (max-width: 768px) {
+      .hero-meta {
+        max-width: calc(100vw - 40px);
+        width: calc(100vw - 40px);
+        padding: 7px 12px;
+        white-space: normal;
+        justify-content: center;
+      }
+      .hero-meta .label {
+        min-width: 0;
+        font-size: 9px;
+        letter-spacing: 0.16em;
+        line-height: 1.5;
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-meta {
+        max-width: calc(100vw - 40px);
+        padding: 7px 12px;
+        white-space: normal;
+      }
+      .hero-meta .label {
+        font-size: 9px;
+        letter-spacing: 0.16em;
+        line-height: 1.5;
+      }
     }
     .hero-meta .dot {
       width: 7px; height: 7px;
@@ -754,8 +827,47 @@
       gap: 24px;
       animation: fadeUp 1s ease 0.8s both;
     }
-    .countdown { display: flex; gap: 16px; justify-content: center; }
-    @media (max-width: 480px) { .countdown { gap: 10px; } }
+    .countdown {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      max-width: 100%;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 768px) {
+      .hero-bottom {
+        width: min(100%, calc(100vw - 32px));
+      }
+      .countdown {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .countdown-cell {
+        min-width: 0;
+        padding: 10px 6px;
+      }
+      .countdown-num {
+        min-width: 0;
+        font-size: 32px;
+      }
+      .countdown-label {
+        font-size: 9px;
+        letter-spacing: 0.14em;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-bottom {
+        width: min(100%, calc(100vw - 32px));
+      }
+      .countdown {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+      }
+    }
     .countdown-cell {
       display: flex;
       flex-direction: column;
@@ -814,6 +926,36 @@
     }
     @media (max-width: 480px) {
       .hero-info { flex-direction: column; gap: 4px; }
+      .hero-info .row {
+        max-width: 100%;
+        font-size: 13px;
+        line-height: 1.7;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+      }
+      .hero-info .sep { display: none; }
+      .countdown-cell {
+        min-width: 0;
+        padding: 10px 6px;
+      }
+      .countdown-num {
+        min-width: 0;
+        font-size: 32px;
+      }
+      .countdown-label {
+        font-size: 9px;
+        letter-spacing: 0.14em;
+      }
+    }
+    @media (max-width: 768px) {
+      .hero-info { flex-direction: column; gap: 4px; }
+      .hero-info .row {
+        max-width: 100%;
+        font-size: 13px;
+        line-height: 1.7;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+      }
       .hero-info .sep { display: none; }
     }
     @keyframes fadeUp {
@@ -2955,7 +3097,7 @@
       <a href="#opening">オープニングイベント<span class="en">— opening event</span></a>
       <a href="#info">施設情報<span class="en">— information</span></a>
     </div>
-    <div style="display:flex;align-items:center;gap:0;">
+    <div class="nav-actions">
       <button type="button" class="theme-toggle" id="themeToggle" aria-label="テーマを切り替え">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
@@ -3240,7 +3382,7 @@
             <div class="local-event-grid">
               <article class="local-event-card">
                 <div class="local-event-photo">
-                  <img loading="lazy" decoding="async" src="images/event-brass.png" alt="吹奏楽の演奏イメージ" />
+                  <img loading="lazy" decoding="async" src="images/event-brass.jpg" alt="吹奏楽の演奏イメージ" />
                   <span class="local-event-type">BRASS</span>
                 </div>
                 <div class="local-event-body">
@@ -3253,7 +3395,7 @@
               </article>
               <article class="local-event-card">
                 <div class="local-event-photo">
-                  <img loading="lazy" decoding="async" src="images/event-dance.png" alt="ダンスパフォーマンスのイメージ" />
+                  <img loading="lazy" decoding="async" src="images/event-dance.jpg" alt="ダンスパフォーマンスのイメージ" />
                   <span class="local-event-type">DANCE</span>
                 </div>
                 <div class="local-event-body">
@@ -3267,7 +3409,7 @@
               </article>
               <article class="local-event-card">
                 <div class="local-event-photo">
-                  <img loading="lazy" decoding="async" src="images/event-band.png" alt="地元バンド演奏のイメージ" />
+                  <img loading="lazy" decoding="async" src="images/event-band.jpg" alt="地元バンド演奏のイメージ" />
                   <span class="local-event-type">LIVE & DJ</span>
                 </div>
                 <div class="local-event-body">
@@ -3628,7 +3770,7 @@
             </div>
             <div class="map-embed">
               <iframe
-                src="https://maps.google.com/maps?q=%E7%9F%B3%E5%B7%9D%E7%9C%8C%E9%87%91%E6%B2%A2%E5%B8%82%E5%BA%83%E5%B2%A13-3-3&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?hl=ja&q=%E7%9F%B3%E5%B7%9D%E7%9C%8C%E9%87%91%E6%B2%A2%E5%B8%82%E5%BA%83%E5%B2%A13-3-3&z=17&output=embed"
                 allowfullscreen=""
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
