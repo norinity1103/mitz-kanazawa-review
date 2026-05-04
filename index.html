@@ -252,7 +252,8 @@
       border: 1px solid var(--line-strong);
       background: var(--glass-bg);
       color: var(--ink);
-      display: inline-flex;
+      width: 100%;
+      display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
@@ -349,6 +350,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      flex-shrink: 0;
+      white-space: nowrap;
       box-shadow: 0 4px 16px rgba(200, 120, 20, 0.55), 0 0 0 1px rgba(232, 160, 48, 0.3);
     }
     .nav-cta:hover {
@@ -811,11 +814,62 @@
     .hero-event:hover .hero-event-cta .arrow {
       transform: translateX(4px);
     }
+    .hero-primary-actions {
+      margin-top: 18px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .hero-primary-btn,
+    .hero-secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      opacity: 1;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+    }
+    .hero-primary-btn {
+      background: linear-gradient(135deg, var(--lantern) 0%, var(--lantern-soft) 100%);
+      color: #1F1812;
+      box-shadow: 0 12px 30px rgba(192, 114, 40, 0.34);
+    }
+    .hero-secondary-btn {
+      background: rgba(15, 17, 21, 0.54);
+      color: var(--on-photo-ink);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+    .hero-primary-btn:hover,
+    .hero-secondary-btn:hover {
+      transform: translateY(-2px);
+      opacity: 1;
+    }
     @media (max-width: 640px) {
       .hero-event { width: 100%; flex-direction: column; }
       .hero-event-icon { width: 100%; height: 72px; }
       .hero-dj-avatar { width: 52px; height: 52px; }
       .hero-event-cta { border-left: none; border-top: 1px solid rgba(255, 255, 255, 0.12); padding: 12px; }
+      .hero-primary-actions {
+        width: min(100%, 250px);
+        margin-inline: auto;
+        gap: 8px;
+      }
+      .hero-primary-btn,
+      .hero-secondary-btn {
+        width: 100%;
+        min-height: 48px;
+      }
     }
 
     .hero-bottom {
@@ -841,7 +895,7 @@
       .countdown {
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px;
       }
       .countdown-cell {
@@ -862,9 +916,10 @@
         width: min(100%, calc(100vw - 32px));
       }
       .countdown {
-        width: 100%;
+        width: min(100%, 250px);
+        margin-inline: auto;
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px;
       }
     }
@@ -971,8 +1026,12 @@
     }
 
     /* Responsive line-break helper */
-    br.br-desktop { display: none; }
-    @media (min-width: 901px) { br.br-desktop { display: inline; } }
+    br.br-desktop,
+    br.desktop-break { display: none; }
+    @media (min-width: 901px) {
+      br.br-desktop,
+      br.desktop-break { display: inline; }
+    }
 
     /* Nav links — white text when hero is visible (before scroll) */
     .nav:not(.scrolled) .nav-links a {
@@ -2413,6 +2472,39 @@
       letter-spacing: 0.02em;
       white-space: nowrap;
     }
+    .fa-sponsor {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 250px;
+      min-height: 72px;
+      padding: 12px 18px;
+      background: rgba(15, 17, 21, 0.88);
+      color: #F2EDE2;
+      border-radius: 10px;
+      border: 1px solid rgba(232, 185, 106, 0.42);
+      text-decoration: none;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .fa-sponsor:hover {
+      transform: translateY(-4px);
+      border-color: rgba(232, 185, 106, 0.72);
+      opacity: 1;
+    }
+    .fa-sponsor .small {
+      display: block;
+      margin-top: 2px;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      color: var(--lantern-soft);
+    }
 
     @media (max-width: 640px) {
       .floating-actions {
@@ -2442,6 +2534,14 @@
       }
       .fa-instagram svg { width: 16px; height: 16px; }
       .fa-instagram .handle { font-size: 11px; }
+      .fa-sponsor {
+        width: auto;
+        min-height: 0;
+        padding: 10px 14px;
+        border-radius: 999px;
+        font-size: 12px;
+      }
+      .fa-sponsor .small { display: none; }
     }
 
     /* ========== Sponsors ========== */
@@ -3154,7 +3254,7 @@
     <div class="container hero-inner">
       <div class="hero-meta">
         <span class="dot"></span>
-        <span class="label">A New Cultural Project in Kanazawa</span>
+        <span class="label">GRAND OPEN 2026 / KANAZAWA</span>
       </div>
       <h1 class="hero-title-wrap">
         <img loading="eager" decoding="async" fetchpriority="high" src="images/mitz-logo-white-v.png" alt="Mitz 金沢" class="hero-logo" />
@@ -3164,6 +3264,10 @@
         日常の役割を脱ぎ捨て、<br>
         <span class="em">「3番目の自分」</span>へと帰る場所。
       </p>
+      <div class="hero-primary-actions" aria-label="主要導線">
+        <a href="assets/Mitz_Sponsorship_2026.pdf" class="hero-primary-btn" download="Mitz_Sponsorship_2026.pdf" target="_blank" rel="noopener">スポンサー資料を見る</a>
+        <a href="#sponsors" class="hero-secondary-btn">スポンサー応募へ</a>
+      </div>
 
       <a href="#opening" class="hero-event" aria-label="オープニングイベント詳細を見る">
         <span class="hero-event-icon">
@@ -3356,7 +3460,7 @@
         <div class="opening-content reveal reveal-delay-1">
           <span class="label-faint">03 — Opening Event</span>
           <h3>
-            <span class="gold">DJ やついいちろう</span>の音と、<br class="br-desktop">金沢の新たな門出を祝う一日。
+            <span class="gold">DJ やついいちろう</span>の音と、<br class="desktop-break">金沢の新たな門出を祝う一日。
           </h3>
           <p>
             開業初日、地域の皆様と共に歩む施設としてのスタートを祝し、オープニングイベントを開催。お笑いコンビ「エレキコミック」のやついいちろう氏のDJステージをはじめ、地元学生・社会人による演奏やダンスパフォーマンスで、会場を熱狂の渦へ。
@@ -3661,10 +3765,10 @@
   <section class="sponsors" id="sponsors">
     <div class="container">
       <div class="section-head reveal">
-        <h2>SPONSOR<br><span class="gold">WITH US.</span></h2>
+        <h2>PARTNER<br><span class="gold">WITH MITZ.</span></h2>
         <div class="right">
           <div class="label-faint" style="margin-bottom:16px;">06 — Sponsor</div>
-          <p>Mitz 金沢のオープニングを共に盛り上げるスポンサーを募集しています。<br>企業様・個人事業主様それぞれのプランをご用意しています。</p>
+          <p>Mitz 金沢のオープニングを共に盛り上げる<br class="desktop-break">スポンサーを募集しています。<br>企業様・個人事業主様それぞれのプランをご用意しています。</p>
         </div>
       </div>
       <div class="sponsor-deck reveal">
@@ -3857,14 +3961,11 @@
         <span class="fa-event-meta">5.30 (土) 18:00 →</span>
       </span>
     </a>
-    <a href="https://www.instagram.com/mitz_kanazawa" class="fa-instagram" target="_blank" rel="noopener" aria-label="Instagram フォロー">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-      </svg>
-      <span>フォロー</span>
-      <span class="handle">@mitz_kanazawa</span>
+    <a href="#sponsors" class="fa-sponsor" aria-label="スポンサー応募へ">
+      <span>
+        スポンサー応募
+        <span class="small">SPONSORSHIP →</span>
+      </span>
     </a>
   </div>
 
