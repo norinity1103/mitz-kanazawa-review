@@ -2069,102 +2069,6 @@
       }
     }
 
-    .parking-guide {
-      margin-top: 34px;
-      padding: 28px;
-      background:
-        linear-gradient(135deg, rgba(232, 185, 106, 0.12) 0%, rgba(255, 255, 255, 0.02) 100%),
-        var(--bg-card);
-      border: 1px solid rgba(232, 185, 106, 0.28);
-      border-radius: 20px;
-    }
-    .parking-guide-head {
-      display: grid;
-      gap: 12px;
-      align-items: start;
-      margin-bottom: 22px;
-    }
-    @media (max-width: 700px) {
-      .parking-guide { padding: 22px; }
-    }
-    .parking-guide-kicker {
-      display: inline-block;
-      margin-bottom: 10px;
-      font-family: "Bebas Neue", sans-serif;
-      font-size: 18px;
-      letter-spacing: 0.12em;
-      color: var(--lantern);
-      text-transform: uppercase;
-    }
-    .parking-guide h4 {
-      margin: 0;
-      font-family: "Noto Serif JP", serif;
-      font-size: clamp(18px, 2vw, 24px);
-      color: var(--ink);
-      line-height: 1.45;
-      letter-spacing: 0.04em;
-    }
-    .parking-guide-note {
-      max-width: 620px;
-      margin: 0;
-      font-size: 12px;
-      line-height: 1.8;
-      color: var(--ink-muted);
-    }
-    .parking-guide-body {
-      display: block;
-    }
-    .parking-points {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-    @media (max-width: 760px) {
-      .parking-points { grid-template-columns: 1fr; }
-    }
-    .parking-point {
-      padding: 15px 16px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--line);
-    }
-    .parking-point .num {
-      display: block;
-      margin-bottom: 6px;
-      font-family: "Bebas Neue", sans-serif;
-      font-size: 22px;
-      color: var(--lantern);
-      letter-spacing: 0.08em;
-    }
-    .parking-point .ttl {
-      color: var(--ink);
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-    }
-    .parking-point p {
-      margin: 6px 0 0;
-      color: var(--ink-muted);
-      font-size: 12px;
-      line-height: 1.7;
-    }
-    .parking-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      grid-column: 1 / -1;
-      width: 100%;
-      min-height: 46px;
-      margin-top: 6px;
-      border-radius: 999px;
-      background: var(--lantern);
-      color: var(--bg-base);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-    }
-
-    /* ========== Gallery ========== */
     .gallery { background: var(--bg-base); }
     .gallery-grid {
       display: grid;
@@ -3852,7 +3756,7 @@
               <path d="M14 2L26 22H2L14 2Z" fill="#30A0D8"/>
             </svg>
             <span class="ele-num-overlay">03 / TRAVEL</span>
-            <img loading="lazy" decoding="async" src="images/canbase.jpg" alt="CANBASE キャンピングカー拠点" onerror="this.style.display='none'" />
+            <img loading="lazy" decoding="async" src="images/campingcar-rental.jpg" alt="夕景のキャンピングカー" onerror="this.style.display='none'" />
           </div>
           <div class="ele-content">
             <h3 class="ele-name">CANBASE</h3>
@@ -4044,35 +3948,6 @@
             </div>
           </div>
 
-          <div class="parking-guide">
-            <div class="parking-guide-head">
-              <div>
-                <span class="parking-guide-kicker">Parking Information</span>
-                <h4>イベント当日は「タイムズ金沢駅西口第11」をご利用ください。</h4>
-              </div>
-              <p class="parking-guide-note">イベント時の駐車区画や当日の運用詳細は、下記PDFをご確認ください。</p>
-            </div>
-            <div class="parking-guide-body">
-              <div class="parking-points">
-                <div class="parking-point">
-                  <span class="num">01</span>
-                  <div class="ttl">場所</div>
-                  <p>タイムズ金沢駅西口第11。会場周辺の案内に沿ってお進みください。</p>
-                </div>
-                <div class="parking-point">
-                  <span class="num">02</span>
-                  <div class="ttl">イベント時の扱い</div>
-                  <p>イベント専用の無料貸切区画を設定予定です。詳細PDFをご確認ください。</p>
-                </div>
-                <div class="parking-point">
-                  <span class="num">03</span>
-                  <div class="ttl">お願い</div>
-                  <p>台数には限りがあります。満車時や区画外の駐車は、近隣駐車場をご利用ください。</p>
-                </div>
-                <a class="parking-link" href="assets/parking-times-260306.pdf" target="_blank" rel="noreferrer">駐車場案内PDFを見る</a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -4104,7 +3979,7 @@
           </div>
         </div>
         <div class="gallery-cell reveal reveal-delay-2">
-          <img loading="lazy" decoding="async" src="images/canbase.jpg" alt="CANBASE" onerror="this.style.display='none'" />
+          <img loading="lazy" decoding="async" src="images/campingcar-rental.jpg" alt="キャンピングカーレンタル" onerror="this.style.display='none'" />
           <div class="cap">
             <div class="t">CANBASE</div>
             <div class="s">キャンピングカーレンタル</div>
@@ -4153,15 +4028,6 @@
             </div>
             <div class="activity-card-body">
               <p>パレットベンチでゆったりくつろぐ。食事や会話を楽しむ憩いのスペース。</p>
-            </div>
-          </div>
-          <div class="activity-card">
-            <div class="activity-card-badge" style="background:#C48A00;">
-              <span class="badge-dot" style="background:rgba(255,255,255,0.5);"></span>
-              <span class="badge-name">イルミネーション</span>
-            </div>
-            <div class="activity-card-body">
-              <p>やさしい光が会場を彩る。夜は幻想的な雰囲気に。</p>
             </div>
           </div>
           <div class="activity-card">
@@ -4288,7 +4154,7 @@
         </div>
       </div>
       <div class="sponsor-note reveal">
-        <strong>お問い合わせ</strong> — 詳細や個別相談は <a href="mailto:press@asumotor.com" style="color:var(--lantern);">press@asumotor.com</a> までお気軽にご連絡ください。
+        <strong>お問い合わせ</strong> — 詳細や個別相談は <a href="mailto:contact@mitz-kanazawa.com" style="color:var(--lantern);">contact@mitz-kanazawa.com</a> までお気軽にご連絡ください。
       </div>
     </div>
   </section>
@@ -4396,7 +4262,7 @@
       <div class="footer-bottom">
         <div class="footer-contact">
           <a href="https://www.instagram.com/mitz_kanazawa" target="_blank" rel="noopener">@mitz_kanazawa</a>
-          <a href="mailto:press@asumotor.com">press@asumotor.com</a>
+          <a href="mailto:contact@mitz-kanazawa.com">contact@mitz-kanazawa.com</a>
           <a href="https://mitz-kanazawa.com/">mitz-kanazawa.com</a>
         </div>
         <div class="footer-copy">© 2026 Mitz Kanazawa. All Rights Reserved.</div>

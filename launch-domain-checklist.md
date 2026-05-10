@@ -36,6 +36,5 @@ www.mitz-kanazawa.com. CNAME norinity1103.github.io.
 - `https://mitz-kanazawa.com/CNAME` returns `mitz-kanazawa.com`.
 - `https://mitz-kanazawa.com/robots.txt` returns the sitemap URL.
 - `https://mitz-kanazawa.com/sitemap.xml` returns the production URL.
-- OGP image resolves at `https://mitz-kanazawa.com/images/hero-facility.jpg`.
+- OGP image resolves at `https://mitz-kanazawa.com/images/ogp-grand-open.jpg`.
 - Sponsor PDF resolves at `https://mitz-kanazawa.com/assets/Mitz_Sponsorship_2026.pdf`.
-- Parking PDF resolves at `https://mitz-kanazawa.com/assets/parking-times-260306.pdf`.
