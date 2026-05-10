@@ -3673,7 +3673,7 @@
     <a href="#sponsors" class="mobile-drawer-link" data-drawer-link>スポンサー応募<span class="en">sponsorship</span></a>
     <a href="#info" class="mobile-drawer-link" data-drawer-link>施設情報<span class="en">information</span></a>
     <div class="mobile-drawer-cta">
-      <a href="#coupon" class="primary" data-drawer-link>
+      <a href="coupon.html" class="primary" data-drawer-link>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M3 9a3 3 0 0 0 0 6v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a3 3 0 0 0 0-6V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2Z"/>
           <path d="M13 5v14"/>
@@ -4395,7 +4395,7 @@
 
   <!-- Floating actions (persistent across page) -->
   <div class="floating-actions" id="floatingActions" aria-label="Quick actions">
-    <a href="#coupon" class="fa-coupon" aria-label="オープニングクーポンを見る">
+    <a href="coupon.html" class="fa-coupon" aria-label="取得済みクーポンを見る">
       <span>
         お得なWEBクーポン
         <span class="small">MITZ 0530 →</span>
@@ -4463,9 +4463,9 @@
     function setCouponSaved(saved) {
       if (!couponSaveButton || !couponStatus) return;
       couponSaveButton.classList.toggle("is-saved", saved);
-      couponSaveButton.textContent = saved ? "保存済み / 当日提示" : "クーポンを保存";
+      couponSaveButton.textContent = saved ? "取得済みクーポンを見る" : "クーポンを保存";
       couponStatus.textContent = saved
-        ? "ワンドリンクサービスを保存しました。当日はこの画面をスタッフにご提示ください。"
+        ? "ワンドリンクサービスを保存しました。取得済みクーポン一覧で確認できます。"
         : "保存すると、当日ワンドリンクサービスを提示しやすくなります。";
     }
     try {
@@ -4475,8 +4475,13 @@
     }
     if (couponSaveButton) {
       couponSaveButton.addEventListener("click", () => {
-        try { localStorage.setItem("mitz-opening-coupon", "saved"); } catch (e) {}
-        setCouponSaved(true);
+        let alreadySaved = false;
+        try { alreadySaved = localStorage.getItem("mitz-opening-coupon") === "saved"; } catch (e) {}
+        if (!alreadySaved) {
+          try { localStorage.setItem("mitz-opening-coupon", "saved"); } catch (e) {}
+          setCouponSaved(true);
+        }
+        window.location.href = "coupon.html";
       });
     }
 

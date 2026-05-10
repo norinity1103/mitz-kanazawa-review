@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem("mitz-theme");
+        if (t === "dark" || t === "light") {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>取得済みクーポン — Mitz 金沢</title>
+  <meta name="description" content="Mitz 金沢の取得済みWebクーポン確認ページ。グランドオープン限定のワンドリンクサービスを当日会場でご提示ください。" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <meta property="og:title" content="取得済みクーポン — Mitz 金沢" />
+  <meta property="og:description" content="グランドオープン限定、Webクーポンの確認ページ。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mitz-kanazawa.com/coupon.html" />
+  <meta property="og:image" content="https://mitz-kanazawa.com/images/ogp-grand-open.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#181410" />
+  <link rel="canonical" href="https://mitz-kanazawa.com/coupon.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&family=Bebas+Neue&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F8F3EC;
+      --paper: #FFF9F0;
+      --ink: #201914;
+      --muted: #7F7469;
+      --line: rgba(96, 64, 32, 0.16);
+      --gold: #E8B96A;
+      --gold-deep: #C97820;
+      --dark: #171411;
+      --blue: #30A0D8;
+      --green: #90C850;
+      --orange: #E87030;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 14% 10%, rgba(232, 185, 106, 0.20), transparent 34%),
+        radial-gradient(circle at 86% 12%, rgba(48, 160, 216, 0.12), transparent 26%),
+        linear-gradient(180deg, #FFF9F0 0%, var(--bg) 54%, #EFE5D8 100%);
+      color: var(--ink);
+      font-family: "Noto Sans JP", "Inter", sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
+    img, svg { display: block; max-width: 100%; }
+
+    body.is-gated {
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    body.is-gated > :not(.preview-gate) { display: none !important; }
+    .preview-gate { display: none; }
+    body.is-gated .preview-gate {
+      display: grid;
+      min-height: 100vh;
+      padding: 32px;
+      place-items: center;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(192, 114, 40, 0.18), transparent 34%),
+        linear-gradient(135deg, #1A1D24 0%, #2A1F18 56%, #604020 100%);
+      color: #F8F1E6;
+    }
+    .preview-gate-card {
+      width: min(100%, 520px);
+      padding: clamp(28px, 5vw, 48px);
+      border: 1px solid rgba(248, 241, 230, 0.18);
+      background: rgba(15, 17, 21, 0.72);
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.32);
+    }
+    .preview-gate-logo {
+      width: 188px;
+      margin-bottom: 40px;
+    }
+    .preview-gate-label {
+      margin-bottom: 14px;
+      color: var(--gold);
+      font-family: "Inter", sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+    .preview-gate h1 {
+      margin-bottom: 18px;
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(28px, 6vw, 44px);
+      line-height: 1.25;
+    }
+    .preview-gate-copy {
+      margin-bottom: 28px;
+      color: rgba(248, 241, 230, 0.76);
+      font-size: 15px;
+      line-height: 2;
+    }
+    .preview-gate-form { display: grid; gap: 12px; }
+    .preview-gate-input {
+      width: 100%;
+      min-height: 54px;
+      padding: 0 18px;
+      border: 1px solid rgba(248, 241, 230, 0.24);
+      background: rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
+      font: 700 18px/1 "Inter", sans-serif;
+      letter-spacing: 0.04em;
+      outline: none;
+    }
+    .preview-gate-button {
+      min-height: 54px;
+      padding: 0 20px;
+      background: var(--gold);
+      color: #1A1D24;
+      font: 800 13px/1 "Inter", sans-serif;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .preview-gate-note {
+      min-height: 1.7em;
+      color: #F2A7A1;
+      font-size: 13px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 249, 240, 0.86);
+      backdrop-filter: blur(18px);
+    }
+    .nav {
+      width: min(100%, 1180px);
+      margin: 0 auto;
+      padding: 18px clamp(20px, 4vw, 40px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .logo img { width: 148px; height: auto; }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-link,
+    .nav-primary {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.42);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+    .nav-primary {
+      border-color: rgba(232, 185, 106, 0.62);
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
+      color: #1F1812;
+      box-shadow: 0 12px 24px rgba(201, 120, 32, 0.18);
+    }
+    .wrap {
+      width: min(100%, 1180px);
+      margin: 0 auto;
+      padding: clamp(54px, 8vw, 92px) clamp(20px, 4vw, 40px) 64px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.94fr) minmax(360px, 1.06fr);
+      gap: clamp(32px, 6vw, 74px);
+      align-items: end;
+      margin-bottom: clamp(34px, 7vw, 72px);
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      color: var(--gold-deep);
+      font: 800 12px/1 "Inter", sans-serif;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 44px;
+      height: 1px;
+      background: currentColor;
+    }
+    h1 {
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(38px, 7vw, 78px);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+    }
+    .lead {
+      max-width: 610px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: clamp(15px, 1.7vw, 18px);
+      line-height: 2.05;
+    }
+    .summary {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.52);
+      padding: 28px;
+      box-shadow: 0 18px 60px rgba(96, 64, 32, 0.08);
+    }
+    .summary-title {
+      margin-bottom: 16px;
+      color: var(--gold-deep);
+      font: 800 11px/1 "Inter", sans-serif;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    .summary-row {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 18px;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .summary-row:first-of-type { border-top: 0; }
+    .summary-row dt {
+      color: var(--muted);
+      font: 800 10px/1.5 "Inter", sans-serif;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .summary-row dd {
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .coupon-card {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      border: 1px solid rgba(232, 185, 106, 0.42);
+      background:
+        radial-gradient(circle at 14% 16%, rgba(232, 185, 106, 0.22), transparent 32%),
+        radial-gradient(circle at 86% 20%, rgba(48, 160, 216, 0.12), transparent 28%),
+        linear-gradient(135deg, #171411 0%, #251B14 58%, #604020 100%);
+      color: #F8F1E6;
+      box-shadow: 0 32px 90px rgba(34, 23, 14, 0.24);
+    }
+    .coupon-card::before,
+    .coupon-card::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 30px;
+      height: 60px;
+      background: var(--bg);
+      border: 1px solid rgba(232, 185, 106, 0.42);
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+    .coupon-card::before {
+      left: -1px;
+      border-left: 0;
+      border-radius: 0 999px 999px 0;
+    }
+    .coupon-card::after {
+      right: -1px;
+      border-right: 0;
+      border-radius: 999px 0 0 999px;
+    }
+    .coupon-body {
+      padding: clamp(32px, 5vw, 62px);
+    }
+    .coupon-label {
+      margin-bottom: 18px;
+      color: var(--gold);
+      font: 800 11px/1 "Inter", sans-serif;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+    .coupon-name {
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(42px, 8vw, 88px);
+      font-weight: 900;
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+    .coupon-name span {
+      display: block;
+      color: var(--gold);
+      font-family: "Bebas Neue", sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+    }
+    .coupon-copy {
+      max-width: 620px;
+      margin-top: 22px;
+      color: rgba(248, 241, 230, 0.78);
+      font-size: 15px;
+      line-height: 2;
+    }
+    .coupon-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 28px;
+    }
+    .coupon-badges span {
+      padding: 7px 12px;
+      border: 1px solid rgba(248, 241, 230, 0.18);
+      background: rgba(255, 255, 255, 0.06);
+      color: rgba(248, 241, 230, 0.74);
+      font: 800 10px/1 "Inter", sans-serif;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .coupon-stub {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 30px;
+      min-height: 360px;
+      padding: 34px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .coupon-stub::before {
+      content: "";
+      position: absolute;
+      top: 24px;
+      bottom: 24px;
+      left: 0;
+      border-left: 1px dashed rgba(248, 241, 230, 0.32);
+    }
+    .code-label {
+      color: rgba(248, 241, 230, 0.55);
+      font: 800 10px/1 "Inter", sans-serif;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    .code {
+      margin-top: 10px;
+      color: #FFFFFF;
+      font: 400 clamp(48px, 7vw, 72px)/0.92 "Bebas Neue", sans-serif;
+      letter-spacing: 0.08em;
+    }
+    .date {
+      margin-top: 14px;
+      color: var(--gold);
+      font: 400 30px/1 "Bebas Neue", sans-serif;
+      letter-spacing: 0.12em;
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border: 1px solid rgba(144, 200, 80, 0.46);
+      background: rgba(144, 200, 80, 0.12);
+      color: #D8F5B8;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .button {
+      min-height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      border: 1px solid rgba(96, 64, 32, 0.18);
+      background: #FFFFFF;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
+    .button.primary {
+      border-color: rgba(232, 185, 106, 0.70);
+      background: var(--gold);
+      color: #1A1D24;
+    }
+    .empty {
+      display: none;
+      margin-top: 28px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.50);
+    }
+    .empty.is-visible { display: block; }
+    .empty h2 {
+      margin-bottom: 12px;
+      font-family: "Noto Serif JP", serif;
+      font-size: 28px;
+    }
+    .empty p {
+      color: var(--muted);
+      line-height: 1.9;
+    }
+    .usage {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .usage-card {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.46);
+      padding: 22px;
+    }
+    .usage-no {
+      color: var(--gold-deep);
+      font: 400 28px/1 "Bebas Neue", sans-serif;
+      letter-spacing: 0.12em;
+    }
+    .usage-card h2 {
+      margin-top: 8px;
+      font-size: 17px;
+      line-height: 1.5;
+    }
+    .usage-card p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .footer {
+      padding: 32px clamp(20px, 4vw, 40px) 44px;
+      color: var(--muted);
+      font: 700 11px/1.6 "Inter", sans-serif;
+      letter-spacing: 0.14em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .is-unsaved .saved-only { display: none !important; }
+    .is-saved .unsaved-only { display: none !important; }
+
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+      .coupon-card {
+        grid-template-columns: 1fr;
+      }
+      .coupon-stub {
+        min-height: 250px;
+      }
+      .coupon-stub::before {
+        top: 0;
+        bottom: auto;
+        left: 24px;
+        right: 24px;
+        border-left: 0;
+        border-top: 1px dashed rgba(248, 241, 230, 0.32);
+      }
+      .usage {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .nav {
+        padding: 14px 16px;
+      }
+      .logo img { width: 122px; }
+      .nav-actions { gap: 8px; }
+      .nav-link,
+      .nav-primary {
+        min-height: 38px;
+        padding: 0 12px;
+        font-size: 11px;
+      }
+      .wrap {
+        padding: 42px 18px 44px;
+      }
+      .summary {
+        padding: 20px;
+      }
+      .summary-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+      .coupon-body,
+      .coupon-stub {
+        padding: 28px 24px;
+      }
+      .coupon-card::before,
+      .coupon-card::after {
+        width: 22px;
+        height: 44px;
+      }
+      .actions {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="is-gated is-unsaved">
+  <script>
+    (function() {
+      var unlockAt = new Date("2026-05-13T00:00:00+09:00").getTime();
+      var isReleased = Date.now() >= unlockAt;
+      var hasPass = false;
+      try { hasPass = localStorage.getItem("mitz-preview-access") === "ok"; } catch (e) {}
+      if (isReleased || hasPass) {
+        document.body.classList.remove("is-gated");
+      }
+    })();
+  </script>
+
+  <div class="preview-gate" id="previewGate" aria-label="関係者限定プレビュー">
+    <div class="preview-gate-card">
+      <img class="preview-gate-logo" src="images/mitz-logo-white-h.png" alt="Mitz Kanazawa">
+      <p class="preview-gate-label">Private Preview until 2026.05.13</p>
+      <h1>関係者限定<br>プレビュー</h1>
+      <p class="preview-gate-copy">
+        Mitz 金沢 公式サイトは公開準備中です。<br>
+        関係者の方は共有されたパスコードを入力してください。
+      </p>
+      <form class="preview-gate-form" id="previewGateForm">
+        <input class="preview-gate-input" id="previewGateInput" type="password" inputmode="text" autocomplete="current-password" placeholder="Passcode" aria-label="パスコード">
+        <button class="preview-gate-button" type="submit">Enter Preview</button>
+        <p class="preview-gate-note" id="previewGateNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Coupon navigation">
+      <a class="logo" href="index.html" aria-label="Mitz 金沢 トップへ">
+        <img src="images/mitz-logo-color-h.png" alt="Mitz Kanazawa">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link" href="index.html#coupon">TOPへ</a>
+        <a class="nav-primary" href="https://www.instagram.com/mitz_kanazawa" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="coupon-page-title">
+      <div>
+        <p class="eyebrow">Mitz Web Coupon</p>
+        <h1 id="coupon-page-title">取得済み<br>クーポン</h1>
+        <p class="lead">
+          グランドオープン当日に使える、Web限定のワンドリンクチケットです。
+          会場でこの画面を開き、スタッフにご提示ください。
+        </p>
+      </div>
+      <dl class="summary">
+        <dt class="summary-title">Coupon Summary</dt>
+        <div class="summary-row">
+          <dt>Benefit</dt>
+          <dd>ワンドリンクサービス</dd>
+        </div>
+        <div class="summary-row">
+          <dt>Valid</dt>
+          <dd>2026.05.30 Grand Opening 当日限り</dd>
+        </div>
+        <div class="summary-row">
+          <dt>Place</dt>
+          <dd>Mitz 金沢 会場内</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="coupon-card saved-only" aria-label="取得済みワンドリンククーポン">
+      <div class="coupon-body">
+        <p class="coupon-label">Opening Coupon</p>
+        <h2 class="coupon-name">One Drink<span>Gift</span></h2>
+        <p class="coupon-copy">
+          乾杯の一杯をMitzから。グランドオープンを一緒に楽しむための、
+          Web限定ウェルカムドリンクチケットです。
+        </p>
+        <div class="coupon-badges">
+          <span>Saved on this device</span>
+          <span>Show at venue</span>
+          <span>One time welcome</span>
+        </div>
+      </div>
+      <div class="coupon-stub">
+        <div>
+          <p class="code-label">Web Coupon</p>
+          <div class="code">ONE<br>DRINK</div>
+          <div class="date">MITZ 0530</div>
+        </div>
+        <div>
+          <p class="status-pill">取得済み</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="empty unsaved-only is-visible" aria-label="未取得のクーポン">
+      <h2>まだクーポンを取得していません</h2>
+      <p>
+        この端末にクーポン保存情報がありません。下のボタンから取得すると、
+        当日このページでワンドリンクチケットを提示できます。
+      </p>
+      <div class="actions">
+        <button type="button" class="button primary" id="couponAcquireButton">ワンドリンククーポンを取得</button>
+        <a class="button" href="index.html#coupon">TOPのクーポンを見る</a>
+      </div>
+    </section>
+
+    <div class="actions saved-only" aria-label="クーポン操作">
+      <a class="button primary" href="index.html#opening">イベント情報へ戻る</a>
+      <a class="button" href="index.html">TOPへ戻る</a>
+    </div>
+
+    <section class="usage" aria-label="クーポン利用方法">
+      <article class="usage-card">
+        <div class="usage-no">01</div>
+        <h2>この画面を開く</h2>
+        <p>会場到着後、スマートフォンでこのページを開いてください。</p>
+      </article>
+      <article class="usage-card">
+        <div class="usage-no">02</div>
+        <h2>スタッフに提示</h2>
+        <p>注文時または受付時に、取得済みクーポン画面をご提示ください。</p>
+      </article>
+      <article class="usage-card">
+        <div class="usage-no">03</div>
+        <h2>乾杯の一杯を受け取る</h2>
+        <p>グランドオープン限定のワンドリンクサービスをお楽しみください。</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">MITZ KANAZAWA /// WEB COUPON 2026</footer>
+
+  <script>
+    const PREVIEW_PASS_HASH = "d72a0ff0623a77c0173809d712719de9995ff7ac05076ef67568af23c1279b4d";
+    const PREVIEW_RELEASE_AT = new Date("2026-05-13T00:00:00+09:00").getTime();
+    async function sha256(text) {
+      if (!window.crypto || !window.crypto.subtle) return null;
+      const buf = await window.crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+      return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, "0")).join("");
+    }
+    function unlockPreview() {
+      document.body.classList.remove("is-gated");
+      try { localStorage.setItem("mitz-preview-access", "ok"); } catch (e) {}
+    }
+    if (Date.now() >= PREVIEW_RELEASE_AT) {
+      unlockPreview();
+    }
+    const previewGateForm = document.getElementById("previewGateForm");
+    if (previewGateForm) {
+      previewGateForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const input = document.getElementById("previewGateInput");
+        const note = document.getElementById("previewGateNote");
+        const value = input ? input.value.trim() : "";
+        const hashed = await sha256(value);
+        if (hashed === PREVIEW_PASS_HASH || (!hashed && value === "mitz0513")) {
+          unlockPreview();
+          if (input) input.value = "";
+          return;
+        }
+        if (note) note.textContent = "パスコードが一致しません。";
+        if (input) input.focus();
+      });
+    }
+
+    function renderCouponState() {
+      let saved = false;
+      try { saved = localStorage.getItem("mitz-opening-coupon") === "saved"; } catch (e) {}
+      document.body.classList.toggle("is-saved", saved);
+      document.body.classList.toggle("is-unsaved", !saved);
+    }
+    renderCouponState();
+    const acquireButton = document.getElementById("couponAcquireButton");
+    if (acquireButton) {
+      acquireButton.addEventListener("click", () => {
+        try { localStorage.setItem("mitz-opening-coupon", "saved"); } catch (e) {}
+        renderCouponState();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+  </script>
+</body>
+</html>
