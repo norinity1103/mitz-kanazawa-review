@@ -2458,32 +2458,79 @@
     }
 
     .fa-instagram {
+      position: relative;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
+      justify-content: flex-start;
+      gap: 14px;
       width: 250px;
       min-height: 72px;
-      padding: 12px 18px;
-      background: linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #F77737 100%);
-      color: #FFFFFF;
+      padding: 12px 18px 12px 14px;
+      background: linear-gradient(135deg, rgba(15, 17, 21, 0.96) 0%, rgba(42, 32, 23, 0.96) 100%);
+      color: #F8F1E6;
       border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(232, 185, 106, 0.44);
       text-decoration: none;
       font-family: "Noto Sans JP", sans-serif;
       font-size: 14px;
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: 0.04em;
-      box-shadow: 0 14px 30px rgba(225, 48, 108, 0.38);
-      transition: transform 0.25s ease;
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.32), 0 0 0 1px rgba(232, 185, 106, 0.22);
+      transition: transform 0.25s ease, border-color 0.25s ease;
     }
-    .fa-instagram:hover { transform: translateY(-4px); opacity: 1; }
+    .fa-instagram::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(131, 58, 180, 0.22), rgba(225, 48, 108, 0.16), rgba(247, 119, 55, 0.20));
+      pointer-events: none;
+    }
+    .fa-instagram:hover {
+      transform: translateY(-4px);
+      border-color: rgba(232, 185, 106, 0.72);
+      opacity: 1;
+    }
+    .fa-instagram-icon {
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #833AB4 0%, #E1306C 52%, #F77737 100%);
+      border: 1.5px solid rgba(255, 255, 255, 0.48);
+      box-shadow: 0 8px 18px rgba(225, 48, 108, 0.26);
+    }
     .fa-instagram svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .fa-instagram-text {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+      gap: 1px;
+    }
+    .fa-instagram-label {
+      font-family: "Inter", sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #E8B96A;
+    }
+    .fa-instagram-title {
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+    }
     .fa-instagram .handle {
       font-family: "Inter", sans-serif;
       font-size: 12px;
-      opacity: 0.92;
-      letter-spacing: 0.02em;
+      opacity: 0.78;
+      letter-spacing: 0.04em;
       white-space: nowrap;
     }
     .fa-sponsor {
@@ -2552,7 +2599,10 @@
         border-radius: 999px;
         font-size: 11px;
       }
+      .fa-instagram-icon { width: 32px; height: 32px; }
       .fa-instagram svg { width: 16px; height: 16px; }
+      .fa-instagram-label { display: none; }
+      .fa-instagram-title { font-size: 12px; }
       .fa-instagram .handle { font-size: 11px; }
       .fa-sponsor {
         width: auto;
@@ -4286,14 +4336,18 @@
         <span class="small">MITZ 0530 →</span>
       </span>
     </a>
-    <a href="#opening" class="fa-event" aria-label="オープニングイベント詳細">
-      <span class="fa-event-avatar">
-        <img loading="lazy" decoding="async" src="images/dj-yatsui.jpg" alt="" aria-hidden="true">
+    <a href="https://www.instagram.com/mitz_kanazawa" class="fa-instagram" target="_blank" rel="noopener" aria-label="Instagramをフォロー">
+      <span class="fa-instagram-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" ry="5.5"/>
+          <path d="M16.2 11.6A4.2 4.2 0 1 1 12.4 7.8 4.2 4.2 0 0 1 16.2 11.6z"/>
+          <line x1="17.7" y1="6.6" x2="17.71" y2="6.6"/>
+        </svg>
       </span>
-      <span class="fa-event-text">
-        <span class="fa-event-label">Opening Event</span>
-        <span class="fa-event-title">DJ やついいちろう</span>
-        <span class="fa-event-meta">5.30 (土) 18:00 →</span>
+      <span class="fa-instagram-text">
+        <span class="fa-instagram-label">Follow Us</span>
+        <span class="fa-instagram-title">Instagram</span>
+        <span class="handle">@mitz_kanazawa →</span>
       </span>
     </a>
     <a href="#sponsors" class="fa-sponsor" aria-label="スポンサー応募へ">
