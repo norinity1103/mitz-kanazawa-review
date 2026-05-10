@@ -3184,6 +3184,130 @@
     }
     .sponsor-note strong { color: var(--ink); font-weight: 700; }
 
+    .corporate-partners {
+      margin-top: 42px;
+      padding: clamp(28px, 4vw, 42px);
+      background:
+        linear-gradient(135deg, rgba(232, 185, 106, 0.09) 0%, rgba(255, 255, 255, 0.02) 42%, rgba(48, 160, 216, 0.055) 100%),
+        var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow-card);
+    }
+    .corporate-partners-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 0.54fr);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 30px;
+    }
+    @media (max-width: 760px) {
+      .corporate-partners-head { grid-template-columns: 1fr; gap: 16px; }
+    }
+    .corporate-partners h3 {
+      margin-top: 8px;
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(26px, 3.6vw, 42px);
+      line-height: 1.25;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+    }
+    .corporate-partners-copy {
+      color: var(--ink-muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+    .partner-tier-block {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 22px;
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+    }
+    .partner-tier-block:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+    @media (max-width: 760px) {
+      .partner-tier-block { grid-template-columns: 1fr; gap: 14px; }
+    }
+    .partner-tier-label {
+      position: sticky;
+      top: 96px;
+      align-self: start;
+    }
+    @media (max-width: 760px) {
+      .partner-tier-label { position: static; }
+    }
+    .partner-tier-label .tier-en {
+      color: var(--lantern);
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.14em;
+      line-height: 1;
+    }
+    .partner-tier-label .tier-jp {
+      margin-top: 6px;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+    .partner-tier-label .tier-note {
+      margin-top: 8px;
+      color: var(--ink-faint);
+      font-size: 11px;
+      line-height: 1.65;
+    }
+    .partner-logo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    @media (max-width: 980px) {
+      .partner-logo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      .partner-logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .partner-logo {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.22)),
+        rgba(255, 255, 255, 0.28);
+      color: var(--ink-muted);
+      text-align: center;
+      font-family: "Inter", sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    [data-theme="dark"] .partner-logo {
+      background:
+        linear-gradient(135deg, rgba(242, 237, 226, 0.07), rgba(242, 237, 226, 0.02)),
+        rgba(242, 237, 226, 0.03);
+    }
+    .partner-logo.is-featured {
+      min-height: 112px;
+      font-size: 13px;
+      color: var(--ink);
+      border-color: rgba(232, 185, 106, 0.40);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(232, 185, 106, 0.18), transparent 58%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(232, 185, 106, 0.08));
+    }
+    .partner-logo span {
+      display: block;
+      max-width: 12em;
+    }
+
     /* Sponsor deck download */
     .sponsor-deck {
       margin: 8px 0 40px;
@@ -3598,8 +3722,8 @@
     footer .footer-bottom, footer .footer-top { border-color: rgba(242, 237, 226, 0.08); }
     .footer-top {
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 64px;
+      grid-template-columns: minmax(180px, 0.72fr) minmax(0, 1.8fr);
+      gap: 44px 64px;
       padding-bottom: 56px;
       border-bottom: 1px solid var(--line);
     }
@@ -3621,7 +3745,43 @@
       line-height: 1.8;
       max-width: 320px;
     }
+    .partners {
+      grid-column: 1 / -1;
+    }
     .partners .label { display: block; margin-bottom: 24px; }
+    .footer-nav {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 26px;
+    }
+    @media (max-width: 760px) {
+      .footer-nav { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .footer-nav-group .label {
+      display: block;
+      margin-bottom: 16px;
+    }
+    .footer-nav-group a {
+      display: block;
+      padding: 7px 0;
+      color: rgba(242, 237, 226, 0.78);
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      line-height: 1.5;
+    }
+    .footer-nav-group a:hover {
+      color: var(--lantern-soft);
+      opacity: 1;
+    }
+    .footer-nav-group .sub {
+      display: block;
+      margin-top: 1px;
+      color: rgba(242, 237, 226, 0.36);
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+    }
     .partner-list {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -4371,6 +4531,79 @@
           </a>
         </div>
       </div>
+
+      <div class="corporate-partners reveal" id="corporate-partners">
+        <div class="corporate-partners-head">
+          <div>
+            <div class="label-faint">CURRENT CORPORATE PARTNERS</div>
+            <h3>企業協賛・掲載枠</h3>
+          </div>
+          <p class="corporate-partners-copy">
+            掲載予定の協賛企業ロゴ枠です。正式ロゴ到着後、各プランの掲載条件に合わせて差し替えます。
+          </p>
+        </div>
+
+        <div class="partner-tier-block">
+          <div class="partner-tier-label">
+            <div class="tier-en">SPECIAL</div>
+            <div class="tier-jp">特別協賛</div>
+            <p class="tier-note">最上位掲載・ステージ / サイネージ特別紹介</p>
+          </div>
+          <div class="partner-logo-grid">
+            <div class="partner-logo is-featured"><span>Special Partner 01</span></div>
+            <div class="partner-logo is-featured"><span>Special Partner 02</span></div>
+          </div>
+        </div>
+
+        <div class="partner-tier-block">
+          <div class="partner-tier-label">
+            <div class="tier-en">MATSU</div>
+            <div class="tier-jp">松プラン</div>
+            <p class="tier-note">Web特大・動画サイネージ常時放映</p>
+          </div>
+          <div class="partner-logo-grid">
+            <div class="partner-logo"><span>Matsu Partner 01</span></div>
+            <div class="partner-logo"><span>Matsu Partner 02</span></div>
+            <div class="partner-logo"><span>Matsu Partner 03</span></div>
+            <div class="partner-logo"><span>Matsu Partner 04</span></div>
+          </div>
+        </div>
+
+        <div class="partner-tier-block">
+          <div class="partner-tier-label">
+            <div class="tier-en">TAKE</div>
+            <div class="tier-jp">竹プラン</div>
+            <p class="tier-note">Web大・動画サイネージ放映</p>
+          </div>
+          <div class="partner-logo-grid">
+            <div class="partner-logo"><span>Take Partner 01</span></div>
+            <div class="partner-logo"><span>Take Partner 02</span></div>
+            <div class="partner-logo"><span>Take Partner 03</span></div>
+            <div class="partner-logo"><span>Take Partner 04</span></div>
+            <div class="partner-logo"><span>Take Partner 05</span></div>
+            <div class="partner-logo"><span>Take Partner 06</span></div>
+          </div>
+        </div>
+
+        <div class="partner-tier-block">
+          <div class="partner-tier-label">
+            <div class="tier-en">UME / SPOT</div>
+            <div class="tier-jp">梅・スポット</div>
+            <p class="tier-note">Web掲載・Instagram紹介・単発掲載枠</p>
+          </div>
+          <div class="partner-logo-grid">
+            <div class="partner-logo"><span>Ume Partner 01</span></div>
+            <div class="partner-logo"><span>Ume Partner 02</span></div>
+            <div class="partner-logo"><span>Ume Partner 03</span></div>
+            <div class="partner-logo"><span>Spot Partner 01</span></div>
+            <div class="partner-logo"><span>Spot Partner 02</span></div>
+            <div class="partner-logo"><span>Spot Partner 03</span></div>
+            <div class="partner-logo"><span>Spot Partner 04</span></div>
+            <div class="partner-logo"><span>Spot Partner 05</span></div>
+          </div>
+        </div>
+      </div>
+
       <div class="sponsor-note reveal">
         <strong>お問い合わせ</strong> — 詳細や個別相談は <a href="mailto:contact@mitz-kanazawa.com" style="color:var(--lantern);">contact@mitz-kanazawa.com</a> までお気軽にご連絡ください。
       </div>
@@ -4459,6 +4692,28 @@
           </div>
           <p class="tag">日常の役割を脱ぎ捨て、「3番目の自分」へと帰る場所。</p>
         </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div class="footer-nav-group">
+            <span class="label">Explore</span>
+            <a href="#concept">Mitzのコンセプト<span class="sub">concept</span></a>
+            <a href="#three">3つの要素<span class="sub">three elements</span></a>
+            <a href="#event-schedule">イベントスケジュール<span class="sub">event schedule</span></a>
+            <a href="#info">施設情報<span class="sub">information</span></a>
+          </div>
+          <div class="footer-nav-group">
+            <span class="label">Actions</span>
+            <a href="coupon.html">取得済みクーポン<span class="sub">web coupon</span></a>
+            <a href="#sponsors">協賛・掲載について相談<span class="sub">sponsorship</span></a>
+            <a href="assets/Mitz_Sponsorship_2026.pdf" download="Mitz_Sponsorship_2026.pdf" target="_blank" rel="noopener">スポンサー資料PDF<span class="sub">download deck</span></a>
+            <a href="#corporate-partners">企業協賛・掲載枠<span class="sub">corporate partners</span></a>
+          </div>
+          <div class="footer-nav-group">
+            <span class="label">Contact</span>
+            <a href="mailto:contact@mitz-kanazawa.com">contact@mitz-kanazawa.com<span class="sub">mail</span></a>
+            <a href="https://www.instagram.com/mitz_kanazawa" target="_blank" rel="noopener">@mitz_kanazawa<span class="sub">instagram</span></a>
+            <a href="https://mitz-kanazawa.com/">mitz-kanazawa.com<span class="sub">official site</span></a>
+          </div>
+        </nav>
         <div class="partners">
           <div class="label">Partners</div>
           <div class="partner-list">
