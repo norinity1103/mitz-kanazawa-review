@@ -4018,22 +4018,22 @@
             <div class="coupon-shell">
               <div class="coupon-main">
                 <div class="coupon-kicker">Opening Coupon</div>
-                <h4 class="coupon-title">Welcome<span>Ticket</span></h4>
+                <h4 class="coupon-title">One Drink<span>Gift</span></h4>
                 <p class="coupon-lead">
-                  5月30日のグランドオープン当日に使える、Web限定の来場特典です。<br>
-                  スマートフォンでこの画面を開き、会場スタッフにご提示ください。
+                  グランドオープンを一緒に祝う、Web限定のウェルカムドリンクチケット。<br>
+                  乾杯の一杯をMitzから。スマートフォンでこの画面を開き、会場スタッフにご提示ください。
                 </p>
                 <div class="coupon-terms" aria-label="クーポン利用条件">
                   <span>2026.05.30 only</span>
-                  <span>one device / one ticket</span>
+                  <span>one drink service</span>
                   <span>show at venue</span>
                 </div>
               </div>
               <div class="coupon-stub">
                 <div>
-                  <div class="coupon-code-label">Coupon No.</div>
-                  <div class="coupon-code">MITZ<br>0530</div>
-                  <div class="coupon-date">GRAND OPEN</div>
+                  <div class="coupon-code-label">Web Coupon</div>
+                  <div class="coupon-code">ONE<br>DRINK</div>
+                  <div class="coupon-date">MITZ 0530</div>
                 </div>
                 <div>
                   <button type="button" class="coupon-action" id="couponSaveButton">クーポンを保存</button>
@@ -4472,8 +4472,8 @@
       couponSaveButton.classList.toggle("is-saved", saved);
       couponSaveButton.textContent = saved ? "保存済み / 当日提示" : "クーポンを保存";
       couponStatus.textContent = saved
-        ? "この端末に保存しました。当日はこの画面をスタッフにご提示ください。"
-        : "保存すると、この端末で提示しやすくなります。";
+        ? "ワンドリンクサービスを保存しました。当日はこの画面をスタッフにご提示ください。"
+        : "保存すると、当日ワンドリンクサービスを提示しやすくなります。";
     }
     try {
       setCouponSaved(localStorage.getItem("mitz-opening-coupon") === "saved");
