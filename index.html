@@ -2032,6 +2032,14 @@
       color: #F8F1E6;
       text-shadow: 0 1px 18px rgba(232, 185, 106, 0.18);
     }
+    .stage-event.type-dj .stage-event-title .en,
+    .stage-event.type-djGuest .stage-event-title .en {
+      color: #E8B96A;
+    }
+    .stage-event.type-dj .stage-event-detail,
+    .stage-event.type-djGuest .stage-event-detail {
+      color: rgba(248, 241, 230, 0.68);
+    }
     .stage-event.type-dj .stage-event-time,
     .stage-event.type-djGuest .stage-event-time {
       color: #E8B96A;
@@ -2154,12 +2162,29 @@
       font-size: 15px;
       line-height: 1.6;
     }
+    .stage-event-title .jp {
+      display: block;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+    }
+    .stage-event-title .en {
+      display: block;
+      margin-top: 2px;
+      color: var(--event-color, var(--lantern));
+      font-family: "Inter", sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      line-height: 1.35;
+      text-transform: uppercase;
+      opacity: 0.82;
+    }
     .stage-event-title .min {
       opacity: 0.74;
     }
     .stage-event-detail {
       display: block;
-      margin-top: 3px;
+      margin-top: 7px;
       color: var(--ink-muted);
       font-size: 12px;
       font-weight: 800;
@@ -4073,39 +4098,39 @@
               <div class="stage-track">
                 <article class="stage-event type-opening is-highlight" style="--start:780; --end:810">
                   <time class="stage-event-time">13:00 - 13:30</time>
-                  <div class="stage-event-title">Opening Ceremony</div>
+                  <div class="stage-event-title"><span class="jp">オープニングセレモニー</span><span class="en">Opening Ceremony</span><span class="stage-event-detail">Mitz 金沢の開業を祝うセレモニー</span></div>
                 </article>
                 <article class="stage-event type-wind" style="--start:810; --end:840">
                   <time class="stage-event-time">13:30 - 14:00</time>
-                  <div class="stage-event-title">吹奏楽① <span class="min">20min</span><span class="stage-event-detail">Laららブラス</span></div>
+                  <div class="stage-event-title"><span class="jp">吹奏楽① <span class="min">20min</span></span><span class="en">Brass Band Performance</span><span class="stage-event-detail">Laららブラス</span></div>
                 </article>
                 <article class="stage-event type-wind" style="--start:840; --end:870">
                   <time class="stage-event-time">14:00 - 14:30</time>
-                  <div class="stage-event-title">吹奏楽② <span class="min">20min</span><span class="stage-event-detail">アンサンブル☆ふぁみりあ</span></div>
+                  <div class="stage-event-title"><span class="jp">吹奏楽② <span class="min">20min</span></span><span class="en">Wind Ensemble</span><span class="stage-event-detail">アンサンブル☆ふぁみりあ</span></div>
                 </article>
                 <article class="stage-event type-wind" style="--start:870; --end:900">
                   <time class="stage-event-time">14:30 - 15:00</time>
-                  <div class="stage-event-title">吹奏楽③ <span class="min">30min</span><span class="stage-event-detail">金石中学校吹奏楽部</span></div>
+                  <div class="stage-event-title"><span class="jp">吹奏楽③ <span class="min">30min</span></span><span class="en">Junior High School Brass Band</span><span class="stage-event-detail">金石中学校吹奏楽部</span></div>
                 </article>
                 <article class="stage-event type-dance" style="--start:900; --end:960">
                   <time class="stage-event-time">15:00 - 16:00</time>
-                  <div class="stage-event-title">ダンス <span class="min">60min</span><span class="stage-event-detail">ダンススクールFLAG / 遊学館高校ストリートダンス部 / ROCK RIVER CREW</span></div>
+                  <div class="stage-event-title"><span class="jp">ダンス <span class="min">60min</span></span><span class="en">Dance Showcase</span><span class="stage-event-detail">ダンススクールFLAG / 遊学館高校ストリートダンス部 / ROCK RIVER CREW</span></div>
                 </article>
                 <article class="stage-event type-band" style="--start:990; --end:1020">
                   <time class="stage-event-time">16:30 - 17:00</time>
-                  <div class="stage-event-title">地元BAND <span class="min">30min</span><span class="stage-event-detail">サカナノメ</span></div>
+                  <div class="stage-event-title"><span class="jp">地元BAND <span class="min">30min</span></span><span class="en">Local Band Live</span><span class="stage-event-detail">サカナノメ</span></div>
                 </article>
                 <article class="stage-event type-dj" style="--start:1050; --end:1110">
                   <time class="stage-event-time">17:30 - 18:30</time>
-                  <div class="stage-event-title">地元 DJ Time</div>
+                  <div class="stage-event-title"><span class="jp">地元 DJ Time</span><span class="en">Local DJ Warm-up Set</span><span class="stage-event-detail">BROTHER HOOD ほか、メインアクトへつなぐDJタイム</span></div>
                 </article>
                 <article class="stage-event type-djGuest is-highlight" style="--start:1110; --end:1140">
                   <time class="stage-event-time">18:30 - 19:00</time>
-                  <div class="stage-event-title">DJやついいちろう</div>
+                  <div class="stage-event-title"><span class="jp">DJやついいちろう</span><span class="en">Special Guest DJ Set</span><span class="stage-event-detail">グランドオープンを彩るスペシャルゲストステージ</span></div>
                 </article>
                 <article class="stage-event type-dj" style="--start:1140; --end:1230">
                   <time class="stage-event-time">19:00 - 20:30</time>
-                  <div class="stage-event-title">地元 DJ Time</div>
+                  <div class="stage-event-title"><span class="jp">地元 DJ Time</span><span class="en">Local DJ Closing Set</span><span class="stage-event-detail">夜の会場をゆるやかにつなぐクロージングDJタイム</span></div>
                 </article>
               </div>
             </div>
