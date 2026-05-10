@@ -2003,6 +2003,46 @@
       background: linear-gradient(135deg, var(--event-bg, rgba(232, 185, 106, 0.26)), rgba(255, 255, 255, 0.04));
       border-color: var(--event-border, rgba(232, 185, 106, 0.48));
     }
+    .stage-event.type-dj,
+    .stage-event.type-djGuest {
+      overflow: hidden;
+      isolation: isolate;
+      --event-color: #E8B96A;
+      --event-border: rgba(232, 185, 106, 0.46);
+      background:
+        radial-gradient(circle at 14% 20%, rgba(232, 185, 106, 0.22), transparent 30%),
+        linear-gradient(135deg, rgba(16, 22, 32, 0.96) 0%, rgba(28, 34, 46, 0.90) 52%, rgba(96, 64, 32, 0.58) 100%);
+      border-color: var(--event-border);
+      box-shadow: 0 18px 44px rgba(15, 17, 21, 0.18), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    }
+    .stage-event.type-dj::after,
+    .stage-event.type-djGuest::after {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      z-index: -1;
+      background:
+        linear-gradient(110deg, transparent 0%, rgba(232, 185, 106, 0.18) 36%, transparent 58%),
+        radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.12), transparent 26%);
+      opacity: 0.75;
+      pointer-events: none;
+    }
+    .stage-event.type-dj .stage-event-title,
+    .stage-event.type-djGuest .stage-event-title {
+      color: #F8F1E6;
+      text-shadow: 0 1px 18px rgba(232, 185, 106, 0.18);
+    }
+    .stage-event.type-dj .stage-event-time,
+    .stage-event.type-djGuest .stage-event-time {
+      color: #E8B96A;
+    }
+    .stage-event.type-djGuest {
+      background:
+        radial-gradient(circle at 12% 20%, rgba(232, 185, 106, 0.30), transparent 32%),
+        linear-gradient(135deg, rgba(72, 32, 24, 0.95) 0%, rgba(160, 68, 38, 0.88) 46%, rgba(25, 26, 34, 0.96) 100%);
+      border-color: rgba(232, 185, 106, 0.68);
+      box-shadow: 0 22px 52px rgba(160, 68, 38, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
     @media (max-width: 820px) {
       .schedule { padding: 24px 18px; }
       .schedule-head { grid-template-columns: 1fr; }
@@ -3684,7 +3724,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
         </svg>
-        <span class="ja">スポンサー応募</span>
+        <span class="ja">協賛・掲載について相談</span>
         <span class="en">CONTACT</span>
       </a>
       <button type="button" class="nav-burger" id="navBurger" aria-label="メニューを開く" aria-controls="mobileDrawer" aria-expanded="false">
@@ -3699,7 +3739,7 @@
     <a href="#three" class="mobile-drawer-link" data-drawer-link>3つの要素<span class="en">three elements</span></a>
     <a href="#opening" class="mobile-drawer-link" data-drawer-link>オープニングイベント<span class="en">opening event</span></a>
     <a href="#coupon" class="mobile-drawer-link" data-drawer-link>クーポン<span class="en">coupon</span></a>
-    <a href="#sponsors" class="mobile-drawer-link" data-drawer-link>スポンサー応募<span class="en">sponsorship</span></a>
+    <a href="#sponsors" class="mobile-drawer-link" data-drawer-link>協賛・掲載について相談<span class="en">sponsorship</span></a>
     <a href="#info" class="mobile-drawer-link" data-drawer-link>施設情報<span class="en">information</span></a>
     <div class="mobile-drawer-cta">
       <a href="coupon.html" class="primary" data-drawer-link>
@@ -3713,7 +3753,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
         </svg>
-        スポンサー応募 / お問い合わせ
+        協賛・掲載について相談
       </a>
       <a href="https://www.instagram.com/mitz_kanazawa" class="ig" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -3747,7 +3787,7 @@
       </p>
       <div class="hero-primary-actions" aria-label="主要導線">
         <a href="assets/Mitz_Sponsorship_2026.pdf" class="hero-primary-btn" download="Mitz_Sponsorship_2026.pdf" target="_blank" rel="noopener">スポンサー資料を見る</a>
-        <a href="#sponsors" class="hero-secondary-btn">スポンサー応募へ</a>
+        <a href="#sponsors" class="hero-secondary-btn">協賛・掲載について相談</a>
       </div>
 
       <a href="#opening" class="hero-event" aria-label="オープニングイベント詳細を見る">
@@ -4287,7 +4327,7 @@
             <span class="sponsor-plan">イベント協賛</span>
           </div>
           <a href="https://forms.gle/kX6DdqRzAyYHSuyw9" class="sponsor-cta" target="_blank" rel="noopener">
-            企業スポンサーに申し込む
+            企業協賛について相談する
             <span class="arrow">→</span>
           </a>
         </div>
@@ -4301,7 +4341,7 @@
             <span class="sponsor-plan">特典招待</span>
           </div>
           <a href="https://forms.gle/41RWRfXQMzjVhAHA9" class="sponsor-cta" target="_blank" rel="noopener">
-            個人スポンサーに申し込む
+            個人協賛について相談する
             <span class="arrow">→</span>
           </a>
         </div>
@@ -4445,9 +4485,9 @@
         <span class="handle">@mitz_kanazawa →</span>
       </span>
     </a>
-    <a href="#sponsors" class="fa-sponsor" aria-label="スポンサー応募へ">
+    <a href="#sponsors" class="fa-sponsor" aria-label="協賛・掲載について相談">
       <span>
-        スポンサー応募
+        協賛・掲載について相談
         <span class="small">SPONSORSHIP →</span>
       </span>
     </a>
