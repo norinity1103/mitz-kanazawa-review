@@ -2831,23 +2831,53 @@
       line-height: 1.7;
     }
     .fa-coupon {
+      position: relative;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      width: 250px;
-      min-height: 72px;
-      padding: 12px 18px;
-      background: linear-gradient(135deg, rgba(12, 14, 18, 0.96) 0%, rgba(96, 64, 32, 0.96) 100%);
+      justify-content: flex-start;
+      width: 132px;
+      min-height: 58px;
+      padding: 9px 14px 9px 16px;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(232, 185, 106, 0.18) 0 1px, transparent 1px 10px),
+        linear-gradient(135deg, rgba(12, 14, 18, 0.98) 0%, rgba(55, 37, 24, 0.98) 100%);
       color: #F8F1E6;
-      border: 1px solid rgba(232, 185, 106, 0.50);
-      border-radius: 10px;
-      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.32);
+      border: 1px solid rgba(232, 185, 106, 0.58);
+      border-radius: 0;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.30);
       font-family: "Noto Sans JP", sans-serif;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 900;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
       text-decoration: none;
       transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .fa-coupon::before,
+    .fa-coupon::after {
+      content: "";
+      position: absolute;
+      right: -8px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--bg-base);
+      border: 1px solid rgba(232, 185, 106, 0.50);
+      z-index: 1;
+    }
+    .fa-coupon::before { top: -8px; }
+    .fa-coupon::after { bottom: -8px; }
+    .fa-coupon span {
+      position: relative;
+      z-index: 2;
+    }
+    .fa-coupon span::after {
+      content: "";
+      position: absolute;
+      top: -8px;
+      bottom: -8px;
+      right: -18px;
+      border-right: 1px dashed rgba(232, 185, 106, 0.46);
     }
     .fa-coupon:hover {
       transform: translateY(-4px);
@@ -2859,7 +2889,7 @@
       margin-top: 2px;
       color: #E8B96A;
       font-family: "Bebas Neue", sans-serif;
-      font-size: 13px;
+      font-size: 11px;
       letter-spacing: 0.14em;
     }
     @media (max-width: 760px) {
@@ -2896,6 +2926,9 @@
         border-radius: 999px;
         font-size: 12px;
       }
+      .fa-coupon::before,
+      .fa-coupon::after,
+      .fa-coupon span::after { display: none; }
       .fa-coupon .small { display: none; }
     }
 
@@ -4375,8 +4408,8 @@
   <div class="floating-actions" id="floatingActions" aria-label="Quick actions">
     <a href="#coupon" class="fa-coupon" aria-label="オープニングクーポンを見る">
       <span>
-        クーポン
-        <span class="small">OPENING TICKET →</span>
+        COUPON
+        <span class="small">MITZ 0530 →</span>
       </span>
     </a>
     <a href="#opening" class="fa-event" aria-label="オープニングイベント詳細">
