@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem("mitz-theme");
+        if (t === "dark" || t === "light") {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>協賛・協力パートナー — Mitz 金沢</title>
+  <meta name="description" content="Mitz 金沢の活動を支える協賛企業・協力パートナーのご紹介ページです。" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="協賛・協力パートナー — Mitz 金沢" />
+  <meta property="og:description" content="Mitz 金沢の活動を支える協賛企業・協力パートナーをご紹介します。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mitz-kanazawa.com/partners.html" />
+  <meta property="og:site_name" content="Mitz 金沢" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:image" content="https://mitz-kanazawa.com/images/ogp-grand-open.jpg" />
+  <meta property="og:image:secure_url" content="https://mitz-kanazawa.com/images/ogp-grand-open.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0F1115" />
+  <link rel="canonical" href="https://mitz-kanazawa.com/partners.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&family=Bebas+Neue&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0F1115;
+      --panel: #171A20;
+      --panel-soft: #20242B;
+      --ink: #F6F0E8;
+      --muted: rgba(246, 240, 232, 0.68);
+      --faint: rgba(246, 240, 232, 0.42);
+      --line: rgba(246, 240, 232, 0.13);
+      --line-strong: rgba(246, 240, 232, 0.22);
+      --gold: #DCA64A;
+      --gold-soft: rgba(220, 166, 74, 0.14);
+      --green: #7FB94A;
+      --orange: #D47B38;
+      --blue: #4D9ED0;
+      --purple: #9A6BD8;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(220, 166, 74, 0.12), transparent 30%),
+        radial-gradient(circle at 82% 18%, rgba(77, 158, 208, 0.10), transparent 28%),
+        linear-gradient(180deg, #090A0D 0%, var(--bg) 42%, #181B20 100%);
+      color: var(--ink);
+      font-family: "Noto Sans JP", "Inter", sans-serif;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; text-decoration: none; transition: opacity 0.2s ease, border-color 0.2s ease, transform 0.2s ease; }
+    a:hover { opacity: 0.76; }
+    img, svg { display: block; max-width: 100%; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(9, 10, 13, 0.78);
+      backdrop-filter: blur(18px);
+    }
+    .nav {
+      width: min(100%, 1320px);
+      margin: 0 auto;
+      padding: 18px clamp(20px, 4vw, 48px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .logo img { width: 150px; height: auto; }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .nav-link,
+    .nav-primary {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      border: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+    .nav-primary {
+      border-color: rgba(220, 166, 74, 0.62);
+      background: linear-gradient(135deg, #E2B766 0%, #C87822 100%);
+      color: #17120E;
+      box-shadow: 0 16px 32px rgba(200, 120, 32, 0.18);
+    }
+    .wrap {
+      width: min(100%, 1320px);
+      margin: 0 auto;
+      padding: clamp(58px, 8vw, 104px) clamp(20px, 4vw, 48px) 72px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(360px, 1.14fr);
+      gap: clamp(34px, 6vw, 78px);
+      align-items: end;
+      margin-bottom: clamp(42px, 7vw, 88px);
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      color: var(--gold);
+      font: 800 11px/1 "Inter", sans-serif;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 44px;
+      height: 1px;
+      background: currentColor;
+    }
+    h1 {
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(42px, 7vw, 82px);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+    }
+    .hero-lead {
+      max-width: 660px;
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: clamp(15px, 1.55vw, 18px);
+      line-height: 2.05;
+    }
+    .hero-panel {
+      position: relative;
+      overflow: hidden;
+      min-height: 390px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+        var(--panel);
+      box-shadow: 0 32px 90px rgba(0, 0, 0, 0.32);
+    }
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(9, 10, 13, 0.76), rgba(9, 10, 13, 0.10)),
+        url("images/hero-opening-collage.jpg") center / cover;
+      filter: saturate(0.7) contrast(0.95);
+      opacity: 0.72;
+    }
+    .hero-panel-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      align-content: end;
+      min-height: 390px;
+      padding: clamp(28px, 4vw, 42px);
+    }
+    .hero-panel-kicker {
+      margin-bottom: 16px;
+      color: var(--gold);
+      font: 800 11px/1 "Inter", sans-serif;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+    }
+    .hero-panel-title {
+      max-width: 420px;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 900;
+      line-height: 1.24;
+      letter-spacing: 0.04em;
+    }
+    .hero-panel-copy {
+      max-width: 480px;
+      margin-top: 18px;
+      color: rgba(246, 240, 232, 0.76);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.78fr) minmax(280px, 0.42fr);
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 30px;
+    }
+    .section-kicker {
+      margin-bottom: 12px;
+      color: var(--faint);
+      font: 800 11px/1 "Inter", sans-serif;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(30px, 5vw, 54px);
+      line-height: 1.18;
+      letter-spacing: 0.02em;
+    }
+    .section-copy {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: clamp(56px, 8vw, 92px);
+    }
+    .partner-card {
+      overflow: hidden;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--line-strong);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.02)),
+        var(--panel);
+    }
+    .partner-card-photos {
+      height: 156px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border-bottom: 1px solid var(--line);
+      background: #0B0D10;
+    }
+    .partner-card-photos img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(0.72) brightness(0.62) contrast(1.08);
+    }
+    .partner-card-body {
+      flex: 1;
+      padding: 24px 22px 26px;
+      display: flex;
+      flex-direction: column;
+    }
+    .badge {
+      width: fit-content;
+      min-height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      padding: 0 14px;
+      border: 1px solid currentColor;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+    }
+    .badge.pr { color: #60C27F; }
+    .badge.brand { color: #B47DFF; }
+    .badge.design { color: #53A6E8; }
+    .badge.food { color: var(--gold); }
+    .partner-card h3 {
+      color: #FFFFFF;
+      font-size: clamp(19px, 2vw, 24px);
+      line-height: 1.45;
+      letter-spacing: 0.08em;
+    }
+    .partner-rule {
+      width: 18px;
+      height: 1px;
+      margin: 12px 0 18px;
+      background: var(--muted);
+    }
+    .partner-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.95;
+    }
+
+    .tier-section {
+      padding: clamp(34px, 5vw, 56px) 0;
+      border-top: 1px solid var(--line);
+    }
+    .tier-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: clamp(24px, 5vw, 58px);
+      align-items: start;
+    }
+    .tier-label {
+      position: sticky;
+      top: 92px;
+    }
+    .tier-en {
+      color: var(--gold);
+      font: 400 42px/0.9 "Bebas Neue", sans-serif;
+      letter-spacing: 0.12em;
+    }
+    .tier-jp {
+      margin-top: 10px;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+    .tier-note {
+      margin-top: 12px;
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.9;
+    }
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .logo-slot {
+      min-height: 104px;
+      display: grid;
+      place-items: center;
+      padding: 18px 14px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(220, 166, 74, 0.10), transparent 60%),
+        rgba(255, 255, 255, 0.035);
+      color: rgba(246, 240, 232, 0.68);
+      text-align: center;
+      font: 800 12px/1.55 "Inter", "Noto Sans JP", sans-serif;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .logo-slot.large {
+      min-height: 136px;
+      border-color: rgba(220, 166, 74, 0.36);
+      color: #FFFFFF;
+      font-size: 14px;
+    }
+    .logo-slot.has-logo {
+      background: #FFFFFF;
+      padding: 20px 24px;
+    }
+    .logo-slot.has-logo img {
+      width: min(100%, 260px);
+      max-height: 82px;
+      object-fit: contain;
+    }
+
+    .list-panel {
+      margin-top: 12px;
+      padding: clamp(28px, 5vw, 48px);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+        var(--panel-soft);
+    }
+    .partner-list-row {
+      display: grid;
+      grid-template-columns: minmax(180px, 0.7fr) 120px minmax(0, 1.4fr) 32px;
+      gap: 24px;
+      align-items: center;
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+    }
+    .partner-list-row:first-child { border-top: 0; }
+    .partner-list-name {
+      color: #FFFFFF;
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+    }
+    .partner-list-copy {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+    .arrow {
+      color: var(--muted);
+      font-size: 24px;
+      text-align: right;
+    }
+
+    .cta-band {
+      margin-top: clamp(52px, 8vw, 92px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 26px;
+      align-items: center;
+      padding: clamp(28px, 5vw, 46px);
+      border: 1px solid rgba(220, 166, 74, 0.34);
+      background:
+        radial-gradient(circle at 10% 20%, rgba(220, 166, 74, 0.18), transparent 36%),
+        linear-gradient(135deg, rgba(220, 166, 74, 0.08), rgba(255, 255, 255, 0.03));
+    }
+    .cta-band h2 {
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(26px, 4vw, 44px);
+      line-height: 1.28;
+    }
+    .cta-band p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+    .cta-button {
+      min-height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+      border: 1px solid rgba(220, 166, 74, 0.72);
+      background: linear-gradient(135deg, #E2B766 0%, #C87822 100%);
+      color: #17120E;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 32px clamp(20px, 4vw, 48px);
+      color: var(--faint);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+    }
+    .footer-inner {
+      width: min(100%, 1320px);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+
+    @media (max-width: 1080px) {
+      .hero,
+      .section-head,
+      .cta-band { grid-template-columns: 1fr; }
+      .featured-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .logo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 720px) {
+      .nav { padding: 14px 18px; }
+      .logo img { width: 126px; }
+      .nav-actions { gap: 8px; }
+      .nav-link,
+      .nav-primary { min-height: 38px; padding: 0 12px; font-size: 11px; }
+      .wrap { padding-top: 48px; }
+      .hero-panel,
+      .hero-panel-content { min-height: 320px; }
+      .featured-grid,
+      .tier-layout,
+      .logo-grid { grid-template-columns: 1fr; }
+      .tier-label { position: static; }
+      .partner-list-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 20px 0;
+      }
+      .arrow { display: none; }
+      .cta-button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Partner navigation">
+      <a href="index.html" class="logo" aria-label="Mitz 金沢 トップへ">
+        <img src="images/mitz-logo-white-h.png" alt="Mitz 金沢" />
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link" href="index.html">TOP</a>
+        <a class="nav-link" href="index.html#sponsors">協賛案内</a>
+        <a class="nav-primary" href="mailto:contact@mitz-kanazawa.com">お問い合わせ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <div class="eyebrow">Our Partners</div>
+        <h1 id="page-title">協賛・協力<br>パートナー</h1>
+        <p class="hero-lead">
+          Mitz 金沢の活動にご協賛・ご協力いただく企業、店舗、団体、個人事業主の皆さまをご紹介します。
+          地域のにぎわいと新しい文化を、ともに育てるためのパートナーリストです。
+        </p>
+      </div>
+      <div class="hero-panel" aria-hidden="true">
+        <div class="hero-panel-content">
+          <div class="hero-panel-kicker">Mitz Kanazawa / 2026</div>
+          <div class="hero-panel-title">Food / Play / Travel を支えるパートナーの輪</div>
+          <p class="hero-panel-copy">正式ロゴ・紹介文の到着後、各プランに合わせて順次掲載内容を差し替えます。</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="featured-title">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Featured Partners</div>
+          <h2 class="section-title" id="featured-title">協力パートナー紹介</h2>
+        </div>
+        <p class="section-copy">写真やビジュアル素材をお持ちのパートナーは、カード形式で活動内容をより魅力的に紹介できます。</p>
+      </div>
+
+      <div class="featured-grid">
+        <article class="partner-card">
+          <div class="partner-card-photos">
+            <img src="images/event-band.jpg" alt="" />
+            <img src="images/campingcar-rental.jpg" alt="" />
+            <img src="images/hero-facility.jpg" alt="" />
+          </div>
+          <div class="partner-card-body">
+            <span class="badge food">飲食</span>
+            <h3>Food Partner</h3>
+            <div class="partner-rule"></div>
+            <p>食材、ドリンク、ケータリングなど、Mitz の体験価値を食の面から支えるパートナー枠です。</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card-photos">
+            <img src="images/event-dance.jpg" alt="" />
+            <img src="images/event-brass.jpg" alt="" />
+            <img src="images/event-band.jpg" alt="" />
+          </div>
+          <div class="partner-card-body">
+            <span class="badge pr">広報</span>
+            <h3>PR Partner</h3>
+            <div class="partner-rule"></div>
+            <p>情報発信、SNS、メディア露出など、地域へ届くコミュニケーションを支えるパートナー枠です。</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card-photos">
+            <img src="images/n3w-trailer.jpg" alt="" />
+            <img src="images/mitz-logo-white-v.png" alt="" />
+            <img src="images/ogp-grand-open.jpg" alt="" />
+          </div>
+          <div class="partner-card-body">
+            <span class="badge brand">ブランド</span>
+            <h3>Brand Partner</h3>
+            <div class="partner-rule"></div>
+            <p>ブランド体験、商品、店舗連携など、Mitz の世界観づくりに関わるパートナー枠です。</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card-photos">
+            <img src="images/zoning-map.png" alt="" />
+            <img src="images/playground.jpg" alt="" />
+            <img src="images/canbase.jpg" alt="" />
+          </div>
+          <div class="partner-card-body">
+            <span class="badge design">制作</span>
+            <h3>Creative Partner</h3>
+            <div class="partner-rule"></div>
+            <p>デザイン、施工、撮影、映像、Web など、場の完成度を高める制作パートナー枠です。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="tier-section" aria-labelledby="sponsor-title">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Sponsorship Logo Board</div>
+          <h2 class="section-title" id="sponsor-title">協賛企業・掲載枠</h2>
+        </div>
+        <p class="section-copy">各プランの掲載条件に合わせ、正式ロゴ到着後に差し替えるための掲載枠です。</p>
+      </div>
+
+      <div class="tier-section">
+        <div class="tier-layout">
+          <div class="tier-label">
+            <div class="tier-en">SPECIAL</div>
+            <div class="tier-jp">特別協賛</div>
+            <p class="tier-note">最上位掲載・ステージ / サイネージ特別紹介</p>
+          </div>
+          <div class="logo-grid">
+            <div class="logo-slot large has-logo"><img src="images/partner-sunly-home.png" alt="サンリーの家" /></div>
+            <div class="logo-slot large">Special Partner 02</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tier-section">
+        <div class="tier-layout">
+          <div class="tier-label">
+            <div class="tier-en">MATSU</div>
+            <div class="tier-jp">松プラン</div>
+            <p class="tier-note">Web特大・動画サイネージ常時放映</p>
+          </div>
+          <div class="logo-grid">
+            <div class="logo-slot has-logo"><img src="images/partner-yamagishi.png" alt="exterior YAMAGISHI" /></div>
+            <div class="logo-slot">Matsu Partner 02</div>
+            <div class="logo-slot">Matsu Partner 03</div>
+            <div class="logo-slot">Matsu Partner 04</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tier-section">
+        <div class="tier-layout">
+          <div class="tier-label">
+            <div class="tier-en">TAKE</div>
+            <div class="tier-jp">竹プラン</div>
+            <p class="tier-note">Web大・動画サイネージ放映</p>
+          </div>
+          <div class="logo-grid">
+            <div class="logo-slot">Take Partner 01</div>
+            <div class="logo-slot">Take Partner 02</div>
+            <div class="logo-slot">Take Partner 03</div>
+            <div class="logo-slot">Take Partner 04</div>
+            <div class="logo-slot">Take Partner 05</div>
+            <div class="logo-slot">Take Partner 06</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tier-section">
+        <div class="tier-layout">
+          <div class="tier-label">
+            <div class="tier-en">UME / SPOT</div>
+            <div class="tier-jp">梅・スポット</div>
+            <p class="tier-note">Web掲載・Instagram紹介・単発掲載枠</p>
+          </div>
+          <div class="logo-grid">
+            <div class="logo-slot">Ume Partner 01</div>
+            <div class="logo-slot">Ume Partner 02</div>
+            <div class="logo-slot">Ume Partner 03</div>
+            <div class="logo-slot">Spot Partner 01</div>
+            <div class="logo-slot">Spot Partner 02</div>
+            <div class="logo-slot">Spot Partner 03</div>
+            <div class="logo-slot">Spot Partner 04</div>
+            <div class="logo-slot">Spot Partner 05</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tier-section">
+        <div class="tier-layout">
+          <div class="tier-label">
+            <div class="tier-en">KIZUNA</div>
+            <div class="tier-jp">絆プラン</div>
+            <p class="tier-note">個人事業主向け・SNS紹介 / 飲食還元</p>
+          </div>
+          <div class="logo-grid">
+            <div class="logo-slot has-logo"><img src="images/partner-jippu.png" alt="select shop Jippu" /></div>
+            <div class="logo-slot">Kizuna Partner 02</div>
+            <div class="logo-slot">Kizuna Partner 03</div>
+            <div class="logo-slot">Kizuna Partner 04</div>
+            <div class="logo-slot">Kizuna Partner 05</div>
+            <div class="logo-slot">Kizuna Partner 06</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="list-title">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Partner Directory</div>
+          <h2 class="section-title" id="list-title">協力パートナー一覧</h2>
+        </div>
+        <p class="section-copy">写真素材の有無にかかわらず、Mitz 金沢を支える皆さまを一覧で掲載できます。</p>
+      </div>
+
+      <div class="list-panel">
+        <div class="partner-list-row">
+          <div class="partner-list-name">Partner Name 01</div>
+          <span class="badge pr">広報</span>
+          <p class="partner-list-copy">情報発信とコミュニケーション設計で、Mitz の認知拡大を支援します。</p>
+          <div class="arrow">→</div>
+        </div>
+        <div class="partner-list-row">
+          <div class="partner-list-name">Partner Name 02</div>
+          <span class="badge food">飲食</span>
+          <p class="partner-list-copy">食体験やイベントケータリングを通じて、来場者の満足度を高めます。</p>
+          <div class="arrow">→</div>
+        </div>
+        <div class="partner-list-row">
+          <div class="partner-list-name">Partner Name 03</div>
+          <span class="badge brand">ブランド</span>
+          <p class="partner-list-copy">商品やサービスの世界観づくりを通じて、地域との接点を広げます。</p>
+          <div class="arrow">→</div>
+        </div>
+        <div class="partner-list-row">
+          <div class="partner-list-name">Partner Name 04</div>
+          <span class="badge design">制作</span>
+          <p class="partner-list-copy">デザイン、撮影、施工、Web など、場の完成度を支える制作領域のパートナーです。</p>
+          <div class="arrow">→</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band" aria-label="協賛お問い合わせ">
+      <div>
+        <h2>協賛・掲載について<br>ご相談ください。</h2>
+        <p>掲載内容の差し替え、ロゴデータの送付、協賛プランのご相談は contact@mitz-kanazawa.com までご連絡ください。</p>
+      </div>
+      <a class="cta-button" href="mailto:contact@mitz-kanazawa.com">お問い合わせする</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>MITZ KANAZAWA /// PARTNERS 2026</div>
+      <div class="footer-links">
+        <a href="index.html">TOP</a>
+        <a href="index.html#sponsors">協賛案内</a>
+        <a href="coupon.html">クーポン</a>
+        <a href="mailto:contact@mitz-kanazawa.com">CONTACT</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

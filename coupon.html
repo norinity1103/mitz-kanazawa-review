@@ -59,81 +59,6 @@
     button { border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
     img, svg { display: block; max-width: 100%; }
 
-    body.is-gated {
-      min-height: 100vh;
-      overflow: hidden;
-    }
-    body.is-gated > :not(.preview-gate) { display: none !important; }
-    .preview-gate { display: none; }
-    body.is-gated .preview-gate {
-      display: grid;
-      min-height: 100vh;
-      padding: 32px;
-      place-items: center;
-      background:
-        radial-gradient(circle at 18% 18%, rgba(192, 114, 40, 0.18), transparent 34%),
-        linear-gradient(135deg, #1A1D24 0%, #2A1F18 56%, #604020 100%);
-      color: #F8F1E6;
-    }
-    .preview-gate-card {
-      width: min(100%, 520px);
-      padding: clamp(28px, 5vw, 48px);
-      border: 1px solid rgba(248, 241, 230, 0.18);
-      background: rgba(15, 17, 21, 0.72);
-      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.32);
-    }
-    .preview-gate-logo {
-      width: 188px;
-      margin-bottom: 40px;
-    }
-    .preview-gate-label {
-      margin-bottom: 14px;
-      color: var(--gold);
-      font-family: "Inter", sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-    }
-    .preview-gate h1 {
-      margin-bottom: 18px;
-      font-family: "Noto Serif JP", serif;
-      font-size: clamp(28px, 6vw, 44px);
-      line-height: 1.25;
-    }
-    .preview-gate-copy {
-      margin-bottom: 28px;
-      color: rgba(248, 241, 230, 0.76);
-      font-size: 15px;
-      line-height: 2;
-    }
-    .preview-gate-form { display: grid; gap: 12px; }
-    .preview-gate-input {
-      width: 100%;
-      min-height: 54px;
-      padding: 0 18px;
-      border: 1px solid rgba(248, 241, 230, 0.24);
-      background: rgba(255, 255, 255, 0.08);
-      color: #FFFFFF;
-      font: 700 18px/1 "Inter", sans-serif;
-      letter-spacing: 0.04em;
-      outline: none;
-    }
-    .preview-gate-button {
-      min-height: 54px;
-      padding: 0 20px;
-      background: var(--gold);
-      color: #1A1D24;
-      font: 800 13px/1 "Inter", sans-serif;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    .preview-gate-note {
-      min-height: 1.7em;
-      color: #F2A7A1;
-      font-size: 13px;
-    }
-
     .site-header {
       position: sticky;
       top: 0;
@@ -520,35 +445,7 @@
     }
   </style>
 </head>
-<body class="is-gated is-unsaved">
-  <script>
-    (function() {
-      var unlockAt = new Date("2026-05-13T00:00:00+09:00").getTime();
-      var isReleased = Date.now() >= unlockAt;
-      var hasPass = false;
-      try { hasPass = localStorage.getItem("mitz-preview-access") === "ok"; } catch (e) {}
-      if (isReleased || hasPass) {
-        document.body.classList.remove("is-gated");
-      }
-    })();
-  </script>
-
-  <div class="preview-gate" id="previewGate" aria-label="関係者限定プレビュー">
-    <div class="preview-gate-card">
-      <img class="preview-gate-logo" src="images/mitz-logo-white-h.png" alt="Mitz Kanazawa">
-      <p class="preview-gate-label">Private Preview until 2026.05.13</p>
-      <h1>関係者限定<br>プレビュー</h1>
-      <p class="preview-gate-copy">
-        Mitz 金沢 公式サイトは公開準備中です。<br>
-        関係者の方は共有されたパスコードを入力してください。
-      </p>
-      <form class="preview-gate-form" id="previewGateForm">
-        <input class="preview-gate-input" id="previewGateInput" type="password" inputmode="text" autocomplete="current-password" placeholder="Passcode" aria-label="パスコード">
-        <button class="preview-gate-button" type="submit">Enter Preview</button>
-        <p class="preview-gate-note" id="previewGateNote" aria-live="polite"></p>
-      </form>
-    </div>
-  </div>
+<body class="is-unsaved">
 
   <header class="site-header">
     <nav class="nav" aria-label="Coupon navigation">
@@ -654,38 +551,6 @@
   <footer class="footer">MITZ KANAZAWA /// WEB COUPON 2026</footer>
 
   <script>
-    const PREVIEW_PASS_HASH = "d72a0ff0623a77c0173809d712719de9995ff7ac05076ef67568af23c1279b4d";
-    const PREVIEW_RELEASE_AT = new Date("2026-05-13T00:00:00+09:00").getTime();
-    async function sha256(text) {
-      if (!window.crypto || !window.crypto.subtle) return null;
-      const buf = await window.crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
-      return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, "0")).join("");
-    }
-    function unlockPreview() {
-      document.body.classList.remove("is-gated");
-      try { localStorage.setItem("mitz-preview-access", "ok"); } catch (e) {}
-    }
-    if (Date.now() >= PREVIEW_RELEASE_AT) {
-      unlockPreview();
-    }
-    const previewGateForm = document.getElementById("previewGateForm");
-    if (previewGateForm) {
-      previewGateForm.addEventListener("submit", async (event) => {
-        event.preventDefault();
-        const input = document.getElementById("previewGateInput");
-        const note = document.getElementById("previewGateNote");
-        const value = input ? input.value.trim() : "";
-        const hashed = await sha256(value);
-        if (hashed === PREVIEW_PASS_HASH || (!hashed && value === "mitz0513")) {
-          unlockPreview();
-          if (input) input.value = "";
-          return;
-        }
-        if (note) note.textContent = "パスコードが一致しません。";
-        if (input) input.focus();
-      });
-    }
-
     function renderCouponState() {
       let saved = false;
       try { saved = localStorage.getItem("mitz-opening-coupon") === "saved"; } catch (e) {}

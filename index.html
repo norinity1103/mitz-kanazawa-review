@@ -27,7 +27,7 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <meta name="robots" content="index,follow" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Mitz 金沢 — 2026.05.30 GRAND OPEN" />
   <meta name="twitter:description" content="日常の役割を脱ぎ捨て、「3番目の自分」へと帰る場所。" />
@@ -112,102 +112,6 @@
     a { color: inherit; text-decoration: none; transition: opacity 0.2s ease; }
     a:hover { opacity: 0.7; }
     button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
-
-    body.is-gated {
-      min-height: 100vh;
-      overflow: hidden;
-    }
-    body.is-gated > :not(.preview-gate) {
-      display: none !important;
-    }
-    .preview-gate {
-      display: none;
-    }
-    body.is-gated .preview-gate {
-      display: grid;
-      min-height: 100vh;
-      padding: 32px;
-      place-items: center;
-      background:
-        radial-gradient(circle at 18% 18%, rgba(192, 114, 40, 0.18), transparent 34%),
-        radial-gradient(circle at 84% 22%, rgba(48, 160, 216, 0.12), transparent 30%),
-        linear-gradient(135deg, #1A1D24 0%, #2A1F18 56%, #604020 100%);
-      color: #F8F1E6;
-    }
-    .preview-gate-card {
-      width: min(100%, 520px);
-      padding: clamp(28px, 5vw, 48px);
-      border: 1px solid rgba(248, 241, 230, 0.18);
-      background: rgba(15, 17, 21, 0.72);
-      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.32);
-    }
-    .preview-gate-logo {
-      width: 188px;
-      margin-bottom: 40px;
-    }
-    .preview-gate-label {
-      margin-bottom: 14px;
-      color: #E8B96A;
-      font-family: "Inter", sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-    }
-    .preview-gate h1 {
-      margin-bottom: 18px;
-      font-family: "Noto Serif JP", serif;
-      font-size: clamp(28px, 6vw, 44px);
-      line-height: 1.25;
-      letter-spacing: 0.02em;
-    }
-    .preview-gate-copy {
-      margin-bottom: 28px;
-      color: rgba(248, 241, 230, 0.76);
-      font-size: 15px;
-      line-height: 2;
-    }
-    .preview-gate-form {
-      display: grid;
-      gap: 12px;
-    }
-    .preview-gate-input {
-      width: 100%;
-      min-height: 54px;
-      padding: 0 18px;
-      border: 1px solid rgba(248, 241, 230, 0.24);
-      border-radius: 0;
-      background: rgba(255, 255, 255, 0.08);
-      color: #FFFFFF;
-      font: 700 18px/1 "Inter", sans-serif;
-      letter-spacing: 0.04em;
-      outline: none;
-    }
-    .preview-gate-input:focus {
-      border-color: #E8B96A;
-      box-shadow: 0 0 0 3px rgba(232, 185, 106, 0.16);
-    }
-    .preview-gate-button {
-      min-height: 54px;
-      padding: 0 20px;
-      background: #E8B96A;
-      color: #1A1D24;
-      font-family: "Inter", sans-serif;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    .preview-gate-note {
-      min-height: 1.7em;
-      color: #F2A7A1;
-      font-size: 13px;
-    }
-    @media (max-width: 640px) {
-      body.is-gated .preview-gate { padding: 20px; }
-      .preview-gate-card { padding: 28px 22px; }
-      .preview-gate-logo { width: 156px; margin-bottom: 30px; }
-    }
 
     /* Brand tokens (theme-invariant) */
     :root {
@@ -607,30 +511,40 @@
       margin-top: 28px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
     .mobile-drawer-cta a {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 16px 22px;
-      border-radius: 999px;
+      justify-content: flex-start;
+      gap: 12px;
+      min-height: 56px;
+      padding: 14px 16px;
+      border-radius: 16px;
       font-family: "Noto Sans JP", sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
+      font-size: 13.5px;
+      line-height: 1.45;
+      font-weight: 800;
+      letter-spacing: 0.02em;
       text-decoration: none;
+      box-shadow: 0 14px 34px rgba(35, 24, 18, 0.08);
     }
     .mobile-drawer-cta .primary {
-      background: var(--lantern);
+      background: linear-gradient(135deg, rgba(224, 144, 52, 0.18), rgba(232, 185, 106, 0.08));
       color: #1F1812;
+      border: 1px solid rgba(224, 144, 52, 0.32);
     }
     .mobile-drawer-cta .ig {
       background: linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #F77737 100%);
       color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
-    .mobile-drawer-cta a svg { width: 16px; height: 16px; }
+    .mobile-drawer-cta a svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 18px;
+      stroke-width: 2.2;
+    }
 
     @media (max-width: 900px) {
       .nav-links { display: none; }
@@ -1276,6 +1190,116 @@
       to { transform: translateX(-50%); }
     }
 
+    /* ========== TVCM ========== */
+    .tvcm {
+      background:
+        radial-gradient(circle at 18% 20%, rgba(232, 185, 106, 0.12), transparent 34%),
+        linear-gradient(180deg, var(--bg-soft) 0%, var(--bg-base) 100%);
+      padding-top: 96px;
+      padding-bottom: 108px;
+    }
+    .tvcm-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+      gap: clamp(32px, 6vw, 72px);
+      align-items: center;
+    }
+    .tvcm-copy .label {
+      margin-bottom: 22px;
+    }
+    .tvcm-copy h2 {
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(30px, 4.2vw, 54px);
+      line-height: 1.22;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      margin-bottom: 22px;
+    }
+    .tvcm-copy h2 .gold {
+      color: var(--lantern);
+      font-style: italic;
+    }
+    .tvcm-copy p {
+      color: var(--ink-muted);
+      font-size: 15px;
+      line-height: 2;
+      max-width: 560px;
+    }
+    .tvcm-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+    .tvcm-meta span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--ink-muted);
+      background: rgba(255, 255, 255, 0.24);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .tvcm-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid rgba(232, 185, 106, 0.28);
+      background:
+        linear-gradient(135deg, rgba(15, 17, 21, 0.96), rgba(42, 31, 24, 0.92));
+      box-shadow: 0 34px 90px rgba(96, 64, 32, 0.16);
+    }
+    .tvcm-frame::before {
+      content: "";
+      display: block;
+      padding-top: 56.25%;
+    }
+    .tvcm-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .tvcm-frame::after {
+      content: "OFFICIAL TVCM";
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      padding: 6px 10px;
+      border: 1px solid rgba(242, 237, 226, 0.18);
+      background: rgba(15, 17, 21, 0.58);
+      color: rgba(242, 237, 226, 0.76);
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.16em;
+      pointer-events: none;
+    }
+    @media (max-width: 900px) {
+      .tvcm {
+        padding-top: 72px;
+        padding-bottom: 82px;
+      }
+      .tvcm-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .tvcm-frame {
+        border-radius: 16px;
+        margin: 0 -4px;
+      }
+      .tvcm-frame::after {
+        left: 12px;
+        bottom: 12px;
+      }
+    }
+
     /* ========== Concept ========== */
     .concept {
       background: linear-gradient(180deg, var(--bg-base) 0%, var(--bg-soft) 100%);
@@ -1762,7 +1786,7 @@
     }
     .local-event-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 12px;
     }
     @media (max-width: 820px) {
@@ -1834,6 +1858,29 @@
       font-weight: 700;
       line-height: 1.25;
     }
+    .local-event-copy {
+      margin: 12px 0 0;
+      color: var(--ink-muted);
+      font-size: 11.5px;
+      line-height: 1.85;
+      letter-spacing: 0.03em;
+    }
+    .local-event-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 12px;
+      color: var(--lantern-soft);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+    .local-event-link svg {
+      width: 15px;
+      height: 15px;
+      flex: 0 0 15px;
+    }
 
     .schedule {
       margin-top: 42px;
@@ -1877,6 +1924,33 @@
       letter-spacing: 0.08em;
       text-align: right;
       white-space: nowrap;
+    }
+    .schedule-notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: -10px 0 24px;
+      padding: 12px 14px;
+      border: 1px solid rgba(232, 185, 106, 0.34);
+      border-radius: 14px;
+      background: rgba(232, 185, 106, 0.10);
+      color: var(--ink-muted);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.7;
+      letter-spacing: 0.04em;
+    }
+    .schedule-notice .notice-label {
+      flex: 0 0 auto;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(232, 185, 106, 0.18);
+      color: var(--lantern-soft);
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 15px;
+      line-height: 1.2;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
     .stage-timeline {
       --timeline-start: 660;
@@ -2186,6 +2260,12 @@
       .schedule-head {
         margin-bottom: 24px;
       }
+      .schedule-notice {
+        flex-direction: column;
+        gap: 8px;
+        margin-top: -8px;
+        margin-bottom: 20px;
+      }
       .stage-track {
         gap: 12px;
       }
@@ -2490,6 +2570,84 @@
       border-radius: 50%;
       background: var(--lantern);
       box-shadow: 0 0 6px var(--lantern);
+    }
+    .access-summary {
+      margin: 22px 0 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+    .access-summary-title {
+      margin-bottom: 12px;
+      color: var(--ink-muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .access-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .access-chip {
+      min-height: 104px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 10px;
+      padding: 14px 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background:
+        linear-gradient(135deg, rgba(232, 185, 106, 0.10), rgba(255, 255, 255, 0.03)),
+        rgba(255, 255, 255, 0.18);
+      cursor: default;
+      user-select: text;
+    }
+    .access-chip-icon {
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: rgba(232, 185, 106, 0.13);
+      color: var(--lantern);
+      border: 1px solid rgba(232, 185, 106, 0.26);
+    }
+    .access-chip-icon svg {
+      width: 17px;
+      height: 17px;
+    }
+    .access-chip-label {
+      color: var(--ink-muted);
+      font-size: 11px;
+      line-height: 1.45;
+      letter-spacing: 0.04em;
+    }
+    .access-chip-time {
+      display: block;
+      margin-top: 4px;
+      color: var(--ink);
+      font-family: "Bebas Neue", "Noto Sans JP", sans-serif;
+      font-size: 26px;
+      line-height: 1;
+      letter-spacing: 0.04em;
+    }
+    .access-chip-time .unit {
+      margin-left: 2px;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+    @media (max-width: 520px) {
+      .access-summary-grid { grid-template-columns: 1fr; }
+      .access-chip {
+        min-height: 82px;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto;
+        align-items: center;
+      }
     }
     .map-embed {
       margin: 0 -28px;
@@ -3204,6 +3362,34 @@
       font-size: 14px;
       line-height: 1.9;
     }
+    .corporate-partners-link {
+      width: fit-content;
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+      padding: 0 18px;
+      border: 1px solid rgba(232, 185, 106, 0.42);
+      border-radius: 999px;
+      background: rgba(232, 185, 106, 0.08);
+      color: var(--lantern);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+    }
+    .corporate-partners-link:hover {
+      opacity: 1;
+      background: var(--lantern);
+      color: #1F1812;
+      transform: translateY(-1px);
+    }
+    .corporate-partners-link .arrow {
+      font-family: "Inter", sans-serif;
+      font-size: 15px;
+      line-height: 1;
+    }
     .partner-tier-block {
       display: grid;
       grid-template-columns: 170px 1fr;
@@ -3289,6 +3475,15 @@
       background:
         radial-gradient(circle at 50% 0%, rgba(232, 185, 106, 0.18), transparent 58%),
         linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(232, 185, 106, 0.08));
+    }
+    .partner-logo.has-logo {
+      background: #FFFFFF;
+      padding: 18px 22px;
+    }
+    .partner-logo.has-logo img {
+      width: min(100%, 240px);
+      max-height: 74px;
+      object-fit: contain;
     }
     .partner-logo span {
       display: block;
@@ -3830,35 +4025,7 @@
     .reveal-delay-3 { transition-delay: 0.36s; }
   </style>
 </head>
-<body class="is-gated">
-  <script>
-    (function() {
-      var unlockAt = new Date("2026-05-13T00:00:00+09:00").getTime();
-      var isReleased = Date.now() >= unlockAt;
-      var hasPass = false;
-      try { hasPass = localStorage.getItem("mitz-preview-access") === "ok"; } catch (e) {}
-      if (isReleased || hasPass) {
-        document.body.classList.remove("is-gated");
-      }
-    })();
-  </script>
-
-  <div class="preview-gate" id="previewGate" aria-label="関係者限定プレビュー">
-    <div class="preview-gate-card">
-      <img class="preview-gate-logo" src="images/mitz-logo-white-h.png" alt="Mitz Kanazawa">
-      <p class="preview-gate-label">Private Preview until 2026.05.13</p>
-      <h1>関係者限定<br>プレビュー</h1>
-      <p class="preview-gate-copy">
-        Mitz 金沢 公式サイトは公開準備中です。<br>
-        関係者の方は共有されたパスコードを入力してください。
-      </p>
-      <form class="preview-gate-form" id="previewGateForm">
-        <input class="preview-gate-input" id="previewGateInput" type="password" inputmode="text" autocomplete="current-password" placeholder="Passcode" aria-label="パスコード">
-        <button class="preview-gate-button" type="submit">Enter Preview</button>
-        <p class="preview-gate-note" id="previewGateNote" aria-live="polite"></p>
-      </form>
-    </div>
-  </div>
+<body>
 
   <!-- Navigation -->
   <nav class="nav" id="nav">
@@ -3906,10 +4073,12 @@
   <!-- Mobile drawer -->
   <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
     <a href="#concept" class="mobile-drawer-link" data-drawer-link>Mitzのコンセプト<span class="en">concept</span></a>
+    <a href="#tvcm" class="mobile-drawer-link" data-drawer-link>TVCM<span class="en">official tvcm</span></a>
     <a href="#three" class="mobile-drawer-link" data-drawer-link>3つの要素<span class="en">three elements</span></a>
     <a href="#opening" class="mobile-drawer-link" data-drawer-link>オープニングイベント<span class="en">opening event</span></a>
     <a href="#coupon" class="mobile-drawer-link" data-drawer-link>クーポン<span class="en">coupon</span></a>
     <a href="#sponsors" class="mobile-drawer-link" data-drawer-link>協賛・掲載について相談<span class="en">sponsorship</span></a>
+    <a href="partners.html" class="mobile-drawer-link" data-drawer-link>協賛・協力パートナー<span class="en">partners</span></a>
     <a href="#info" class="mobile-drawer-link" data-drawer-link>施設情報<span class="en">information</span></a>
     <div class="mobile-drawer-cta">
       <a href="coupon.html" class="primary" data-drawer-link>
@@ -3969,7 +4138,7 @@
         <span class="hero-event-body">
           <span class="hero-event-label">Special Opening Event</span>
           <span class="hero-event-title">DJ <strong>やついいちろう</strong> 出演</span>
-          <span class="hero-event-meta">2026.05.30 (土) 18:00 START</span>
+          <span class="hero-event-meta">2026.05.30 (土) 18:30 START</span>
         </span>
         <span class="hero-event-cta">詳細<span class="arrow">→</span></span>
       </a>
@@ -4014,6 +4183,36 @@
       <span class="marquee-item gold">DAY &amp; NIGHT</span><span class="marquee-dot"></span>
     </div>
   </div>
+
+  <!-- TVCM -->
+  <section class="tvcm" id="tvcm" aria-labelledby="tvcm-title">
+    <div class="container">
+      <div class="tvcm-grid">
+        <div class="tvcm-copy reveal">
+          <div class="label">00 — Official TVCM</div>
+          <h2 id="tvcm-title">Mitz 金沢の空気感を、<br><span class="gold">映像で。</span></h2>
+          <p>
+            グランドオープンに向けたTVCMが完成しました。食・遊・旅が交差するMitz 金沢の世界観を、まずは映像でご覧ください。
+          </p>
+          <div class="tvcm-meta" aria-label="TVCM情報">
+            <span>Grand Open</span>
+            <span>2026.05.30</span>
+            <span>Food / Play / Travel</span>
+          </div>
+        </div>
+        <div class="tvcm-frame reveal reveal-delay-1">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/BzWeU2ClWQg?rel=0&modestbranding=1&playsinline=1"
+            title="Mitz 金沢 Official TVCM"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Concept -->
   <section class="concept" id="concept">
@@ -4122,7 +4321,7 @@
           </div>
           <div class="ele-content">
             <h3 class="ele-name">CANBASE</h3>
-            <div class="ele-jp">キャンピングカー拠点</div>
+            <div class="ele-jp">キャンピングカーレンタル</div>
             <p class="ele-desc">「動く秘密基地」で、目的地ではなく道中すべてを遊び場に変える。家族だけの特等席で、まだ見ぬ景色と出会う。</p>
             <div class="ele-tags">
               <span class="ele-tag">レンタル</span>
@@ -4178,12 +4377,11 @@
               <article class="local-event-card">
                 <div class="local-event-photo">
                   <img loading="lazy" decoding="async" src="images/event-brass.jpg" alt="吹奏楽の演奏イメージ" />
-                  <span class="local-event-type">BRASS</span>
                 </div>
                 <div class="local-event-body">
-                  <div class="local-event-title">地元学生・社会人による吹奏楽</div>
+                  <div class="local-event-title">金石中学校吹奏楽部</div>
                   <div class="local-event-names">
-                    <span>金石中学校吹奏楽部</span>
+                    <span>金沢市立金石中学校 吹奏楽部</span>
                     <span>Laららブラス</span>
                     <span>アンサンブル☆ふぁみりあ</span>
                   </div>
@@ -4205,15 +4403,181 @@
               </article>
               <article class="local-event-card">
                 <div class="local-event-photo">
+                  <img loading="lazy" decoding="async" src="images/event-kanaishi-brass.jpg" alt="金沢市立金石中学校 吹奏楽部の集合写真" />
+                  <span class="local-event-type">BRASS</span>
+                </div>
+                <div class="local-event-body">
+                  <div class="local-event-title">金沢市立金石中学校 吹奏楽部</div>
+                  <div class="local-event-names">
+                    <span>総勢45名</span>
+                    <span>金石サウンド</span>
+                    <span>歌とダンスも披露</span>
+                  </div>
+                  <p class="local-event-copy">
+                    「挑戦〜県大会朝日新聞社賞〜」を目標に、日々全力で練習に励む吹奏楽部。入部したばかりの1年生も加わり、総勢45名でステージに登場します。会場いっぱいに明るい「金石サウンド」を響かせ、歌やダンスも交えた元気な演奏を届けます。
+                  </p>
+                </div>
+              </article>
+              <article class="local-event-card">
+                <div class="local-event-photo">
+                  <img loading="lazy" decoding="async" src="images/event-yugakkan-dance.jpg" alt="遊学館高校ストリートダンス部の集合写真" />
+                  <span class="local-event-type">DANCE</span>
+                </div>
+                <div class="local-event-body">
+                  <div class="local-event-title">遊学館高校ストリートダンス部</div>
+                  <div class="local-event-names">
+                    <span>Gluck</span>
+                    <span>創部7年目</span>
+                    <span>幸せを届けるダンス</span>
+                  </div>
+                  <p class="local-event-copy">
+                    2018年にダンス同好会としてスタートし、2020年に部活動へ昇格。チーム名のGluckは、ドイツ語で「幸せ」を意味します。観てくださる方々に幸せを届け、笑顔になってもらいたいという思いで、日々活動しています。
+                  </p>
+                </div>
+              </article>
+              <article class="local-event-card">
+                <div class="local-event-photo">
+                  <img loading="lazy" decoding="async" src="images/event-flag-dance.jpg" alt="ダンススクールFLAGの集合写真" />
+                  <span class="local-event-type">DANCE</span>
+                </div>
+                <div class="local-event-body">
+                  <div class="local-event-title">ダンススクールFLAG</div>
+                  <div class="local-event-names">
+                    <span>K-POP</span>
+                    <span>HIPHOP</span>
+                    <span>白山市鶴来</span>
+                  </div>
+                  <p class="local-event-copy">
+                    白山市鶴来を拠点に、地域のコミュニティセンターで活動するダンススクール。K-POPや人気アイドルの振付コピー、HIPHOPの基礎を取り入れたレッスンを行っています。「楽しむこと」をいちばん大切に、元気いっぱいの仲間たちと、可愛くてカッコいいパフォーマンスを目指しています。
+                  </p>
+                  <a class="local-event-link" href="https://www.instagram.com/flag.kpop_hiphop.dance/" target="_blank" rel="noopener" aria-label="ダンススクールFLAGのInstagramを見る">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                    Instagram
+                  </a>
+                </div>
+              </article>
+              <article class="local-event-card">
+                <div class="local-event-photo">
+                  <img loading="lazy" decoding="async" src="images/event-rock-river-crew.jpg" alt="ROCK RIVER CREWの集合写真" />
+                  <span class="local-event-type">DANCE</span>
+                </div>
+                <div class="local-event-body">
+                  <div class="local-event-title">ROCK RIVER CREW</div>
+                  <div class="local-event-names">
+                    <span>北陸拠点</span>
+                    <span>Legend TOKYO 二冠</span>
+                    <span>ダンスクルー</span>
+                  </div>
+                  <p class="local-event-copy">
+                    北陸・石川県、富山県を拠点に活動するダンスクルー。国内にとどまらず海外も視野に入れながら活動を広げ、日本最高峰の振付作品コンテスト「Legend TOKYO」では2度の“レジェンド”に輝き、史上初の二冠を達成。迫力あるステージをぜひお楽しみください。
+                  </p>
+                </div>
+              </article>
+              <article class="local-event-card">
+                <div class="local-event-photo">
+                  <img loading="lazy" decoding="async" src="images/event-lalala-brass.jpg" alt="Laららブラスアンサンブルの集合写真" />
+                  <span class="local-event-type">BRASS</span>
+                </div>
+                <div class="local-event-body">
+                  <div class="local-event-title">Laららブラスアンサンブル</div>
+                  <div class="local-event-names">
+                    <span>金管アンサンブル</span>
+                    <span>石川県金沢市</span>
+                    <span>メンバー募集中</span>
+                  </div>
+                  <p class="local-event-copy">
+                    2009年結成。「熱く楽しく美しく」をモットーに、石川県金沢市を中心に活動するアマチュア金管アンサンブル団体。年2回程度の自主公演をはじめ、アンサンブルコンテスト、高齢者福祉施設や地域のお祭りなどで演奏活動を行っています。
+                  </p>
+                </div>
+              </article>
+              <article class="local-event-card">
+                <div class="local-event-photo">
+                  <img loading="lazy" decoding="async" src="images/event-familia-brass.jpg" alt="アンサンブルふぁみりあの集合写真" />
+                  <span class="local-event-type">BRASS</span>
+                </div>
+                <div class="local-event-body">
+                  <div class="local-event-title">アンサンブル☆ふぁみりあ</div>
+                  <div class="local-event-names">
+                    <span>親子で楽しむ吹奏楽</span>
+                    <span>金沢市を中心に活動</span>
+                    <span>訪問演奏</span>
+                  </div>
+                  <p class="local-event-copy">
+                    金沢市を中心に、子どもたちとママたちが一緒に音楽を楽しむ吹奏楽サークル。こども園などでの訪問演奏をはじめ、地域イベントにも参加しています。小さな子どもがいても親子で参加でき、練習中や本番で子どもが泣いても大丈夫。音楽をあきらめず、一緒に楽しめる場をつくっています。
+                  </p>
+                </div>
+              </article>
+              <article class="local-event-card">
+                <div class="local-event-photo">
                   <img loading="lazy" decoding="async" src="images/event-band.jpg" alt="地元バンド演奏のイメージ" />
                   <span class="local-event-type">LIVE & DJ</span>
                 </div>
                 <div class="local-event-body">
-                  <div class="local-event-title">地元バンド・DJの演奏</div>
+                  <div class="local-event-title">BROTHERHOOD</div>
                   <div class="local-event-names">
-                    <span>サカナノメ</span>
-                    <span>BROTHER HOOD</span>
+                    <span>All Genre DJ Team</span>
+                    <span>HIPHOP / R&B / HOUSE</span>
+                    <span>仲間・絆</span>
                   </div>
+                  <p class="local-event-copy">
+                    ジャンルの壁を超えて音楽でつながるオールジャンルDJチーム。HIPHOP、R&B、HOUSE、REGGAE、J-POPなど幅広いサウンドを自在に操り、クラブ、バー、ストリートなどあらゆる場所で、その瞬間にしか生まれないグルーヴを創り出します。
+                  </p>
+                  <a class="local-event-link" href="https://www.instagram.com/brotherhoodknzw/" target="_blank" rel="noopener" aria-label="BROTHERHOODのInstagramを見る">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                    Instagram
+                  </a>
+                </div>
+              </article>
+              <article class="local-event-card">
+                <div class="local-event-photo">
+                  <img loading="lazy" decoding="async" src="images/event-sakananome.jpg" alt="サカナノメのアーティスト写真" />
+                  <span class="local-event-type">LOCAL BAND</span>
+                </div>
+                <div class="local-event-body">
+                  <div class="local-event-title">サカナノメ</div>
+                  <div class="local-event-names">
+                    <span>Vo/Gt. サカイ</span>
+                    <span>Dr. 田島</span>
+                    <span>Gt. こーき</span>
+                    <span>Ba. 佐藤トム</span>
+                  </div>
+                  <p class="local-event-copy">
+                    石川県金沢市発。いつか映画の主題歌を飾ることを夢見る、グッドメロディなロックバンド。少し懐かしく、聴く人の日常にそっと寄り添うような、思わず「なんかいいな」と感じるバンドサウンドを届けます。
+                  </p>
+                  <a class="local-event-link" href="https://www.instagram.com/osakana_no_me/" target="_blank" rel="noopener" aria-label="サカナノメのInstagramを見る">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                    Instagram
+                  </a>
+                </div>
+              </article>
+              <article class="local-event-card">
+                <div class="local-event-photo">
+                  <img loading="lazy" decoding="async" src="images/event-local-dj.jpg" alt="地元DJユニットのビジュアル" />
+                  <span class="local-event-type">LOCAL DJ</span>
+                </div>
+                <div class="local-event-body">
+                  <div class="local-event-title">地元DJユニット</div>
+                  <div class="local-event-names">
+                    <span>DJ youkth</span>
+                    <span>DJ nica</span>
+                    <span>モウヒトツノドヨウビ</span>
+                    <span>ゆらりウヰスキー</span>
+                  </div>
+                  <p class="local-event-copy">
+                    「モウヒトツノドヨウビ」メンバーのDJ youkthと、「ゆらりウヰスキー」主催のDJ nicaによるDJユニット。金沢の街を盛り上げるべく、定期的にDJイベントを開催し、ハッピーな音楽体験を届けています。
+                  </p>
                 </div>
               </article>
             </div>
@@ -4227,6 +4591,7 @@
               </div>
               <div class="schedule-stage">Mitz Stage</div>
             </div>
+            <p class="schedule-notice"><span class="notice-label">Notice</span><span>出演時間は当日までに変更・調整となる場合がございます。最新情報は本ページにて随時ご確認ください。</span></p>
             <div class="stage-timeline" aria-label="Mitz Stage イベントスケジュール">
               <div class="stage-hours" aria-hidden="true">
                 <span class="stage-hour" style="--hour:660">11:00</span>
@@ -4243,19 +4608,19 @@
               <div class="stage-track">
                 <article class="stage-event type-opening is-highlight" style="--start:780; --end:810">
                   <time class="stage-event-time">13:00 - 13:30</time>
-                  <div class="stage-event-title"><span class="jp">オープニングセレモニー</span><span class="en">Opening Ceremony</span><span class="stage-event-detail">Mitz 金沢の開業を祝うセレモニー</span></div>
+                  <div class="stage-event-title"><span class="jp">Opening Ceremony</span><span class="en">オープニングセレモニー</span></div>
                 </article>
                 <article class="stage-event type-wind" style="--start:810; --end:840">
                   <time class="stage-event-time">13:30 - 14:00</time>
-                  <div class="stage-event-title"><span class="jp">吹奏楽① <span class="min">20min</span></span><span class="en">Brass Band Performance</span><span class="stage-event-detail">Laららブラス</span></div>
+                  <div class="stage-event-title"><span class="jp">吹奏楽① <span class="min">20min</span></span><span class="en">Brass Band Performance 1</span><span class="stage-event-detail">Laららブラス</span></div>
                 </article>
                 <article class="stage-event type-wind" style="--start:840; --end:870">
                   <time class="stage-event-time">14:00 - 14:30</time>
-                  <div class="stage-event-title"><span class="jp">吹奏楽② <span class="min">20min</span></span><span class="en">Wind Ensemble</span><span class="stage-event-detail">アンサンブル☆ふぁみりあ</span></div>
+                  <div class="stage-event-title"><span class="jp">吹奏楽② <span class="min">20min</span></span><span class="en">Brass Band Performance 2</span><span class="stage-event-detail">アンサンブル☆ふぁみりあ</span></div>
                 </article>
                 <article class="stage-event type-wind" style="--start:870; --end:900">
                   <time class="stage-event-time">14:30 - 15:00</time>
-                  <div class="stage-event-title"><span class="jp">吹奏楽③ <span class="min">30min</span></span><span class="en">Junior High School Brass Band</span><span class="stage-event-detail">金石中学校吹奏楽部</span></div>
+                  <div class="stage-event-title"><span class="jp">吹奏楽② <span class="min">30min</span></span><span class="en">Junior High School Brass Band</span><span class="stage-event-detail">金石中学校吹奏楽部</span></div>
                 </article>
                 <article class="stage-event type-dance" style="--start:900; --end:960">
                   <time class="stage-event-time">15:00 - 16:00</time>
@@ -4267,15 +4632,15 @@
                 </article>
                 <article class="stage-event type-dj" style="--start:1050; --end:1110">
                   <time class="stage-event-time">17:30 - 18:30</time>
-                  <div class="stage-event-title"><span class="jp">地元 DJ Time</span><span class="en">Local DJ Warm-up Set</span><span class="stage-event-detail">BROTHER HOOD ほか、メインアクトへつなぐDJタイム</span></div>
+                  <div class="stage-event-title"><span class="jp">地元 DJ Time</span><span class="en">Local DJ Warm-up Set</span></div>
                 </article>
                 <article class="stage-event type-djGuest is-highlight" style="--start:1110; --end:1140">
                   <time class="stage-event-time">18:30 - 19:00</time>
-                  <div class="stage-event-title"><span class="jp">DJやついいちろう</span><span class="en">Special Guest DJ Set</span><span class="stage-event-detail">グランドオープンを彩るスペシャルゲストステージ</span></div>
+                  <div class="stage-event-title"><span class="jp">DJやついいちろう</span><span class="en">Special Guest DJ Set</span><span class="stage-event-detail">YATSUI ICHIRO</span></div>
                 </article>
                 <article class="stage-event type-dj" style="--start:1140; --end:1230">
                   <time class="stage-event-time">19:00 - 20:30</time>
-                  <div class="stage-event-title"><span class="jp">地元 DJ Time</span><span class="en">Local DJ Closing Set</span><span class="stage-event-detail">夜の会場をゆるやかにつなぐクロージングDJタイム</span></div>
+                  <div class="stage-event-title"><span class="jp">地元 DJ Time</span><span class="en">Local DJ Closing Set</span></div>
                 </article>
               </div>
             </div>
@@ -4305,7 +4670,6 @@
                 <div>
                   <button type="button" class="coupon-action" id="couponSaveButton">クーポンを保存</button>
                   <p class="coupon-status" id="couponStatus">保存すると、この端末で提示しやすくなります。</p>
-                  <p class="coupon-line-note">LINE公式クーポン準備後は、同じ場所からLINEで受け取れる導線へ切り替え予定です。</p>
                 </div>
               </div>
             </div>
@@ -4525,6 +4889,7 @@
           </div>
           <p class="corporate-partners-copy">
             掲載予定の協賛企業ロゴ枠です。正式ロゴ到着後、各プランの掲載条件に合わせて差し替えます。
+            <a href="partners.html" class="corporate-partners-link">協賛・協力パートナー一覧を見る<span class="arrow">→</span></a>
           </p>
         </div>
 
@@ -4535,7 +4900,7 @@
             <p class="tier-note">最上位掲載・ステージ / サイネージ特別紹介</p>
           </div>
           <div class="partner-logo-grid">
-            <div class="partner-logo is-featured"><span>Special Partner 01</span></div>
+            <div class="partner-logo is-featured has-logo"><img loading="lazy" decoding="async" src="images/partner-sunly-home.png" alt="サンリーの家" /></div>
             <div class="partner-logo is-featured"><span>Special Partner 02</span></div>
           </div>
         </div>
@@ -4547,7 +4912,7 @@
             <p class="tier-note">Web特大・動画サイネージ常時放映</p>
           </div>
           <div class="partner-logo-grid">
-            <div class="partner-logo"><span>Matsu Partner 01</span></div>
+            <div class="partner-logo has-logo"><img loading="lazy" decoding="async" src="images/partner-yamagishi.png" alt="exterior YAMAGISHI" /></div>
             <div class="partner-logo"><span>Matsu Partner 02</span></div>
             <div class="partner-logo"><span>Matsu Partner 03</span></div>
             <div class="partner-logo"><span>Matsu Partner 04</span></div>
@@ -4595,7 +4960,7 @@
             <p class="tier-note">個人事業主向け・SNS紹介 / 飲食還元</p>
           </div>
           <div class="partner-logo-grid">
-            <div class="partner-logo"><span>Kizuna Partner 01</span></div>
+            <div class="partner-logo has-logo"><img loading="lazy" decoding="async" src="images/partner-jippu.png" alt="select shop Jippu" /></div>
             <div class="partner-logo"><span>Kizuna Partner 02</span></div>
             <div class="partner-logo"><span>Kizuna Partner 03</span></div>
             <div class="partner-logo"><span>Kizuna Partner 04</span></div>
@@ -4644,6 +5009,48 @@
             <div class="station">
               <span class="icon"></span>
               JR 金沢駅 西口エリア
+            </div>
+            <div class="access-summary" aria-label="主要アクセス">
+              <div class="access-summary-title">主要アクセス</div>
+              <div class="access-summary-grid">
+                <div class="access-chip">
+                  <span class="access-chip-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M2 16 22 8" />
+                      <path d="m6 14-3-4 3-1 4 3" />
+                      <path d="m13 10-4-7 3-1 7 5" />
+                      <path d="m15 14 3 6 3-1-2-7" />
+                    </svg>
+                  </span>
+                  <span class="access-chip-label">小松空港から<span class="access-chip-time">約10<span class="unit">分</span></span></span>
+                </div>
+                <div class="access-chip">
+                  <span class="access-chip-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 17h14" />
+                      <path d="M7 17V9a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v8" />
+                      <path d="M8 17v2" />
+                      <path d="M16 17v2" />
+                      <path d="M8 11h8" />
+                      <path d="M9 14h.01" />
+                      <path d="M15 14h.01" />
+                    </svg>
+                  </span>
+                  <span class="access-chip-label">片山津ICから<span class="access-chip-time">約5<span class="unit">分</span></span></span>
+                </div>
+                <div class="access-chip">
+                  <span class="access-chip-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 3h12a2 2 0 0 1 2 2v9a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V5a2 2 0 0 1 2-2Z" />
+                      <path d="M8 7h8" />
+                      <path d="M8 11h8" />
+                      <path d="M8 21l2-3" />
+                      <path d="M16 18l2 3" />
+                    </svg>
+                  </span>
+                  <span class="access-chip-label">JR加賀温泉駅から<span class="access-chip-time">約10<span class="unit">分</span></span></span>
+                </div>
+              </div>
             </div>
             <div class="map-embed">
               <iframe
@@ -4696,6 +5103,7 @@
         <nav class="footer-nav" aria-label="Footer navigation">
           <div class="footer-nav-group">
             <span class="label">Explore</span>
+            <a href="#tvcm">TVCM<span class="sub">official tvcm</span></a>
             <a href="#concept">Mitzのコンセプト<span class="sub">concept</span></a>
             <a href="#three">3つの要素<span class="sub">three elements</span></a>
             <a href="#event-schedule">イベントスケジュール<span class="sub">event schedule</span></a>
@@ -4706,7 +5114,7 @@
             <a href="coupon.html">取得済みクーポン<span class="sub">web coupon</span></a>
             <a href="#sponsors">協賛・掲載について相談<span class="sub">sponsorship</span></a>
             <a href="assets/Mitz_Sponsorship_2026.pdf" download="Mitz_Sponsorship_2026.pdf" target="_blank" rel="noopener">スポンサー資料PDF<span class="sub">download deck</span></a>
-            <a href="#corporate-partners">企業協賛・掲載枠<span class="sub">corporate partners</span></a>
+            <a href="partners.html">協賛・協力パートナー<span class="sub">partners</span></a>
           </div>
           <div class="footer-nav-group">
             <span class="label">Contact</span>
@@ -4775,39 +5183,6 @@
   </div>
 
   <script>
-    // Temporary client-side preview gate. Remove with robots noindex on public release.
-    const PREVIEW_PASS_HASH = "d72a0ff0623a77c0173809d712719de9995ff7ac05076ef67568af23c1279b4d";
-    const PREVIEW_RELEASE_AT = new Date("2026-05-13T00:00:00+09:00").getTime();
-    async function sha256(text) {
-      if (!window.crypto || !window.crypto.subtle) return null;
-      const buf = await window.crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
-      return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, "0")).join("");
-    }
-    function unlockPreview() {
-      document.body.classList.remove("is-gated");
-      try { localStorage.setItem("mitz-preview-access", "ok"); } catch (e) {}
-    }
-    if (Date.now() >= PREVIEW_RELEASE_AT) {
-      unlockPreview();
-    }
-    const previewGateForm = document.getElementById("previewGateForm");
-    if (previewGateForm) {
-      previewGateForm.addEventListener("submit", async (event) => {
-        event.preventDefault();
-        const input = document.getElementById("previewGateInput");
-        const note = document.getElementById("previewGateNote");
-        const value = input ? input.value.trim() : "";
-        const hashed = await sha256(value);
-        if (hashed === PREVIEW_PASS_HASH || (!hashed && value === "mitz0513")) {
-          unlockPreview();
-          if (input) input.value = "";
-          return;
-        }
-        if (note) note.textContent = "パスコードが一致しません。";
-        if (input) input.focus();
-      });
-    }
-
     // Opening coupon: lightweight local save for non-technical mobile users.
     const couponSaveButton = document.getElementById("couponSaveButton");
     const couponStatus = document.getElementById("couponStatus");
