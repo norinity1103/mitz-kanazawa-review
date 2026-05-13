@@ -1798,7 +1798,10 @@
       line-height: 1.7;
     }
     .local-event-grid {
-      display: flex;
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(2, minmax(0, auto));
+      grid-auto-columns: clamp(270px, 31vw, 360px);
       gap: 14px;
       width: 100%;
       max-width: 100%;
@@ -1815,9 +1818,13 @@
     @media (max-width: 820px) {
       .local-event-head { flex-direction: column; }
       .local-event-photo { height: 230px; }
+      .local-event-grid {
+        grid-auto-columns: min(82vw, 330px);
+      }
     }
     .local-event-card {
-      flex: 0 0 clamp(270px, 31vw, 360px);
+      width: 100%;
+      height: 100%;
       max-width: calc(100vw - 48px);
       scroll-snap-align: start;
       overflow: hidden;
@@ -1926,7 +1933,6 @@
     }
     @media (max-width: 640px) {
       .local-event-card {
-        flex-basis: min(82vw, 330px);
         max-width: calc(100vw - 48px);
       }
     }
@@ -4455,96 +4461,6 @@
             <div class="local-event-grid">
               <article class="local-event-card">
                 <div class="local-event-photo">
-                  <img loading="lazy" decoding="async" src="images/event-brass.jpg" alt="吹奏楽の演奏イメージ" />
-                  <span class="local-event-type">BRASS</span>
-                </div>
-                <div class="local-event-body">
-                  <div class="local-event-title">金石中学校吹奏楽部</div>
-                  <div class="local-event-names">
-                    <span>金沢市立金石中学校 吹奏楽部</span>
-                    <span>Laららブラス</span>
-                    <span>アンサンブル☆ふぁみりあ</span>
-                  </div>
-                </div>
-              </article>
-              <article class="local-event-card">
-                <div class="local-event-photo">
-                  <img loading="lazy" decoding="async" src="images/event-kanaishi-brass.jpg" alt="金沢市立金石中学校 吹奏楽部の集合写真" />
-                  <span class="local-event-type">BRASS</span>
-                </div>
-                <div class="local-event-body">
-                  <div class="local-event-title">金沢市立金石中学校 吹奏楽部</div>
-                  <div class="local-event-names">
-                    <span>総勢45名</span>
-                    <span>金石サウンド</span>
-                    <span>歌とダンスも披露</span>
-                  </div>
-                  <p class="local-event-copy">
-                    「挑戦〜県大会朝日新聞社賞〜」を目標に、日々全力で練習に励む吹奏楽部。入部したばかりの1年生も加わり、総勢45名でステージに登場します。会場いっぱいに明るい「金石サウンド」を響かせ、歌やダンスも交えた元気な演奏を届けます。
-                  </p>
-                </div>
-              </article>
-              <article class="local-event-card">
-                <div class="local-event-photo">
-                  <img loading="lazy" decoding="async" src="images/event-yugakkan-dance.jpg" alt="遊学館高校ストリートダンス部の集合写真" />
-                  <span class="local-event-type">DANCE</span>
-                </div>
-                <div class="local-event-body">
-                  <div class="local-event-title">遊学館高校ストリートダンス部</div>
-                  <div class="local-event-names">
-                    <span>Gluck</span>
-                    <span>創部7年目</span>
-                    <span>幸せを届けるダンス</span>
-                  </div>
-                  <p class="local-event-copy">
-                    2018年にダンス同好会としてスタートし、2020年に部活動へ昇格。チーム名のGluckは、ドイツ語で「幸せ」を意味します。観てくださる方々に幸せを届け、笑顔になってもらいたいという思いで、日々活動しています。
-                  </p>
-                </div>
-              </article>
-              <article class="local-event-card">
-                <div class="local-event-photo">
-                  <img loading="lazy" decoding="async" src="images/event-flag-dance.jpg" alt="ダンススクールFLAGの集合写真" />
-                  <span class="local-event-type">DANCE</span>
-                </div>
-                <div class="local-event-body">
-                  <div class="local-event-title">ダンススクールFLAG</div>
-                  <div class="local-event-names">
-                    <span>K-POP</span>
-                    <span>HIPHOP</span>
-                    <span>白山市鶴来</span>
-                  </div>
-                  <p class="local-event-copy">
-                    白山市鶴来を拠点に、地域のコミュニティセンターで活動するダンススクール。K-POPや人気アイドルの振付コピー、HIPHOPの基礎を取り入れたレッスンを行っています。「楽しむこと」をいちばん大切に、元気いっぱいの仲間たちと、可愛くてカッコいいパフォーマンスを目指しています。
-                  </p>
-                  <a class="local-event-link" href="https://www.instagram.com/flag.kpop_hiphop.dance/" target="_blank" rel="noopener" aria-label="ダンススクールFLAGのInstagramを見る">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                    </svg>
-                    Instagram
-                  </a>
-                </div>
-              </article>
-              <article class="local-event-card">
-                <div class="local-event-photo">
-                  <img loading="lazy" decoding="async" src="images/event-rock-river-crew.jpg" alt="ROCK RIVER CREWの集合写真" />
-                  <span class="local-event-type">DANCE</span>
-                </div>
-                <div class="local-event-body">
-                  <div class="local-event-title">ROCK RIVER CREW</div>
-                  <div class="local-event-names">
-                    <span>北陸拠点</span>
-                    <span>Legend TOKYO 二冠</span>
-                    <span>ダンスクルー</span>
-                  </div>
-                  <p class="local-event-copy">
-                    北陸・石川県、富山県を拠点に活動するダンスクルー。国内にとどまらず海外も視野に入れながら活動を広げ、日本最高峰の振付作品コンテスト「Legend TOKYO」では2度の“レジェンド”に輝き、史上初の二冠を達成。迫力あるステージをぜひお楽しみください。
-                  </p>
-                </div>
-              </article>
-              <article class="local-event-card">
-                <div class="local-event-photo">
                   <img loading="lazy" decoding="async" src="images/event-lalala-brass.jpg" alt="Laららブラスアンサンブルの集合写真" />
                   <span class="local-event-type">BRASS</span>
                 </div>
@@ -4579,20 +4495,37 @@
               </article>
               <article class="local-event-card">
                 <div class="local-event-photo">
-                  <img loading="lazy" decoding="async" src="images/event-brotherhood.jpg" alt="BROTHERHOODのDJパフォーマンス写真" />
-                  <span class="local-event-type">LIVE & DJ</span>
+                  <img loading="lazy" decoding="async" src="images/event-kanaishi-brass.jpg" alt="金沢市立金石中学校 吹奏楽部の集合写真" />
+                  <span class="local-event-type">BRASS</span>
                 </div>
                 <div class="local-event-body">
-                  <div class="local-event-title">BROTHERHOOD</div>
+                  <div class="local-event-title">金沢市立金石中学校 吹奏楽部</div>
                   <div class="local-event-names">
-                    <span>All Genre DJ Team</span>
-                    <span>HIPHOP / R&B / HOUSE</span>
-                    <span>仲間・絆</span>
+                    <span>総勢45名</span>
+                    <span>金石サウンド</span>
+                    <span>歌とダンスも披露</span>
                   </div>
                   <p class="local-event-copy">
-                    ジャンルの壁を超えて音楽でつながるオールジャンルDJチーム。HIPHOP、R&B、HOUSE、REGGAE、J-POPなど幅広いサウンドを自在に操り、クラブ、バー、ストリートなどあらゆる場所で、その瞬間にしか生まれないグルーヴを創り出します。
+                    「挑戦〜県大会朝日新聞社賞〜」を目標に、日々全力で練習に励む吹奏楽部。入部したばかりの1年生も加わり、総勢45名でステージに登場します。会場いっぱいに明るい「金石サウンド」を響かせ、歌やダンスも交えた元気な演奏を届けます。
                   </p>
-                  <a class="local-event-link" href="https://www.instagram.com/brotherhoodknzw/" target="_blank" rel="noopener" aria-label="BROTHERHOODのInstagramを見る">
+                </div>
+              </article>
+              <article class="local-event-card">
+                <div class="local-event-photo">
+                  <img loading="lazy" decoding="async" src="images/event-flag-dance.jpg" alt="ダンススクールFLAGの集合写真" />
+                  <span class="local-event-type">DANCE</span>
+                </div>
+                <div class="local-event-body">
+                  <div class="local-event-title">ダンススクールFLAG</div>
+                  <div class="local-event-names">
+                    <span>K-POP</span>
+                    <span>HIPHOP</span>
+                    <span>白山市鶴来</span>
+                  </div>
+                  <p class="local-event-copy">
+                    白山市鶴来を拠点に、地域のコミュニティセンターで活動するダンススクール。K-POPや人気アイドルの振付コピー、HIPHOPの基礎を取り入れたレッスンを行っています。「楽しむこと」をいちばん大切に、元気いっぱいの仲間たちと、可愛くてカッコいいパフォーマンスを目指しています。
+                  </p>
+                  <a class="local-event-link" href="https://www.instagram.com/flag.kpop_hiphop.dance/" target="_blank" rel="noopener" aria-label="ダンススクールFLAGのInstagramを見る">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                       <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
@@ -4600,6 +4533,40 @@
                     </svg>
                     Instagram
                   </a>
+                </div>
+              </article>
+              <article class="local-event-card">
+                <div class="local-event-photo">
+                  <img loading="lazy" decoding="async" src="images/event-yugakkan-dance.jpg" alt="遊学館高校ストリートダンス部の集合写真" />
+                  <span class="local-event-type">DANCE</span>
+                </div>
+                <div class="local-event-body">
+                  <div class="local-event-title">遊学館高校ストリートダンス部</div>
+                  <div class="local-event-names">
+                    <span>Gluck</span>
+                    <span>創部7年目</span>
+                    <span>幸せを届けるダンス</span>
+                  </div>
+                  <p class="local-event-copy">
+                    2018年にダンス同好会としてスタートし、2020年に部活動へ昇格。チーム名のGluckは、ドイツ語で「幸せ」を意味します。観てくださる方々に幸せを届け、笑顔になってもらいたいという思いで、日々活動しています。
+                  </p>
+                </div>
+              </article>
+              <article class="local-event-card">
+                <div class="local-event-photo">
+                  <img loading="lazy" decoding="async" src="images/event-rock-river-crew.jpg" alt="ROCK RIVER CREWの集合写真" />
+                  <span class="local-event-type">DANCE</span>
+                </div>
+                <div class="local-event-body">
+                  <div class="local-event-title">ROCK RIVER CREW</div>
+                  <div class="local-event-names">
+                    <span>北陸拠点</span>
+                    <span>Legend TOKYO 二冠</span>
+                    <span>ダンスクルー</span>
+                  </div>
+                  <p class="local-event-copy">
+                    北陸・石川県、富山県を拠点に活動するダンスクルー。国内にとどまらず海外も視野に入れながら活動を広げ、日本最高峰の振付作品コンテスト「Legend TOKYO」では2度の“レジェンド”に輝き、史上初の二冠を達成。迫力あるステージをぜひお楽しみください。
+                  </p>
                 </div>
               </article>
               <article class="local-event-card">
@@ -4619,6 +4586,31 @@
                     石川県金沢市発。いつか映画の主題歌を飾ることを夢見る、グッドメロディなロックバンド。少し懐かしく、聴く人の日常にそっと寄り添うような、思わず「なんかいいな」と感じるバンドサウンドを届けます。
                   </p>
                   <a class="local-event-link" href="https://www.instagram.com/osakana_no_me/" target="_blank" rel="noopener" aria-label="サカナノメのInstagramを見る">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                    Instagram
+                  </a>
+                </div>
+              </article>
+              <article class="local-event-card">
+                <div class="local-event-photo">
+                  <img loading="lazy" decoding="async" src="images/event-brotherhood.jpg" alt="BROTHERHOODのDJパフォーマンス写真" />
+                  <span class="local-event-type">LIVE & DJ</span>
+                </div>
+                <div class="local-event-body">
+                  <div class="local-event-title">BROTHERHOOD</div>
+                  <div class="local-event-names">
+                    <span>All Genre DJ Team</span>
+                    <span>HIPHOP / R&B / HOUSE</span>
+                    <span>仲間・絆</span>
+                  </div>
+                  <p class="local-event-copy">
+                    ジャンルの壁を超えて音楽でつながるオールジャンルDJチーム。HIPHOP、R&B、HOUSE、REGGAE、J-POPなど幅広いサウンドを自在に操り、クラブ、バー、ストリートなどあらゆる場所で、その瞬間にしか生まれないグルーヴを創り出します。
+                  </p>
+                  <a class="local-event-link" href="https://www.instagram.com/brotherhoodknzw/" target="_blank" rel="noopener" aria-label="BROTHERHOODのInstagramを見る">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                       <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
