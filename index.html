@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="ja" data-theme="light">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5TPM86RH');</script>
+  <!-- End Google Tag Manager -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JW2NDSDBX7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JW2NDSDBX7');
+  </script>
   <script>
     // Read saved theme BEFORE paint to avoid flash
     (function() {
@@ -1986,21 +2001,22 @@
       gap: 10px;
       margin: -10px 0 24px;
       padding: 12px 14px;
-      border: 1px solid rgba(232, 185, 106, 0.34);
+      border: 0;
       border-radius: 14px;
-      background: rgba(232, 185, 106, 0.10);
-      color: var(--ink-muted);
+      background: linear-gradient(135deg, #8F332A 0%, #B34F3D 100%);
+      color: #FFF6EA;
       font-size: 12px;
       font-weight: 700;
       line-height: 1.7;
       letter-spacing: 0.04em;
+      box-shadow: 0 14px 34px rgba(143, 51, 42, 0.18);
     }
     .schedule-notice .notice-label {
       flex: 0 0 auto;
       padding: 2px 7px;
       border-radius: 999px;
-      background: rgba(232, 185, 106, 0.18);
-      color: var(--lantern-soft);
+      background: rgba(255, 246, 234, 0.18);
+      color: #FFE1B3;
       font-family: "Bebas Neue", sans-serif;
       font-size: 15px;
       line-height: 1.2;
@@ -2253,11 +2269,12 @@
       height: auto !important;
       min-height: 84px;
       display: grid;
-      grid-template-columns: 176px 1fr;
+      grid-template-columns: 1fr minmax(136px, 176px);
       gap: 26px;
       align-items: center;
       padding: 20px 24px 20px 84px;
       border-radius: 18px;
+      border: 0;
       box-shadow: 0 14px 36px rgba(0,0,0,0.065);
     }
     .stage-event::before {
@@ -2270,11 +2287,24 @@
       position: relative;
       z-index: 1;
       display: block;
-      font-size: 24px;
+      grid-column: 2;
+      grid-row: 1;
+      justify-self: end;
+      padding: 8px 12px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+      font-size: 20px;
       line-height: 1;
       color: var(--event-color, var(--lantern));
+      text-align: right;
     }
     .stage-event-title {
+      grid-column: 1;
+      grid-row: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
       font-size: 15px;
       line-height: 1.6;
     }
@@ -2300,12 +2330,22 @@
     }
     .stage-event-detail {
       display: block;
-      margin-top: 7px;
-      color: var(--ink-muted);
-      font-size: 12px;
-      font-weight: 800;
+      order: -1;
+      margin-top: 0;
+      margin-bottom: 5px;
+      color: var(--ink);
+      font-size: 19px;
+      font-weight: 900;
       letter-spacing: 0.04em;
-      line-height: 1.55;
+      line-height: 1.35;
+    }
+    .stage-event.type-dj .stage-event-detail,
+    .stage-event.type-djGuest .stage-event-detail {
+      color: #F8F1E6;
+    }
+    .stage-event.type-dj .stage-event-time,
+    .stage-event.type-djGuest .stage-event-time {
+      background: rgba(248, 241, 230, 0.08);
     }
     @media (max-width: 640px) {
       .schedule {
@@ -2342,7 +2382,7 @@
         opacity: 1 !important;
       }
       .stage-event {
-        display: block !important;
+        display: grid !important;
         width: 100% !important;
         max-width: 100% !important;
         grid-template-columns: 1fr;
@@ -2357,10 +2397,15 @@
         left: 18px;
       }
       .stage-event-time {
-        font-size: 22px;
+        grid-column: 1;
+        grid-row: 2;
+        justify-self: start;
+        width: fit-content;
+        margin-top: 4px;
+        font-size: 18px;
       }
       .stage-event-detail {
-        font-size: 12px;
+        font-size: 18px;
       }
     }
     @media (min-width: 641px) and (max-width: 820px) {
@@ -4114,6 +4159,10 @@
   </style>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5TPM86RH"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <!-- Navigation -->
   <nav class="nav" id="nav">
@@ -4272,32 +4321,6 @@
     </div>
   </div>
 
-  <!-- TVCM -->
-  <section class="tvcm" id="tvcm" aria-labelledby="tvcm-title">
-    <div class="container">
-      <div class="tvcm-grid">
-        <div class="tvcm-copy reveal">
-          <div class="label">00 — Official TVCM</div>
-          <h2 id="tvcm-title">Mitz 金沢の空気感を、<br><span class="gold">映像で。</span></h2>
-          <p>
-            グランドオープンに向けたTVCMが完成しました。食・遊・旅が交差するMitz 金沢の世界観を、まずは映像でご覧ください。
-          </p>
-          <div class="tvcm-meta" aria-label="TVCM情報">
-            <span>Grand Open</span>
-            <span>2026.05.30</span>
-            <span>Food / Play / Travel</span>
-          </div>
-        </div>
-        <div class="tvcm-frame reveal reveal-delay-1">
-          <video controls playsinline preload="metadata" aria-label="Mitz 金沢 Official TVCM">
-            <source src="assets/mitz-grand-open-tvcm.mp4" type="video/mp4">
-            お使いのブラウザでは動画を再生できません。
-          </video>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Concept -->
   <section class="concept" id="concept">
     <div class="container">
@@ -4361,7 +4384,7 @@
               <path d="M14 2L26 22H2L14 2Z" fill="#E87030"/>
             </svg>
             <span class="ele-num-overlay">01 / EAT</span>
-            <img loading="lazy" decoding="async" src="images/n3w-trailer.jpg" alt="N3W トレーラーハウス飲食店" onerror="this.style.display='none'" />
+            <img loading="lazy" decoding="async" src="images/n3w-trailer-card.jpg" alt="N3W トレーラーハウス飲食店" onerror="this.style.display='none'" />
           </div>
           <div class="ele-content">
             <h3 class="ele-name">N3W</h3>
@@ -5121,6 +5144,32 @@
               </iframe>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TVCM -->
+  <section class="tvcm" id="tvcm" aria-labelledby="tvcm-title">
+    <div class="container">
+      <div class="tvcm-grid">
+        <div class="tvcm-copy reveal">
+          <div class="label">Official TVCM</div>
+          <h2 id="tvcm-title">Mitz 金沢の空気感を、<br><span class="gold">映像で。</span></h2>
+          <p>
+            グランドオープンに向けたTVCMが完成しました。食・遊・旅が交差するMitz 金沢の世界観を、まずは映像でご覧ください。
+          </p>
+          <div class="tvcm-meta" aria-label="TVCM情報">
+            <span>Grand Open</span>
+            <span>2026.05.30</span>
+            <span>Food / Play / Travel</span>
+          </div>
+        </div>
+        <div class="tvcm-frame reveal reveal-delay-1">
+          <video controls playsinline preload="metadata" aria-label="Mitz 金沢 Official TVCM">
+            <source src="assets/mitz-grand-open-tvcm.mp4" type="video/mp4">
+            お使いのブラウザでは動画を再生できません。
+          </video>
         </div>
       </div>
     </div>
