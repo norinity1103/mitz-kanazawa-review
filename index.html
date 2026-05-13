@@ -1787,20 +1787,31 @@
       line-height: 1.7;
     }
     .local-event-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-padding: 2px;
+      padding: 2px 2px 16px;
+      margin-inline: -2px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-color: rgba(232, 185, 106, 0.48) rgba(255, 255, 255, 0.08);
     }
     @media (max-width: 820px) {
       .local-event-head { flex-direction: column; }
-      .local-event-grid { grid-template-columns: 1fr; }
       .local-event-photo { height: 230px; }
     }
     .local-event-card {
+      flex: 0 0 clamp(270px, 31vw, 360px);
+      scroll-snap-align: start;
       overflow: hidden;
       border-radius: 16px;
       border: 1px solid rgba(232, 185, 106, 0.22);
       background: rgba(255, 255, 255, 0.04);
+    }
+    .local-event-card:first-child {
+      margin-left: 0;
     }
     .local-event-photo {
       position: relative;
@@ -1882,6 +1893,26 @@
       width: 15px;
       height: 15px;
       flex: 0 0 15px;
+    }
+    .local-event-scroll-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--ink-faint);
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 18px;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+    }
+    .local-event-scroll-hint::after {
+      content: "→";
+      color: var(--lantern-soft);
+      font-size: 20px;
+    }
+    @media (max-width: 640px) {
+      .local-event-card {
+        flex-basis: min(86vw, 340px);
+      }
     }
 
     .schedule {
@@ -2258,6 +2289,7 @@
       .schedule {
         padding: 24px 16px;
         border-radius: 18px;
+        overflow: visible;
       }
       .schedule-head {
         margin-bottom: 24px;
@@ -2268,14 +2300,31 @@
         margin-top: -8px;
         margin-bottom: 20px;
       }
+      .stage-timeline {
+        display: block !important;
+        width: 100% !important;
+        min-height: 0 !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
       .stage-track {
+        display: flex !important;
+        flex-direction: column !important;
         gap: 12px;
+        width: 100% !important;
+        visibility: visible !important;
+        opacity: 1 !important;
       }
       .stage-event {
+        display: block !important;
+        width: 100% !important;
         grid-template-columns: 1fr;
         gap: 8px;
         min-height: 0;
         padding: 17px 18px 17px 54px;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: none !important;
       }
       .stage-event::before {
         left: 18px;
@@ -4025,6 +4074,16 @@
     .reveal-delay-1 { transition-delay: 0.12s; }
     .reveal-delay-2 { transition-delay: 0.24s; }
     .reveal-delay-3 { transition-delay: 0.36s; }
+    @media (max-width: 820px) {
+      .opening .reveal,
+      .opening .reveal-delay-1,
+      .opening .reveal-delay-2,
+      .opening .reveal-delay-3 {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -4370,11 +4429,13 @@
             <div class="local-event-head">
               <span class="label">Local Performers</span>
               <p>地元からも多彩な出演者が集まり、開業初日のステージを彩ります。</p>
+              <span class="local-event-scroll-hint" aria-hidden="true">Scroll</span>
             </div>
             <div class="local-event-grid">
               <article class="local-event-card">
                 <div class="local-event-photo">
                   <img loading="lazy" decoding="async" src="images/event-brass.jpg" alt="吹奏楽の演奏イメージ" />
+                  <span class="local-event-type">BRASS</span>
                 </div>
                 <div class="local-event-body">
                   <div class="local-event-title">金石中学校吹奏楽部</div>
@@ -4382,20 +4443,6 @@
                     <span>金沢市立金石中学校 吹奏楽部</span>
                     <span>Laららブラス</span>
                     <span>アンサンブル☆ふぁみりあ</span>
-                  </div>
-                </div>
-              </article>
-              <article class="local-event-card">
-                <div class="local-event-photo">
-                  <img loading="lazy" decoding="async" src="images/event-dance.jpg" alt="ダンスパフォーマンスのイメージ" />
-                  <span class="local-event-type">DANCE</span>
-                </div>
-                <div class="local-event-body">
-                  <div class="local-event-title">ダンスパフォーマンス</div>
-                  <div class="local-event-names">
-                    <span>遊学館高校ストリートダンス部</span>
-                    <span>ダンススクールFLAG</span>
-                    <span>ROCK RIVER CREW</span>
                   </div>
                 </div>
               </article>
@@ -4610,35 +4657,55 @@
                 </article>
                 <article class="stage-event type-wind" style="--start:810; --end:840">
                   <time class="stage-event-time">13:30 - 14:00</time>
-                  <div class="stage-event-title"><span class="jp">吹奏楽① <span class="min">20min</span></span><span class="en">Brass Band Performance 1</span><span class="stage-event-detail">Laららブラス</span></div>
+                  <div class="stage-event-title"><span class="jp">吹奏楽① 13:30〜13:50</span><span class="en">Brass Band Performance 1</span><span class="stage-event-detail">Laららブラス</span></div>
                 </article>
                 <article class="stage-event type-wind" style="--start:840; --end:870">
                   <time class="stage-event-time">14:00 - 14:30</time>
-                  <div class="stage-event-title"><span class="jp">吹奏楽② <span class="min">20min</span></span><span class="en">Brass Band Performance 2</span><span class="stage-event-detail">アンサンブル☆ふぁみりあ</span></div>
+                  <div class="stage-event-title"><span class="jp">吹奏楽② 13:50〜14:10</span><span class="en">Brass Band Performance 2</span><span class="stage-event-detail">アンサンブル☆ふぁみりあ</span></div>
                 </article>
                 <article class="stage-event type-wind" style="--start:870; --end:900">
                   <time class="stage-event-time">14:30 - 15:00</time>
-                  <div class="stage-event-title"><span class="jp">吹奏楽② <span class="min">30min</span></span><span class="en">Junior High School Brass Band</span><span class="stage-event-detail">金石中学校吹奏楽部</span></div>
+                  <div class="stage-event-title"><span class="jp">吹奏楽③ 14:10〜14:40</span><span class="en">Junior High School Brass Band</span><span class="stage-event-detail">金沢市立金石中学校吹奏楽部</span></div>
                 </article>
-                <article class="stage-event type-dance" style="--start:900; --end:960">
-                  <time class="stage-event-time">15:00 - 16:00</time>
-                  <div class="stage-event-title"><span class="jp">ダンス <span class="min">60min</span></span><span class="en">Dance Showcase</span><span class="stage-event-detail">ダンススクールFLAG / 遊学館高校ストリートダンス部 / ROCK RIVER CREW</span></div>
+                <article class="stage-event type-dance" style="--start:900; --end:920">
+                  <time class="stage-event-time">15:00 - 15:20</time>
+                  <div class="stage-event-title"><span class="jp">ダンス①</span><span class="en">Dance Showcase 1</span><span class="stage-event-detail">ダンススクールFLAG</span></div>
+                </article>
+                <article class="stage-event type-dance" style="--start:925; --end:945">
+                  <time class="stage-event-time">15:25 - 15:45</time>
+                  <div class="stage-event-title"><span class="jp">ダンス②</span><span class="en">Dance Showcase 2</span><span class="stage-event-detail">遊学館高校ストリートダンス部</span></div>
+                </article>
+                <article class="stage-event type-dance" style="--start:950; --end:955">
+                  <time class="stage-event-time">15:50 - 15:55</time>
+                  <div class="stage-event-title"><span class="jp">ダンス③</span><span class="en">Dance Showcase 3</span><span class="stage-event-detail">ROCK RIVER CREW</span></div>
                 </article>
                 <article class="stage-event type-band" style="--start:990; --end:1020">
                   <time class="stage-event-time">16:30 - 17:00</time>
                   <div class="stage-event-title"><span class="jp">地元BAND <span class="min">30min</span></span><span class="en">Local Band Live</span><span class="stage-event-detail">サカナノメ</span></div>
                 </article>
-                <article class="stage-event type-dj" style="--start:1050; --end:1110">
-                  <time class="stage-event-time">17:30 - 18:30</time>
-                  <div class="stage-event-title"><span class="jp">地元 DJ Time</span><span class="en">Local DJ Warm-up Set</span></div>
+                <article class="stage-event type-dj" style="--start:1050; --end:1080">
+                  <time class="stage-event-time">17:30 - 18:00</time>
+                  <div class="stage-event-title"><span class="jp">地元DJ</span><span class="en">Local DJ Set</span><span class="stage-event-detail">fumi（BROTHERHOOD）</span></div>
+                </article>
+                <article class="stage-event type-dj" style="--start:1080; --end:1110">
+                  <time class="stage-event-time">18:00 - 18:30</time>
+                  <div class="stage-event-title"><span class="jp">地元DJ</span><span class="en">Local DJ Set</span><span class="stage-event-detail">松ケン（BROTHERHOOD）</span></div>
                 </article>
                 <article class="stage-event type-djGuest is-highlight" style="--start:1110; --end:1140">
                   <time class="stage-event-time">18:30 - 19:00</time>
                   <div class="stage-event-title"><span class="jp">DJやついいちろう</span><span class="en">Special Guest DJ Set</span><span class="stage-event-detail">YATSUI ICHIRO</span></div>
                 </article>
-                <article class="stage-event type-dj" style="--start:1140; --end:1230">
-                  <time class="stage-event-time">19:00 - 20:30</time>
-                  <div class="stage-event-title"><span class="jp">地元 DJ Time</span><span class="en">Local DJ Closing Set</span></div>
+                <article class="stage-event type-dj" style="--start:1140; --end:1170">
+                  <time class="stage-event-time">19:00 - 19:30</time>
+                  <div class="stage-event-title"><span class="jp">地元DJ</span><span class="en">Local DJ Set</span><span class="stage-event-detail">MEG（BROTHERHOOD）</span></div>
+                </article>
+                <article class="stage-event type-dj" style="--start:1170; --end:1200">
+                  <time class="stage-event-time">19:30 - 20:00</time>
+                  <div class="stage-event-title"><span class="jp">地元DJ</span><span class="en">Local DJ Set</span><span class="stage-event-detail">夏海（BROTHERHOOD）</span></div>
+                </article>
+                <article class="stage-event type-dj" style="--start:1200; --end:1230">
+                  <time class="stage-event-time">20:00 - 20:30</time>
+                  <div class="stage-event-title"><span class="jp">地元DJ</span><span class="en">Local DJ Closing Set</span><span class="stage-event-detail">DJカナザキヒロナリ</span></div>
                 </article>
               </div>
             </div>
@@ -5285,15 +5352,20 @@
     window.addEventListener("scroll", updateFa, { passive: true });
     setTimeout(updateFa, 100);
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    const revealEls = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+      revealEls.forEach((el) => observer.observe(el));
+    } else {
+      revealEls.forEach((el) => el.classList.add("visible"));
+    }
   </script>
 
 </body>
