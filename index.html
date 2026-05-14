@@ -159,6 +159,92 @@
         "image": "https://mitz-kanazawa.com/images/ogp-grand-open.jpg",
         "publisher": { "@id": "https://mitz-kanazawa.com/#organization" },
         "citation": "https://www.westjr.co.jp/press/article/2026/05/13/page_30638.html"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://mitz-kanazawa.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "予約は必要ですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "通常利用やイベントごとの運用は内容により異なる場合があります。最新情報は公式Instagramまたは本サイトのお知らせをご確認ください。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "子ども連れでも利用できますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "大人も子どもも楽しめる場所を目指しています。混雑状況やイベント内容により利用しやすい時間帯が変わる場合があります。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "雨の日でも利用できますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "屋外プレイグラウンドを含む施設のため、天候により一部コンテンツの運用を変更する場合があります。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "駐車場はありますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "専用駐車場の案内は現在行っていません。ご来場の際は公共交通機関または周辺の交通状況をご確認ください。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "金沢駅から徒歩で行けますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "JR金沢駅 金沢港口（西口）から徒歩約5分の広岡エリアです。詳しい位置はGoogleマップでご確認ください。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "飲食だけの利用はできますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "レストランバーを含む施設として準備しています。営業内容や提供メニューは最新情報をご確認ください。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "キャンピングカーのレンタルはできますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "キャンピングカーレンタルを予定しています。申込方法や利用条件は決まり次第、本サイトまたは公式Instagramでご案内します。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "ペット同伴は可能ですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ペット同伴の可否や利用範囲は、運用ルールが確定次第ご案内します。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "営業時間は何時までですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "営業時間は11:00から23:00を予定しています。イベント日や運用状況により変更となる場合があります。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "支払い方法は何がありますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "支払い方法は現在確認中です。確定後、本サイトまたは公式Instagramでご案内します。"
+            }
+          }
+        ]
       }
     ]
   }
@@ -2946,6 +3032,225 @@
       filter: saturate(0.6) brightness(0.7) invert(0.92) hue-rotate(180deg);
     }
 
+    .map-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      min-height: 52px;
+      margin: 0 0 22px;
+      border: 1px solid rgba(232, 185, 106, 0.48);
+      background:
+        linear-gradient(135deg, rgba(232, 185, 106, 0.22), rgba(212, 123, 56, 0.12)),
+        rgba(255, 255, 255, 0.20);
+      color: var(--ink);
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+    .map-cta:hover {
+      opacity: 1;
+      border-color: rgba(232, 185, 106, 0.74);
+      transform: translateY(-1px);
+    }
+    .map-cta svg {
+      width: 17px;
+      height: 17px;
+      color: var(--lantern);
+    }
+
+    /* ========== First Visit / FAQ ========== */
+    .visitor-guide {
+      background:
+        radial-gradient(circle at 12% 0%, rgba(232, 185, 106, 0.12), transparent 32%),
+        var(--bg-base);
+      border-top: 1px solid var(--line);
+    }
+    .visitor-guide-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+      gap: 56px;
+      align-items: start;
+    }
+    .visitor-intro-card {
+      position: sticky;
+      top: 104px;
+      padding: clamp(28px, 4vw, 44px);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.66), rgba(255, 255, 255, 0.24)),
+        var(--bg-card);
+      box-shadow: var(--shadow-card);
+    }
+    [data-theme="dark"] .visitor-intro-card {
+      background:
+        linear-gradient(145deg, rgba(242, 237, 226, 0.08), rgba(242, 237, 226, 0.03)),
+        var(--bg-card);
+    }
+    .visitor-intro-card .label {
+      margin-bottom: 18px;
+    }
+    .visitor-intro-card h2 {
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.22;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      margin-bottom: 22px;
+    }
+    .visitor-intro-card h2 .gold {
+      color: var(--lantern);
+    }
+    .visitor-intro-card p {
+      color: var(--ink-muted);
+      font-size: 15px;
+      line-height: 2;
+    }
+    .visitor-guide-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .visitor-guide-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 54px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.18);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+    }
+    .visitor-guide-actions a.primary {
+      border-color: rgba(232, 185, 106, 0.52);
+      background: linear-gradient(135deg, rgba(232, 185, 106, 0.24), rgba(212, 123, 56, 0.12));
+    }
+    .visitor-guide-actions a span {
+      color: var(--lantern);
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 22px;
+      line-height: 1;
+    }
+    .faq-panel {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--bg-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+    .faq-head {
+      padding: 28px clamp(20px, 4vw, 36px);
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(15, 17, 21, 0.04), rgba(232, 185, 106, 0.08));
+    }
+    [data-theme="dark"] .faq-head {
+      background:
+        linear-gradient(135deg, rgba(242, 237, 226, 0.06), rgba(232, 185, 106, 0.08));
+    }
+    .faq-head .label-faint {
+      margin-bottom: 10px;
+    }
+    .faq-head h3 {
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.25;
+      color: var(--ink);
+    }
+    .faq-list {
+      display: grid;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--line);
+    }
+    .faq-item:last-child {
+      border-bottom: 0;
+    }
+    .faq-item summary {
+      list-style: none;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 20px clamp(18px, 3vw, 32px);
+      color: var(--ink);
+      font-weight: 900;
+      cursor: pointer;
+    }
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq-q {
+      color: var(--lantern);
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 24px;
+      letter-spacing: 0.08em;
+      line-height: 1;
+    }
+    .faq-plus {
+      width: 28px;
+      height: 28px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--ink-muted);
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+    .faq-item[open] .faq-plus {
+      transform: rotate(45deg);
+      color: var(--lantern);
+    }
+    .faq-answer {
+      padding: 0 clamp(18px, 3vw, 32px) 22px calc(clamp(18px, 3vw, 32px) + 43px);
+      color: var(--ink-muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+    .faq-answer a {
+      color: var(--lantern);
+      font-weight: 900;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    @media (max-width: 900px) {
+      .visitor-guide-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .visitor-intro-card {
+        position: static;
+      }
+    }
+    @media (max-width: 560px) {
+      .visitor-intro-card,
+      .faq-panel {
+        border-radius: 20px;
+      }
+      .faq-item summary {
+        grid-template-columns: auto 1fr auto;
+        gap: 10px;
+        padding: 18px 16px;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+      .faq-answer {
+        padding: 0 16px 20px 49px;
+        font-size: 13px;
+      }
+    }
+
     /* ========== Floating Actions (persistent CTA stack) ========== */
     .floating-actions {
       position: fixed;
@@ -4333,6 +4638,7 @@
       <a href="#three">3つの要素<span class="en">— three elements</span></a>
       <a href="#opening">オープニングイベント<span class="en">— opening event</span></a>
       <a href="#coupon">クーポン<span class="en">— coupon</span></a>
+      <a href="#first-visit">初めての方へ<span class="en">— first visit</span></a>
       <a href="#info">施設情報<span class="en">— information</span></a>
     </div>
     <div class="nav-actions">
@@ -4373,6 +4679,7 @@
     <a href="#three" class="mobile-drawer-link" data-drawer-link>3つの要素<span class="en">three elements</span></a>
     <a href="#opening" class="mobile-drawer-link" data-drawer-link>オープニングイベント<span class="en">opening event</span></a>
     <a href="#coupon" class="mobile-drawer-link" data-drawer-link>クーポン<span class="en">coupon</span></a>
+    <a href="#first-visit" class="mobile-drawer-link" data-drawer-link>初めての方へ<span class="en">first visit / faq</span></a>
     <a href="#sponsors" class="mobile-drawer-link" data-drawer-link>協賛・掲載について相談<span class="en">sponsorship</span></a>
     <a href="partners.html" class="mobile-drawer-link" data-drawer-link>協賛・協力パートナー<span class="en">partners</span></a>
     <a href="#info" class="mobile-drawer-link" data-drawer-link>施設情報<span class="en">information</span></a>
@@ -5308,6 +5615,13 @@
                 </div>
               </div>
             </div>
+            <a class="map-cta" href="https://www.google.com/maps/search/?api=1&query=%E7%9F%B3%E5%B7%9D%E7%9C%8C%E9%87%91%E6%B2%A2%E5%B8%82%E5%BA%83%E5%B2%A13-3-3" target="_blank" rel="noopener" aria-label="GoogleマップでMitz金沢の場所を開く">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 21s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11Z" />
+                <circle cx="12" cy="10" r="2.3" />
+              </svg>
+              Googleマップで開く
+            </a>
             <div class="map-embed">
               <iframe
                 src="https://maps.google.com/maps?hl=ja&q=%E7%9F%B3%E5%B7%9D%E7%9C%8C%E9%87%91%E6%B2%A2%E5%B8%82%E5%BA%83%E5%B2%A13-3-3&z=17&output=embed"
@@ -5317,6 +5631,78 @@
                 title="Mitz 金沢 アクセスマップ">
               </iframe>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- First Visit / FAQ -->
+  <section class="visitor-guide" id="first-visit" aria-labelledby="first-visit-title">
+    <div class="container">
+      <div class="visitor-guide-grid">
+        <div class="visitor-intro-card reveal">
+          <div class="label">07 — First Visit</div>
+          <h2 id="first-visit-title">初めての方へ<br><span class="gold">ご来場前の確認</span></h2>
+          <p>
+            Mitz金沢は、金沢駅西口・広岡に誕生する、食・遊・旅をテーマにした体験型カルチャーハブです。レストランバー、屋外プレイグラウンド、キャンピングカーレンタルを組み合わせ、大人も子どもも、それぞれのペースで楽しめる場所を目指しています。
+          </p>
+          <div class="visitor-guide-actions" aria-label="初めての方向け導線">
+            <a class="primary" href="https://www.google.com/maps/search/?api=1&query=%E7%9F%B3%E5%B7%9D%E7%9C%8C%E9%87%91%E6%B2%A2%E5%B8%82%E5%BA%83%E5%B2%A13-3-3" target="_blank" rel="noopener">
+              Googleマップで場所を確認 <span>→</span>
+            </a>
+            <a href="https://www.instagram.com/mitz_kanazawa" target="_blank" rel="noopener">
+              最新情報をInstagramで確認 <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="faq-panel reveal reveal-delay-1" id="faq">
+          <div class="faq-head">
+            <div class="label-faint">FAQ / Before You Visit</div>
+            <h3>よくある質問</h3>
+          </div>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary><span class="faq-q">Q</span><span>予約は必要ですか？</span><span class="faq-plus">＋</span></summary>
+              <div class="faq-answer">通常利用やイベントごとの運用は内容により異なる場合があります。最新情報は<a href="https://www.instagram.com/mitz_kanazawa" target="_blank" rel="noopener">公式Instagram</a>または本サイトのお知らせをご確認ください。</div>
+            </details>
+            <details class="faq-item">
+              <summary><span class="faq-q">Q</span><span>子ども連れでも利用できますか？</span><span class="faq-plus">＋</span></summary>
+              <div class="faq-answer">大人も子どもも楽しめる場所を目指しています。混雑状況やイベント内容により利用しやすい時間帯が変わる場合があります。</div>
+            </details>
+            <details class="faq-item">
+              <summary><span class="faq-q">Q</span><span>雨の日でも利用できますか？</span><span class="faq-plus">＋</span></summary>
+              <div class="faq-answer">屋外プレイグラウンドを含む施設のため、天候により一部コンテンツの運用を変更する場合があります。最新情報をご確認ください。</div>
+            </details>
+            <details class="faq-item">
+              <summary><span class="faq-q">Q</span><span>駐車場はありますか？</span><span class="faq-plus">＋</span></summary>
+              <div class="faq-answer">専用駐車場の案内は現在行っていません。ご来場の際は公共交通機関または周辺の交通状況をご確認ください。</div>
+            </details>
+            <details class="faq-item">
+              <summary><span class="faq-q">Q</span><span>金沢駅から徒歩で行けますか？</span><span class="faq-plus">＋</span></summary>
+              <div class="faq-answer">JR金沢駅 金沢港口（西口）から徒歩約5分の広岡エリアです。詳しい位置はGoogleマップでご確認ください。</div>
+            </details>
+            <details class="faq-item">
+              <summary><span class="faq-q">Q</span><span>飲食だけの利用はできますか？</span><span class="faq-plus">＋</span></summary>
+              <div class="faq-answer">レストランバーを含む施設として準備しています。営業内容や提供メニューは最新情報をご確認ください。</div>
+            </details>
+            <details class="faq-item">
+              <summary><span class="faq-q">Q</span><span>キャンピングカーのレンタルはできますか？</span><span class="faq-plus">＋</span></summary>
+              <div class="faq-answer">キャンピングカーレンタルを予定しています。申込方法や利用条件は決まり次第、本サイトまたは公式Instagramでご案内します。</div>
+            </details>
+            <details class="faq-item">
+              <summary><span class="faq-q">Q</span><span>ペット同伴は可能ですか？</span><span class="faq-plus">＋</span></summary>
+              <div class="faq-answer">ペット同伴の可否や利用範囲は、運用ルールが確定次第ご案内します。</div>
+            </details>
+            <details class="faq-item">
+              <summary><span class="faq-q">Q</span><span>営業時間は何時までですか？</span><span class="faq-plus">＋</span></summary>
+              <div class="faq-answer">営業時間は11:00から23:00を予定しています。イベント日や運用状況により変更となる場合があります。</div>
+            </details>
+            <details class="faq-item">
+              <summary><span class="faq-q">Q</span><span>支払い方法は何がありますか？</span><span class="faq-plus">＋</span></summary>
+              <div class="faq-answer">支払い方法は現在確認中です。確定後、本サイトまたは公式Instagramでご案内します。</div>
+            </details>
           </div>
         </div>
       </div>
@@ -5390,6 +5776,7 @@
             <a href="#concept">Mitzのコンセプト<span class="sub">concept</span></a>
             <a href="#three">3つの要素<span class="sub">three elements</span></a>
             <a href="#event-schedule">イベントスケジュール<span class="sub">event schedule</span></a>
+            <a href="#first-visit">初めての方へ<span class="sub">first visit / faq</span></a>
             <a href="#info">施設情報<span class="sub">information</span></a>
           </div>
           <div class="footer-nav-group">
