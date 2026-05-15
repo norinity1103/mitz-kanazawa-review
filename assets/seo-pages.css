@@ -170,6 +170,34 @@ h1 {
   margin-top: 8px;
   font-size: 13px;
 }
+.feature-list {
+  margin-top: 28px;
+  display: grid;
+  gap: 12px;
+}
+.feature-list article {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 18px;
+  padding: 20px;
+  border-top: 1px solid var(--line);
+  background: linear-gradient(90deg, rgba(248, 242, 234, 0.045), transparent);
+}
+.feature-list span {
+  color: var(--gold);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+}
+.feature-list h3 {
+  font-size: 18px;
+  line-height: 1.45;
+}
+.feature-list p {
+  margin-top: 7px;
+  font-size: 14px;
+}
 .split {
   margin-top: 28px;
   display: grid;
@@ -389,6 +417,7 @@ h1 {
   .route-time { width: 86px; min-height: 64px; }
   .alert { flex-direction: column; }
   .program-item { grid-template-columns: 1fr; gap: 8px; }
+  .feature-list article { grid-template-columns: 1fr; gap: 8px; }
   .button { width: 100%; }
   .page-nav { grid-template-columns: 1fr; }
 }
